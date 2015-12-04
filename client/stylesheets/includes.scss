@@ -1,0 +1,33 @@
+@import "main";
+
+#nav-header.navbar {
+  img {
+    height: 1.5em;
+  }
+  span {
+    display: inline-block;
+  }
+
+  background-color: white;
+  border-bottom: 2px solid black;
+
+  * {
+    color: black !important;
+
+    font-family: $fontFamily;
+  }
+}
+
+#key-brand {
+  padding: 10px;
+}
+
+#footer {
+  border-top: 2px solid black;
+  padding-top: 10px;
+  * {
+    color: black !important;
+
+    font-family: $fontFamily;
+  }
+}
