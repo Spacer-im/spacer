@@ -1,0 +1,10 @@
+{
+  "emails": {
+    "noreply": {
+      "username": "no-reply@spacer.im",
+      "password": "123",
+      "server": "smtp.yandex.com",
+      "port": 123
+    }
+  }
+}
