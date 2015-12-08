@@ -1,0 +1,38 @@
+@import "main";
+
+
+body * {
+  font-family: $fontUbuntu;
+}
+
+.grey-hover:hover {
+  img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+
+  h3 {
+    text-decoration: none !important;
+    color: grey;
+  }
+}
+
+a.grey-hover:-webkit-any-link {
+  text-decoration: none !important;
+}
+
+.mobile-inline {
+  @media (max-width: $break-narrow) {
+    display: table;
+    padding: 10px;
+    margin-bottom: 10px;
+    * {
+    }
+    img {
+      float: left;
+      width: 33%;
+      margin-right: 5%;
+    }
+  }
+
+}

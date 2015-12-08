@@ -1,3 +1,6 @@
 /* CSS declarations go here */
-$fontFamily: 'Open Sans', sans-serif;
-$fontHead: Ubuntu, sans-serif;
+@import url(https://fonts.googleapis.com/css?family=Ubuntu);
+
+$fontUbuntu: 'Ubuntu', sans-serif;
+
+$break-narrow: 768px;

@@ -1,0 +1,13 @@
+<template name="newsList">
+    {{#each news}}
+        <div class="col-xs-12 col-sm-4 mobile-inline">
+            <a class="grey-hover" href="/news/{{_id}}">
+                <img src="{{imageURL}}" class="img-responsive"/>
+
+                <div>
+                    <h3>{{title}}</h3>
+                </div>
+            </a>
+        </div>
+    {{/each}}
+</template>
