@@ -1,0 +1,18 @@
+<template name="newsSubmit">
+    <h1>{{type}} news</h1>
+    {{> flashMessages}}
+
+    <div class="col-md-6 col-xs-12">
+        <form>
+            <div class="form-group">
+                <label for="title-news-input">Title</label>
+                <input type="text" placeholder="Title" name="title" class="form-control" id="title-news-input" value="{{title}}"/>
+            </div>
+            <div class="form-group">
+                <label for="text-news-input">Text</label>
+                <textarea placeholder="Text" class="form-control" name="text" id="text-news-input"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</template>
