@@ -1,6 +1,6 @@
 Template.header.helpers({
     activeIfTemplateIs: function (template) {
         let currentRoute = Router.current();
-        return currentRoute &&  template === currentRoute.route.getName() ? 'active' : '';
+        return currentRoute && currentRoute.route &&  template === currentRoute.route.getName() ? 'active' : '';
     }
 });

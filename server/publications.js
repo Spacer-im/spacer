@@ -1,3 +1,3 @@
-Meteor.publish('news', function() {
-   return News.find();
+Meteor.publish('news_titles', function() {
+   return News.find({}, {fields: {"text": false}});
 });
