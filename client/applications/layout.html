@@ -1,11 +1,12 @@
 <template name="layout">
     {{>header}}
-    <div class="container">
+    <main class="container">
+        <header>
         {{>jumbo}}
-
-        <div>
+        </header>
+        <article>
             {{> yield}}
-        </div>
-    </div>
+        </article>
+    </main>
     {{>footer}}
 </template>
