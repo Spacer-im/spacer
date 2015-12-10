@@ -7,10 +7,10 @@ Meteor.startup(function () {
             encodeURIComponent(noreplyEmail.server) + ':' + noreplyEmail.port;
     }
 
-    Accounts.emailTemplates.from = 'Spacer.im registration ';
+    Accounts.emailTemplates.from = 'Spacer mailbot <noreply@spacer.im>';
     Accounts.emailTemplates.siteName = 'spacer.im';
     Accounts.emailTemplates.verifyEmail.subject = function(user) {
-        return 'Confirm Your Email Address for Spacer.im';
+        return 'Welcome to Spacer! Please verify your email';
     };
     Accounts.emailTemplates.verifyEmail.text = function(user, url) {
         return 'Thank you for registering.  Please click on the following link to verify your email address: \r\n' + url;
