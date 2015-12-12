@@ -5,6 +5,10 @@ body * {
   font-family: $fontUbuntu;
 }
 
+.clearfix {
+  clear: both;
+}
+
 .grey-hover:hover {
   img {
     -webkit-filter: grayscale(100%);

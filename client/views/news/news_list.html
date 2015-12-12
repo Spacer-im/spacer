@@ -1,5 +1,6 @@
 <template name="newsList">
-    <div class="row">
+
+    <div class="row-fluid">
         {{#each news}}
             <div class="col-xs-12 col-sm-4 col-md-3 mobile-inline post-thumb">
                 <a class="grey-hover" href="/news/{{_id}}">
@@ -12,4 +13,5 @@
             </div>
         {{/each}}
     </div>
+
 </template>

@@ -1,16 +1,16 @@
 <template name="showcase">
-    <div class="jumbotron" id="key-brand">
-
-        <div class="row">
-            <div class="col-md-3 col-xs-3">
-                <img src="/icons/logo.png" class="img-responsive"/>
+    <div class="page-header container" id="key-brand">
+        <div class="col-md-10 col-lg-9 col-sm-12">
+            <div class="header-logo">
+                <img src="/icons/logo-cut.png" id="logo"/>
             </div>
-            <div class="col-md-9 col-xs-9">
-                <h1>{{pageTitle}}</h1>
-
-                <h2 class="keyphrase">{{pagePhrase}}</h2>
+            <div id="header-title">
+                <span>{{pageTitle}}</span>
             </div>
-
+            <div class="clearfix"></div>
+            <div id="header-phrase">
+                <span>{{pagePhrase}}</span>
+            </div>
         </div>
 
     </div>

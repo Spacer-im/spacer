@@ -13,7 +13,79 @@
 
 #key-brand {
   padding: 10px;
+
+  position: relative;
+
+  &:after {
+    content: " ";
+    clear: both;
+    display: block;
+    font-size: 0;
+  }
+
+  .clearfix {
+    display: none;
+  }
+
+  * {
+    font-family: $fontAudiowide;
+  }
+
+  #header-title {
+    margin-top: 0;
+    margin-left: 180px;
+    span {
+      font-size: 40px;
+      display: inline-block;
+      margin-top: -12px;
+    }
+  }
+
+  #header-phrase {
+    position: absolute;
+    bottom: 0;
+    margin-left: 180px;
+    vertical-align: bottom;
+    span {
+      font-size: 30px;
+      display: inline-block;
+      margin-bottom: -4px;
+    }
+  }
+
+  #logo {
+    width: 150px;
+    float: left;
+    margin-right: 20px;
+  }
 }
+
+@media (max-width: $break-narrow) {
+  #key-brand {
+
+    .clearfix {
+      display: block;
+    }
+
+    #header-title {
+      display: flex;
+      align-items: center;
+      min-height: 150px;
+      margin-left: 235px;
+    }
+
+    #header-phrase {
+      position: static;
+      margin-left: 0;
+      margin-top: 15px;
+      span {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+
 
 #footer {
   border-top: 2px solid black;
@@ -31,3 +103,4 @@
   position: relative;
   height: 100px;
 }
+

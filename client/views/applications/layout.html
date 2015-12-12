@@ -1,12 +1,14 @@
 <template name="layout">
     {{>header}}
-    <main class="container">
-        <header>
-        {{>showcase}}
-        </header>
-        <article>
-            {{> yield}}
-        </article>
+    <main class="container-fluid">
+        <div class="container">
+            <header>
+                {{>showcase}}
+            </header>
+            <article>
+                {{> yield}}
+            </article>
+        </div>
     </main>
     {{>footer}}
 </template>
