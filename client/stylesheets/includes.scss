@@ -1,6 +1,8 @@
 @import "main";
 
-#nav-header.navbar {
+body {padding-top: 70px;}
+
+.navbar.navbar-custom {
   background-color: white;
   border-bottom: 2px solid black;
 
@@ -140,6 +142,26 @@
     font-family: $fontUbuntu;
   }
 }
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+}
+
 
 .loading {
   margin: 10px;

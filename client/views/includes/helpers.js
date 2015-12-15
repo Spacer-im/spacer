@@ -15,6 +15,11 @@ Template.registerHelper("isNews", isPage(['newsList', "newsArticle"]));
 
 Template.tagsList.helpers({
     fullTags: function () {
-        return Tags.find({_id: {$in: this.tags}});
+        if (this && this.tags) {
+            return Tags.find({_id: {$in: this.tags}});
+        }
+        else {
+            return [];
+        }
     }
 });
