@@ -1,0 +1,7 @@
+<template name="tagsList">
+    <div class="tags-list">
+        {{#each fullTags}}
+            <button class="tag tag-{{type}}" type="button" id="{{_id}}">{{name}}</button>
+        {{/each}}
+    </div>
+</template>

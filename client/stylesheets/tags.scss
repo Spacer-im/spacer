@@ -1,0 +1,40 @@
+@import "colors";
+
+.tags-list button.tag {
+  border: 2px solid black;
+  border-radius: 4px;
+  min-width: 100px;
+  &:active, &:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0;
+    background-image: none;
+  }
+}
+
+.tags-list .tag.tag-company {
+  border-color: $color-primary-0;
+  color: $color-primary-4;
+  background-color: $color-primary-1;
+  &:active {
+    background-color: $color-primary-2;
+  }
+}
+
+.tags-list .tag.tag-skill {
+  border-color: $color-secondary-1-0;
+  color: $color-secondary-1-4;
+  background-color: $color-secondary-1-1;
+  &:active {
+    background-color: $color-secondary-1-2;
+  }
+}
+
+.tags-list .tag.tag-segment {
+  border-color: $color-secondary-2-0;
+  color: $color-secondary-2-4;
+  background-color: $color-secondary-2-1;
+  &:active {
+    background-color: $color-secondary-1-2;
+  }
+}
