@@ -1,10 +1,13 @@
 @import "colors";
 
 .tags-list button.tag {
-  border: 2px solid black;
+  border: 0;
   border-radius: 4px;
   min-width: 100px;
-  background-color: $color-grey-1;
+  background-color: $color-grey-0;
+  color: white;
+  text-transform: uppercase;
+  margin: 10px 5px;
   &:active, &:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -16,22 +19,29 @@
 }
 
 .tags-list .tag.tag-company {
-  background-color: $color-primary-1;
+  background-color: $color-blue-0;
   &:active {
-    background-color: $color-primary-2;
+    background-color: $color-blue-2;
   }
 }
 
 .tags-list .tag.tag-skill {
-  background-color: $color-secondary-1-1;
+  background-color: $color-green-0;
   &:active {
-    background-color: $color-secondary-1-2;
+    background-color: $color-green-2;
   }
 }
 
 .tags-list .tag.tag-segment {
-  background-color: $color-secondary-2-1;
+  background-color: $color-orange-0;
   &:active {
-    background-color: $color-secondary-2-2;
+    background-color: $color-orange-2;
+  }
+}
+
+.tags-list .tag.tag-specific {
+  background-color: $color-purple-0;
+  &:active {
+    background-color: $color-purple-2;
   }
 }
