@@ -3,16 +3,21 @@
     <div class="container">
         {{#each jobs}}
             <div class="row">
-                <div class="col-md-1 col-xs-4 vertical-align-block job-image-container">
-                    <img src="{{logoURL}}" onerror="this.src='/logo/nologo.png'" class="img-responsive company-logo job-image">
-                </div>
-                <div class="col-md-6 col-lg-5 col-xs-8">
-                    <h2 class="job-title">{{title}}</h2>
-                    <div>
-                        {{short}}
+                <a href="/jobs/{{_id}}">
+                    <div class="col-md-1 col-xs-4 vertical-align-block job-image-container">
+                        <img src="{{logoURL}}" onerror="this.src='/logo/nologo.png'"
+                             class="img-responsive company-logo job-image">
                     </div>
+                    <div class="col-md-6 col-lg-5 col-xs-8">
+                        <h2 class="job-title">{{title}}</h2>
 
-                </div>
+                        <div>
+                            {{short}}
+                        </div>
+
+                    </div>
+                </a>
+
                 <div class="col-md-4 col-xs-12">
                     {{> tagsList}}
                 </div>

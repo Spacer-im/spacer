@@ -1,0 +1,9 @@
+<template name="jobDescription">
+    <div class="col-md-8 col-xs-12">
+        <img class="job-image" src="{{logoURL}}">
+        <h1>{{title}}</h1>
+        <h3>{{location}}</h3>
+        {{#markdown}}{{description}}{{/markdown}}
+        {{> tagsList}}
+    </div>
+</template>
