@@ -11,3 +11,10 @@ Meteor.publish("tags", function() {
 });
 
 
+Meteor.publish('jobs_list', function() {
+    return Jobs.find({}, {fields: {"description": false}});
+});
+
+Meteor.publish("job", function(jobId) {
+    return Jobs.find({_id: jobId});
+});
