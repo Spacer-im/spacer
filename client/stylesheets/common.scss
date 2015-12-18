@@ -1,6 +1,5 @@
 @import "main";
 
-
 body * {
   font-family: $fontUbuntu;
 }
@@ -41,10 +40,15 @@ a.grey-hover:-webkit-any-link {
 
 }
 
-
 .post-thumb {
   margin-bottom: 20px;
   h1, .h1, h2, .h2, h3, .h3 {
     margin-top: 10px;
   }
+}
+
+.vertical-align-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

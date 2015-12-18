@@ -4,5 +4,8 @@
   },
   "admins": [
     "bvv.mag@gmail.com"
-  ]
+  ],
+  "public": {
+    "companyPath": "http://spacerstore.s3.amazonaws.com/companies/"
+  }
 }

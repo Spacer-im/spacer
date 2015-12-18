@@ -10,6 +10,7 @@ function isPage(templateList) {
 Template.registerHelper("pagePhrase", () => Session.get("pagePhrase") || "Your space career toolkit");
 Template.registerHelper("pageTitle", () => Session.get("pageTitle") || "Spacer");
 Template.registerHelper("isNews", isPage(['newsList', "newsArticle"]));
+Template.registerHelper("isJobs", isPage(['jobsList', "jobDescription"]));
 
 // Tags unwrap
 

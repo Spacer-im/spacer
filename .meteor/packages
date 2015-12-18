@@ -30,3 +30,4 @@ tsega:bootstrap3-datetimepicker@=3.1.3_3
 sacha:spin
 chuangbo:marked
 q42:autoform-markdown
+dburles:collection-helpers
