@@ -1,3 +1,16 @@
-#text-news-input {
-  min-height: 300px;
+@import "colors";
+
+.news-list li {
+  list-style-type: none;
+}
+
+.news-list li a{
+  display: block;
+  min-height: 50px;
+  font-size: 200%;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: $color-grey-1;
+  border: 2px solid $color-grey-2;
+  border-radius: 10px;
 }
