@@ -18,3 +18,11 @@ Meteor.publish('jobs_list', function() {
 Meteor.publish("job", function(jobId) {
     return Jobs.find({_id: jobId});
 });
+
+Meteor.publish("companies_cut", function() {
+    return Companies.find({}, {fields: {"description": false}});
+});
+
+Meteor.publish("featured_companies", function() {
+    return FeaturedCompanies.find({});
+});
