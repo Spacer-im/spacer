@@ -1,17 +1,31 @@
 <template name="showcase">
-    <div class="page-header container" id="key-brand">
-        <div class="col-md-10 col-lg-9 col-sm-12">
-            <div class="header-logo">
-                <img src="/icons/logo-cut.png" id="logo"/>
-            </div>
-            <div id="header-title">
-                <span>{{pageTitle}}</span>
-            </div>
-            <div class="clearfix"></div>
-            <div id="header-phrase">
-                <span>{{pagePhrase}}</span>
+    <header class="page-header showcase">
+        <div class="container showcase-content">
+
+            <div class="row">
+                <div class="col-sm-8 show-phrases">
+                    <h1>Spacer</h1>
+
+                    <h4>Your space career toolkit</h4>
+
+                    <div class="text">
+                        With the latest news about space exploration, the most comprehensive directory of aerospace
+                        companies and only the best career opportunities, Spacer is a growing community that brings
+                        together people from different parts of the world and backgrounds to collaborate on space
+                        projects
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <a class="build-resume" href="{{#if currentUser}}{{pathFor profile}}{{else}}{{pathFor login}}{{/if}}">
+                        Build your space resume
+                    </a>
+                </div>
             </div>
         </div>
+        <div class="image-showcase">
+            <div></div>
+        </div>
 
-    </div>
+    </header>
 </template>
