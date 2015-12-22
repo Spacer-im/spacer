@@ -53,15 +53,24 @@ body {padding-top: 52px;}
     position: relative;
     z-index: 3;
   }
-  .image-showcase {
-    position: absolute;
-    top:0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-image: url("/assets/skynight_ajust.jpg");
-    background-size: cover;
-    background-position: 0 70%;
+  .background-showcase {
+    div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+    .image-layer {
+      background-image: url("/assets/skynight_ajust.jpg");
+      background-size: cover;
+      background-position: 0 70%;
+      z-index: 2
+    }
+    .color-layer {
+      z-index: 1;
+      background-color: $color-space;
+    }
   }
 
   a.build-resume {
