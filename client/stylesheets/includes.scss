@@ -1,5 +1,9 @@
 @import "main";
 
+
+// Navbar
+// --------------------------------------------------------
+
 body {padding-top: 70px;}
 
 .navbar.navbar-custom {
@@ -12,6 +16,16 @@ body {padding-top: 70px;}
     font-family: $fontUbuntu;
   }
 }
+
+.navbar-custom .navbar-brand{
+  padding: 10px;
+  img {
+    height: 30px;
+  }
+}
+
+// Showcase
+// --------------------------------------------------------
 
 #key-brand {
   padding: 10px;
@@ -143,8 +157,8 @@ body {padding-top: 70px;}
   }
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+// Sticky footer styles
+// --------------------------------------------------------
 
 html {
   position: relative;
