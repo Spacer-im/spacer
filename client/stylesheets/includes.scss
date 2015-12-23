@@ -1,11 +1,12 @@
 @import "main";
 @import "colors";
 
-
 // Navbar
 // --------------------------------------------------------
 
-body {padding-top: 52px;}
+body {
+  padding-top: 52px;
+}
 
 .navbar.navbar-custom {
   background-color: white;
@@ -19,7 +20,7 @@ body {padding-top: 52px;}
   }
 }
 
-.navbar-custom .navbar-brand{
+.navbar-custom .navbar-brand {
   padding: 10px;
   img {
     height: 30px;
@@ -76,8 +77,6 @@ body {padding-top: 52px;}
       z-index: 30;
     }
 
-
-
     .color-layer {
       z-index: 1;
       background-color: $color-space;
@@ -109,40 +108,55 @@ body {padding-top: 52px;}
     }
   }
 
-
 }
 
 // Sticky footer styles
 // --------------------------------------------------------
 
-#footer {
+.footer {
   border-top: 2px solid black;
-  padding-top: 10px;
   margin-top: 10px;
-  * {
-    color: black !important;
-
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  ul.links > li > a {
+    color: black;
     font-family: $fontUbuntu;
   }
-}
 
+  ul.icons {
+    float: right;
+  }
+  ul.icons > li > a {
+    font-size: 2em;
+  }
+
+
+  @media screen and (max-width: $break-narrow) {
+    height: 200px;
+    ul {
+      margin-left: 20px;
+    }
+    ul.icons > li {
+      display: inline-block;
+    }
+    ul.icons {
+      float: left;
+    }
+  }
+}
 
 html {
   position: relative;
   min-height: 100%;
 }
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 40px;
-}
-
 
 .loading {
   margin: 10px;
