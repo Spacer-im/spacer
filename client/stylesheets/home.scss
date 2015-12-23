@@ -2,12 +2,14 @@
 
 .home-news{
   ul {
+    position: relative;
+    min-height: 100px;
     li {
       margin: 20px 0;
     }
   }
   .spinner {
-    left: 20%
+    left: 20% !important;
   }
 }
 
@@ -21,6 +23,7 @@
   }
 
   ul {
+    position: relative;
     min-height: 100px;
     list-style-type: disc;
     li {
