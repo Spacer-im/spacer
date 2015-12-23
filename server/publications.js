@@ -1,5 +1,9 @@
-Meteor.publish('news_titles', function () {
-    return News.find({}, {fields: {"text": false}});
+Meteor.publish('news', function (limit) {
+    let options = {fields: {"text": false}, sort: {submitted: -1}};
+    if (limit) {
+        options.limit = limit;
+    }
+    return News.find({}, options);
 });
 
 Meteor.publish("news_article", function(newsId) {
@@ -11,8 +15,12 @@ Meteor.publish("tags", function() {
 });
 
 
-Meteor.publish('jobs_list', function() {
-    return Jobs.find({}, {fields: {"description": false}});
+Meteor.publish('jobs', function(limit) {
+    let options = {fields: {"description": false}, sort: {submitted: -1}};
+    if (limit) {
+        options.limit = limit;
+    }
+    return Jobs.find({}, options);
 });
 
 Meteor.publish("job", function(jobId) {
