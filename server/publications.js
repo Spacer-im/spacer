@@ -34,3 +34,5 @@ Meteor.publish("companies_cut", function() {
 Meteor.publish("featured_companies", function() {
     return FeaturedCompanies.find({});
 });
+
+Meteor.publish('phrases', () => Phrases.find({}));
