@@ -18,8 +18,16 @@
                     <li><a href="#">Projects</a></li>
 
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    {{> loginButtons}}
+                <ul class="nav navbar-nav navbar-right" id="login-header">
+
+                        {{#if currentUser}}
+                            {{>loginButtons}}
+                        {{else}}
+                        <li>
+                            <a href="/login">Sign in/Join</a>
+                        </li>
+                        {{/if}}
+
                 </ul>
             </div>
 

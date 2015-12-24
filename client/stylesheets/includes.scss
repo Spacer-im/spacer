@@ -134,7 +134,6 @@ body {
     font-size: 2em;
   }
 
-
   @media screen and (max-width: $break-narrow) {
     height: 200px;
     ul {
@@ -168,3 +167,38 @@ body {
   height: 100px;
 }
 
+// Login screen
+// -----------------------------------------
+
+#login-screen {
+  .dropdown-menu {
+    display: block;
+    position: relative;
+    height: 245px;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    border: none;
+    box-shadow: none;
+    --webkit-box-shadow: none;
+  }
+
+  #login-dropdown-list {
+    display: block;
+  }
+  a.dropdown-toggle {
+    display: none;
+  }
+}
+
+// Login dropdown change
+#login-header {
+  #login-dropdown-list {
+    #login-buttons-open-change-password {
+      display: none;
+    }
+    #login-buttons-logout {
+      background-color: $color-orange-0;
+    }
+  }
+}
