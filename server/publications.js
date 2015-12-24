@@ -36,3 +36,5 @@ Meteor.publish("featured_companies", function() {
 });
 
 Meteor.publish('phrases', () => Phrases.find({}));
+
+Meteor.publish(null, () => Meteor.roles.find({}));

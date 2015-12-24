@@ -1,0 +1,20 @@
+
+Template.login.rendered = function()
+{
+    Accounts._loginButtonsSession.set('dropdownVisible', true);
+};
+
+Accounts.onLogin(function() {
+    Router.go("home");
+});
+
+Template.registerHelper("isAdmin", function() {
+    let loggedUser = Meteor.user();
+    return loggedUser && Roles.userIsInRole(loggedUser, ['admin']);
+});
+
+Template._loginButtonsLoggedInDropdown.events({
+    'click #login-buttons-admin': function(event) {
+        Router.go('/admin');
+    }
+});

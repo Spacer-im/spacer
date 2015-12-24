@@ -32,12 +32,3 @@ Template.tagsList.helpers({
         }
     }
 });
-
-Template.login.rendered = function()
-{
-    Accounts._loginButtonsSession.set('dropdownVisible', true);
-};
-
-Accounts.onLogin(function() {
-    Router.go("home");
-});
