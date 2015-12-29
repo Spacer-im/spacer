@@ -17,6 +17,9 @@
 }
 
 .home-news {
+  @media screen and (min-width: $break-xs) {
+    border-right: 1px solid black;
+  }
   ul {
     list-style-type: none;
     padding: 0;
@@ -30,10 +33,13 @@
     margin-left: 180px;
     color: black;
     @media screen and (max-width: $break-xs-narrow) {
-      margin-left: 100px;
+      margin-left: 130px;
+      h3 {
+        font-size: 1em;
+      }
     }
     .short {
-      @media screen and (max-width: $break-xs) {
+      @media screen and (max-width: $break-sm) {
         display: none;
       }
     }
@@ -47,8 +53,8 @@
     overflow: hidden;
     float: left;
     @media screen and (max-width: $break-xs-narrow) {
-      width: 80px;
-      height: 60px;
+      width: 120px;
+      height: 90px;
 
     }
     img {
