@@ -16,5 +16,9 @@ Template.registerHelper("isAdmin", function() {
 Template._loginButtonsLoggedInDropdown.events({
     'click #login-buttons-admin': function(event) {
         Router.go('/admin');
+    },
+    'click #login-buttons-add-news': function(event) {
+        Router.go('/news/add');
     }
+
 });

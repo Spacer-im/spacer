@@ -25,7 +25,7 @@ a.grey-hover:-webkit-any-link {
 }
 
 .mobile-inline {
-  @media (max-width: $break-narrow) {
+  @media (max-width: $break-xs) {
     display: table;
     padding: 10px;
     margin-bottom: 10px;
@@ -51,4 +51,13 @@ a.grey-hover:-webkit-any-link {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.clearfix-after:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }

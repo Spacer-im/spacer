@@ -1,10 +1,11 @@
 @import "colors";
+@import "main";
 
 .news-list li {
   list-style-type: none;
 }
 
-.news-list li a{
+.news-list li a {
   display: block;
   min-height: 50px;
   font-size: 200%;
@@ -14,3 +15,70 @@
   border: 2px solid $color-grey-2;
   border-radius: 10px;
 }
+
+.home-news {
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .news-introduce {
+    margin-left: 180px;
+    color: black;
+    @media screen and (max-width: $break-xs-narrow) {
+      margin-left: 100px;
+    }
+    .short {
+      @media screen and (max-width: $break-xs) {
+        display: none;
+      }
+    }
+
+  }
+
+  .thumb {
+    position: relative;
+    width: 160px;
+    height: 120px;
+    overflow: hidden;
+    float: left;
+    @media screen and (max-width: $break-xs-narrow) {
+      width: 80px;
+      height: 60px;
+
+    }
+    img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 100%;
+      width: auto;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .more {
+    text-align: center;
+    position: relative;
+    min-height: 100px;
+
+    button {
+      width: 200px;
+    }
+  }
+
+}
+
+
+.news-article, #insertNewsForm {
+  img {
+    max-width: 100%;
+  }
+}
+

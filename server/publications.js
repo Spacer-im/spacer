@@ -1,3 +1,5 @@
+
+
 Meteor.publish('news', function (limit) {
     let options = {fields: {"text": false}, sort: {submitted: -1}};
     if (limit) {
@@ -6,8 +8,8 @@ Meteor.publish('news', function (limit) {
     return News.find({}, options);
 });
 
-Meteor.publish("news_article", function(newsId) {
-    return News.find({_id: newsId});
+Meteor.publish("news_article", function(slug) {
+    return News.find({slug: slug});
 });
 
 Meteor.publish("tags", function() {
@@ -38,3 +40,5 @@ Meteor.publish("featured_companies", function() {
 Meteor.publish('phrases', () => Phrases.find({}));
 
 Meteor.publish(null, () => Meteor.roles.find({}));
+
+Meteor.publish(null, () => Thumbs.find({}));

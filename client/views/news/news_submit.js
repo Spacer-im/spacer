@@ -1,29 +1,24 @@
-Template.newsSubmit.events({
-    "submit form": function (e) {
+Template.insertNewsForm.events({
+    'input #insertNewsForm input[name="title"]': function (e) {
         e.preventDefault();
-        FlashMessages.clear();
+        let $slug = document.querySelector("#insertNewsForm input[name='slug']");
+        let date = new Date();
+        $slug.value = URLify2(`${date.getDate()}-${date.getMonth()}-${date.getUTCFullYear()}-` + e.target.value);
+    }
+});
 
-        let news = {
-            title: e.target.title.value,
-            text: e.target.text.value,
-            submitted: new Date()
+AutoForm.hooks({
+    insertNewsForm: {
+        after: {
+            insert: function (doc) {
+                if (this.insertDoc && this.insertDoc.slug) {
+                    Router.go(`/news/${this.insertDoc.slug}`);
+                }
+                else {
+                    Router.go("home");
+                }
 
-        };
-        if (news.title.length <= 6) {
-            FlashMessages.sendError("The title should be more than 6 characters");
-            return false;
+            }
         }
-
-        //Meteor.call('postInsert', post, function(error, result) {
-        //    // display the error to the user and abort
-        //    if (error)
-        //        return alert(error.reason);
-        //
-        //    // show this result but route anyway
-        //    if (result.postExists)
-        //        alert('This link has already been posted');
-        //
-        //    Router.go('postPage', {_id: result._id});
-        //});
     }
 });

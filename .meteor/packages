@@ -33,3 +33,10 @@ q42:autoform-markdown
 dburles:collection-helpers
 aldeed:simple-schema
 alanning:roles
+altapp:urlify2-minifiable
+aldeed:autoform
+cfs:autoform
+cfs:standard-packages
+cfs:gridfs
+cfs:filesystem
+cfs:graphicsmagick

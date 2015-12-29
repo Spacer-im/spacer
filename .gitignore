@@ -78,7 +78,7 @@ crashlytics-build.properties
 
 settings/*product*
 
-settings.json
+settings*.json
 
 package.json
 
