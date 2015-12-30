@@ -29,8 +29,8 @@ Meteor.publish("job", function(jobId) {
     return Jobs.find({_id: jobId});
 });
 
-Meteor.publish("companies_cut", function() {
-    return Companies.find({}, {fields: {"description": false}});
+Meteor.publish("companies", function(limit) {
+    return Companies.find({}, {fields: {"text": false}, limit: limit, sort: {name: 1}});
 });
 
 Meteor.publish("featured_companies", function() {

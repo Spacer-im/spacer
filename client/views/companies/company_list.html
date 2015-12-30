@@ -1,0 +1,31 @@
+<template name="companyList">
+    <div class="container">
+        <ul>
+            {{#each companies}}
+                <li>
+                    <a href="/company/{{_id}}">
+                        <div class="thumb">
+                            <img src="{{imageURL}}">
+                        </div>
+                        <div class="info">
+                            <h3 class="name">{{name}}</h3>
+                            <p>{{short}}</p>
+                        </div>
+                        <div class="jobs">
+                            <button class="white job-button" data-id="{{_id}}">Jobs</button>
+                        </div>
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+        <div class="more-container">
+            {{#if listIsReady}}
+                {{#if moreCompanies}}
+                    <button class="btn btn-default" id="b-more-companies">More Companies</button>
+                {{/if}}
+            {{else}}
+                {{>spinner}}
+            {{/if}}
+        </div>
+    </div>
+</template>

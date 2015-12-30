@@ -1,4 +1,5 @@
 <template name="home">
+    {{>showcase}}
     <div class="container">
         <div class="row">
             <div class="col-sm-8 home-news">
@@ -21,10 +22,10 @@
                         </li>
                     {{/each}}
                 </ul>
-                <div class="more">
+                <div class="more-container">
                     {{#if newsAreReady}}
                         {{#if moreNews}}
-                            <button class="btn btn-default" id="b-more-news">More News {{newsCount}}</button>
+                            <button class="btn btn-default" id="b-more-news">More News</button>
                         {{/if}}
                     {{else}}
                         {{>spinner}}

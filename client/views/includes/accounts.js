@@ -19,6 +19,10 @@ Template._loginButtonsLoggedInDropdown.events({
     },
     'click #login-buttons-add-news': function(event) {
         Router.go('/news/add');
+    },
+    'click #login-buttons-add-company': function(event) {
+        Router.go('/companies/add');
     }
+
 
 });

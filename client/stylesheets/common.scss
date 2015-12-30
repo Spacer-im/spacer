@@ -61,3 +61,13 @@ a.grey-hover:-webkit-any-link {
   clear: both;
   height: 0;
 }
+
+.more-container {
+  text-align: center;
+  position: relative;
+  min-height: 100px;
+
+  button {
+    width: 200px;
+  }
+}
