@@ -16,10 +16,3 @@ Thumbs = new FS.Collection("thumbs", {
         })]
 });
 
-
-Thumbs.allow({
-    insert: allowAdmin,
-    update: allowAdmin,
-    remove: allowAdmin,
-    download: () => true
-});

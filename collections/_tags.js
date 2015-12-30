@@ -1,6 +1,7 @@
 Tags = new Mongo.Collection("tags");
 
-Schemas.Tags = {
+
+Tags.attachSchema({
     name: {
         type: String,
         label: "Name",
@@ -23,7 +24,7 @@ Schemas.Tags = {
             }
         }
     }
-};
+});
 
 Tags.helpers.asOptions = function () {
     return _.map(Tags.find({}).fetch(), function (tag) {
@@ -34,5 +35,5 @@ Tags.helpers.asOptions = function () {
     });
 };
 
-Tags.attachSchema(Schemas.Tags);
+
 

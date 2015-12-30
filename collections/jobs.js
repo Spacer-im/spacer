@@ -1,7 +1,6 @@
 Jobs = new Mongo.Collection('jobs');
 
-
-Schemas.Jobs = {
+Jobs.attachSchema({
     title: {
         type: String,
         label: "Title",
@@ -44,14 +43,12 @@ Schemas.Jobs = {
             }
         }
     }
-};
-
-Jobs.attachSchema(Schemas.Jobs);
+});
 
 Jobs.helpers({
-    logoURL: function() {
+    logoURL: function () {
         let companyPath = Meteor.settings.public && Meteor.settings.public.companyPath;
         let defaultLogoPath = Meteor.settings.public && Meteor.settings.public.defaultLogoPath || "/logo/nologo.png";
-        return companyPath && this.companyName ? companyPath + this.companyName.toLowerCase() + ".png": defaultLogoPath;
+        return companyPath && this.companyName ? companyPath + this.companyName.toLowerCase() + ".png" : defaultLogoPath;
     }
 });

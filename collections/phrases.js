@@ -1,7 +1,7 @@
 Phrases = new Mongo.Collection('phrases');
 
 
-Schemas.Phrases = {
+Phrases.attachSchema({
     name: {
         type: String,
         label: "Name"
@@ -12,9 +12,5 @@ Schemas.Phrases = {
         autoform: {
             rows: 5
         }
-
-
     }
-};
-
-Phrases.attachSchema(Schemas.Phrases);
+});

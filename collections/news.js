@@ -61,12 +61,6 @@ News.attachSchema({
 });
 
 
-News.allow({
-    insert: allowAdmin,
-    update: allowAdmin,
-    remove: allowAdmin
-});
-
 
 News.helpers({
    imageURL: function () {
