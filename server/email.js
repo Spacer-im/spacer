@@ -25,6 +25,14 @@ Meteor.startup(function () {
             "3... 2... 1... Liftoff!\r\n\r\n" +
             "Spacer team";
     };
+    Accounts.emailTemplates.resetPassword.text = function (user, url) {
+        return 'Hey there,\r\n\r\n' +
+            'Someone requested a new password for your Spacer account. If it was you, simply click the link below:\r\n' +
+            url + "\r\n" +
+            "If you didn't make this request then you can safely ignore this email.\r\n\r\n" +
+            'Spacer team';
+    };
+
 
     Accounts.config({
         sendVerificationEmail: true
