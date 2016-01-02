@@ -2,16 +2,21 @@
     <li>
         <a href="/company/{{_id}}">
             <div class="thumb">
-                <img src="{{imageURL}}">
+                <img class="img-responsive" src="{{imageURL}}">
             </div>
+        </a>
+            <div class="jobs">
+                <a class="white job-button" href="/company/jobs/{{_id}}">View Jobs</a>
+            </div>
+        <div class="clearfix-xs"></div>
+        <a href="/company/{{_id}}">
             <div class="info">
                 <h3 class="name">{{name}}</h3>
 
                 <p>{{short}}</p>
             </div>
-            <div class="jobs">
-                <button class="white job-button" data-id="{{_id}}">Jobs</button>
-            </div>
         </a>
+
+        <div class="clearfix"></div>
     </li>
 </template>

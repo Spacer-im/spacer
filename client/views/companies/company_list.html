@@ -1,3 +1,6 @@
 <template name="companyList">
-    {{>itemList itemTemplate='companyItem' collection="companies" subscription="companies" moreWriting="More Companies"}}
+    <div class="company-list col-md-10">
+        <h1>Space Industry Companies</h1>
+        {{>itemList itemTemplate='companyItem' collection="companies" subscription="companies" moreWriting="More Companies"}}
+    </div>
 </template>

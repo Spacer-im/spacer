@@ -16,7 +16,8 @@ body {
 
 .navbar.navbar-custom {
   background-color: white;
-  //border-bottom: 2px solid black;
+
+  border-bottom: 2px solid black;
   margin-bottom: 0;
 
   * {
@@ -28,6 +29,7 @@ body {
 
 .navbar-custom .navbar-brand {
   padding: 10px;
+
   img {
     height: 30px;
   }
@@ -124,6 +126,7 @@ body {
 .footer {
   margin-top: 10px;
   position: absolute;
+  background-color: $color-light-grey;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
@@ -131,6 +134,7 @@ body {
   ul.links > li > a {
     color: black;
     font-family: $fontUbuntu;
+    padding-top: 20px;
   }
 
   ul.icons {

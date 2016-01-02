@@ -1,0 +1,49 @@
+@import "common";
+@import "colors";
+
+.company-list {
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    a:hover, a:active {
+      text-decoration: none;
+    }
+    li {
+      display: block;
+      margin-bottom: 20px;
+      .thumb {
+        float: left;
+        width: 100px;
+        height: 100px;
+        border: 1px solid $color-light-grey;
+        padding: 5px;
+      }
+      .info {
+        margin-left: 110px;
+        margin-right: 160px;
+        margin-top: 10px;
+        color: black;
+        @media screen and (max-width: $break-xs) {
+          margin: 10px 10px 20px 0;
+        }
+
+      }
+      .jobs {
+        width: 100px;
+        float: right;
+        a.job-button {
+          display: block;
+          color: black;
+          border: 2px solid black;
+          box-sizing: border-box;
+          padding: 5px 15px;
+          border-radius: 5px;
+          text-align: center;
+          @media screen and (max-width: $break-xs) {
+            margin-top: 30px;
+          }
+        }
+      }
+    }
+  }
+}
