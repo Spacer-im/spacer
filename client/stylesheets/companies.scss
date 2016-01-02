@@ -27,6 +27,10 @@
         @media screen and (max-width: $break-xs) {
           margin: 10px 10px 20px 0;
         }
+        h3 {
+          margin-right: 140px;
+          word-wrap: break-word;
+        }
         .rating {
           position: absolute;
           right: 5px;
