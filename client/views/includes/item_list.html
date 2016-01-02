@@ -1,0 +1,16 @@
+<template name="itemList">
+    <ul>
+        {{#each items}}
+            {{> UI.dynamic template=../itemTemplate}}
+        {{/each}}
+    </ul>
+    <div class="more-container">
+        {{#if listIsReady}}
+            {{#if moreItems}}
+                <button class="btn btn-default" id="b-more">{{moreWriting}}</button>
+            {{/if}}
+        {{else}}
+            {{>spinner}}
+        {{/if}}
+    </div>
+</template>

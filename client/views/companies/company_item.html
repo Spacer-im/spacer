@@ -1,0 +1,17 @@
+<template name="companyItem">
+    <li>
+        <a href="/company/{{_id}}">
+            <div class="thumb">
+                <img src="{{imageURL}}">
+            </div>
+            <div class="info">
+                <h3 class="name">{{name}}</h3>
+
+                <p>{{short}}</p>
+            </div>
+            <div class="jobs">
+                <button class="white job-button" data-id="{{_id}}">Jobs</button>
+            </div>
+        </a>
+    </li>
+</template>

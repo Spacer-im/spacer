@@ -2,34 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 home-news">
-                <h3><a href="/news/">Latest news:</a></h3>
-                <ul>
-                    {{#each news}}
-                        <li class="clearfix-after">
-                            <a href="/news/{{slug}}">
-                                <div class="thumb">
-                                    <img src="{{imageURL}}">
-                                </div>
-                                <div class="news-introduce">
-                                    <h3>{{title}}</h3>
-
-                                    <p class="short">
-                                        {{short}}
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                    {{/each}}
-                </ul>
-                <div class="more-container">
-                    {{#if newsAreReady}}
-                        {{#if moreNews}}
-                            <button class="btn btn-default" id="b-more-news">More News</button>
-                        {{/if}}
-                    {{else}}
-                        {{>spinner}}
-                    {{/if}}
-                </div>
+                {{>newsList}}
             </div>
             <div class="col-sm-3 home-side">
                 <h4>Latest jobs:</h4>
