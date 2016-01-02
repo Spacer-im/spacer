@@ -50,6 +50,7 @@ Companies.attachSchema({
     glassDoorData: {
         type: Object,
         optional: true,
+        blackbox: true,
         label: "GlassDoor"
     },
     submitted: {
@@ -66,6 +67,9 @@ Companies.helpers({
     imageURL: function () {
         let tId = Thumbs.findOne(this.thumbId);
         return this.thumbId && tId ? tId.url() : '/assets/company_no_logo.png';
+    },
+    gdRating: function() {
+        return this.glassDoorData && this.glassDoorData.overallRating;
     }
 });
 

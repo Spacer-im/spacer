@@ -1,0 +1,11 @@
+<template name="filledStars">
+    <div class="filled-stars">
+        <div class="value">{{value}}</div>
+        {{#each numbers}}
+            <div class="star">
+                <i class="fill" style="width: {{this}}%"></i>
+                <i class="fa fa-star"></i>
+            </div>
+        {{/each}}
+    </div>
+</template>

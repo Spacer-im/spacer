@@ -33,6 +33,13 @@ Meteor.publish("companies", function(limit) {
     return Companies.find({}, {fields: {"text": false}, limit: limit, sort: {name: 1}});
 });
 
+
+Meteor.publish("company", function(id) {
+    return Companies.find({_id: id});
+});
+
+
+
 Meteor.publish("featured_companies", function() {
     return FeaturedCompanies.find({});
 });

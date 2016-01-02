@@ -1,0 +1,32 @@
+@import "colors";
+
+.filled-stars {
+  .value, .star {
+    display: inline-block;
+    overflow: hidden;
+  }
+  .value {
+    color: $color-green-0;
+  }
+  .star {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    background-color: $color-light-grey;
+    text-align: center;
+    border-radius: 4px;
+    color: $color-green-0;
+    i.fa {
+      color: white;
+      position: relative;
+      z-index: 2;
+    }
+    .fill {
+      position: absolute;
+      background-color: $color-green-0;
+      z-index: 1;
+      height: 100%;
+      left: 0;
+    }
+  }
+}

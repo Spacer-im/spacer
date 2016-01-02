@@ -1,0 +1,18 @@
+<template name="companyInfo">
+    <h1>{{name}}</h1>
+    {{#if isAdmin}}
+        <button class="btn btn-default" id="b-update-company">Update GlassDoor Info</button>
+    {{/if}}
+    <hr>
+    {{#if gdRating}}
+        {{>filledStars value=gdRating}}
+    {{/if}}
+    <hr>
+    <div class="col-md-10">
+
+    {{#markdown}}
+        {{description}}
+    {{/markdown}}
+    </div>
+    {{>tagsList}}
+</template>

@@ -23,8 +23,14 @@
         margin-right: 160px;
         margin-top: 10px;
         color: black;
+        position: relative;
         @media screen and (max-width: $break-xs) {
           margin: 10px 10px 20px 0;
+        }
+        .rating {
+          position: absolute;
+          right: 5px;
+          top: 5px;
         }
 
       }

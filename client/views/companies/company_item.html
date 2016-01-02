@@ -1,18 +1,22 @@
 <template name="companyItem">
     <li>
-        <a href="/company/{{_id}}">
+        <a href="/companies/{{_id}}">
             <div class="thumb">
                 <img class="img-responsive" src="{{imageURL}}">
             </div>
         </a>
             <div class="jobs">
-                <a class="white job-button" href="/company/jobs/{{_id}}">View Jobs</a>
+                <a class="white job-button" href="/companies/jobs/{{_id}}">View Jobs</a>
             </div>
         <div class="clearfix-xs"></div>
-        <a href="/company/{{_id}}">
+        <a href="/companies/{{_id}}">
             <div class="info">
                 <h3 class="name">{{name}}</h3>
-
+                <div class="rating">
+                    {{#if gdRating}}
+                        {{>filledStars value=gdRating}}
+                    {{/if}}
+                </div>
                 <p>{{short}}</p>
             </div>
         </a>
