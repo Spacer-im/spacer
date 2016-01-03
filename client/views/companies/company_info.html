@@ -2,6 +2,8 @@
     <h1>{{name}}</h1>
     {{#if isAdmin}}
         <button class="btn btn-default" id="b-update-company">Update GlassDoor Info</button>
+        <a class="btn btn-default" href="/companies/update/{{_id}}">Edit</a>
+
     {{/if}}
     <hr>
     {{#if gdRating}}

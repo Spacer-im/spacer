@@ -38,8 +38,7 @@ News.attachSchema({
         type: String,
         label: "Text",
         autoform: {
-            rows: 30,
-            type: "markdown"
+            rows: 30
         }
     },
     tags: {

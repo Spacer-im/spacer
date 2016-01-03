@@ -8,9 +8,16 @@ Meteor.publish('news', function (limit) {
     return News.find({}, options);
 });
 
-Meteor.publish("news_article", function(slug) {
+Meteor.publish("news_by_slug", function(slug) {
     return News.find({slug: slug});
 });
+
+
+Meteor.publish("news_by_id", function(id) {
+    return News.find(id);
+});
+
+
 
 Meteor.publish("tags", function() {
     return Tags.find({});
