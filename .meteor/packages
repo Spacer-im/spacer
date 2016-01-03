@@ -42,3 +42,5 @@ cfs:filesystem
 cfs:graphicsmagick
 http
 dburles:mongo-collection-instances
+percolate:synced-cron
+email
