@@ -1,6 +1,7 @@
 <template name="companyInfo">
     <h1>{{name}}</h1>
     {{#if isAdmin}}
+        <hr>
         <button class="btn btn-default" id="b-update-company">Update GlassDoor Info</button>
         <a class="btn btn-default" href="/companies/update/{{_id}}">Edit</a>
 
@@ -12,9 +13,7 @@
     <hr>
     <div class="col-md-10">
 
-    {{#markdown}}
-        {{description}}
-    {{/markdown}}
+    {{#markdown}}{{description}}{{/markdown}}
     </div>
     {{>tagsList}}
 </template>

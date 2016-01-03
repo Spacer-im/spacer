@@ -3,7 +3,9 @@
         <div class="col-md-8 col-xs-12 news-article">
             <h1>{{title}}</h1>
             {{#if isAdmin}}
+                <hr>
                 <a class="btn btn-default" href="/news/update/{{_id}}">Edit</a>
+                <hr>
             {{/if}}
             {{#markdown}}{{text}}{{/markdown}}
             {{> tagsList}}
