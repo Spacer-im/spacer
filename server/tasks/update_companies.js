@@ -15,7 +15,7 @@ SyncedCron.add({
             }
         });
 
-        if (Meteor.settings.reportAddress) {
+        if (Meteor.settings.cron.reportAddress) {
             if (!process.env.MAIL_URL) {
                 SetEmails.noreply();
             }
@@ -29,5 +29,6 @@ SyncedCron.add({
     }
 });
 
-
-SyncedCron.start();
+if (Meteor.settings.cron && Meteor.settings.cron.enable) {
+    SyncedCron.start();
+}
