@@ -1,19 +1,47 @@
 <template name="companyInfo">
-    <h1>{{name}}</h1>
-    {{#if isAdmin}}
+    <section class="company-info col-sm-8">
+        <section class="clearfix-after">
+            <div class="logo">
+                <img class="img-responsive" src="{{imageURL}}">
+            </div>
+            <a class="white-link-button job-button" href="/companies/jobs/{{_id}}">View Jobs</a>
+
+        </section>
+        <div class="title">
+            <h3 class="name">{{name}}</h3>
+
+            <div class="rating">
+                {{#if gdRating}}
+                    {{>filledStars value=gdRating}}
+                {{/if}}
+            </div>
+        </div>
+
+        <section class="data clearfix-after">
+            {{>companyDataCell argName='Website' arg=website isLink=true}}
+            {{>companyDataCell argName='Headquarters' arg=headquarters}}
+            {{>companyDataCell argName='Founded' arg=founded}}
+            {{>companyDataCell argName='Size' arg=size}}
+            {{>companyDataCell argName='Type' arg=companyType}}
+            {{>companyDataCell argName='Industry' arg=industryName}}
+            {{>companyDataCell argName='Revenue' arg=revenue}}
+            {{>companyDataCell argName='Competitors' arg=competitors}}
+
+
+        </section>
         <hr>
-        <button class="btn btn-default" id="b-update-company">Update GlassDoor Info</button>
-        <a class="btn btn-default" href="/companies/update/{{_id}}">Edit</a>
+        <article>
+            {{#markdown}}{{description}}{{/markdown}}
+        </article>
+        <hr>
+        {{>tagsList}}
+        <section class="admin-section">
+            {{#if isAdmin}}
+                <button class="btn btn-default" id="b-update-company">Update GlassDoor Info</button>
+                <a class="btn btn-default" href="/companies/update/{{_id}}">Edit</a>
 
-    {{/if}}
-    <hr>
-    {{#if gdRating}}
-        {{>filledStars value=gdRating}}
-    {{/if}}
-    <hr>
-    <div class="col-md-10">
+            {{/if}}
+        </section>
 
-    {{#markdown}}{{description}}{{/markdown}}
-    </div>
-    {{>tagsList}}
+    </section>
 </template>

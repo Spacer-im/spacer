@@ -27,7 +27,7 @@
         @media screen and (max-width: $break-xs) {
           margin: 10px 10px 20px 0;
         }
-        h3 {
+        .name {
           margin-right: 140px;
           word-wrap: break-word;
         }
@@ -38,22 +38,68 @@
         }
 
       }
-      .jobs {
+      a.job-button {
         width: 100px;
         float: right;
-        a.job-button {
-          display: block;
-          color: black;
-          border: 2px solid black;
-          box-sizing: border-box;
-          padding: 5px 15px;
-          border-radius: 5px;
-          text-align: center;
-          @media screen and (max-width: $break-xs) {
-            margin-top: 30px;
-          }
+        @media screen and (max-width: $break-xs) {
+          margin-top: 30px;
         }
       }
     }
   }
+}
+
+.company-info {
+  margin-top: 20px;
+  .logo {
+    height: 150px;
+    width: 150px;
+    float: left;
+    border: 1px solid $color-light-grey;
+    padding: 5px;
+  }
+  a.job-button {
+    width: 100px;
+    float: right;
+    margin-top: 60px;
+  }
+  .title {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 5px;
+    .name {
+      margin-right: 140px;
+      word-wrap: break-word;
+    }
+    .rating {
+      position: absolute;
+      right: 15px;
+      top: 5px;
+      @media screen and (max-width: $break-xs) {
+        right: 5px;
+      }
+    }
+  }
+  .data-cell {
+    display: table-cell;
+    vertical-align: top;
+    float: left;
+    width: 50%;
+    strong {
+      display: table-cell;
+      min-width: 110px;
+      padding-right: 20px;
+      font-weight: bold;
+    }
+    span {
+      display: table-cell;
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+
+    @media screen and (max-width: $break-xs) {
+      width: 100%;
+    }
+  }
+
 }

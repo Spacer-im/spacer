@@ -5,13 +5,13 @@
                 <img class="img-responsive" src="{{imageURL}}">
             </div>
         </a>
-            <div class="jobs">
-                <a class="white job-button" href="/companies/jobs/{{_id}}">View Jobs</a>
-            </div>
+        <a class="job-button white-link-button" href="/companies/jobs/{{_id}}">View Jobs</a>
+
         <div class="clearfix-xs"></div>
         <a href="/companies/{{_id}}">
             <div class="info">
                 <h3 class="name">{{name}}</h3>
+
                 <div class="rating">
                     {{#if gdRating}}
                         {{>filledStars value=gdRating}}

@@ -1,0 +1,12 @@
+<template name="companyDataCell">
+    <div class="data-cell">
+        <strong>{{argName}}</strong>
+        <span>
+            {{#if isLink}}
+                {{#if arg}}<a href="{{arg}}">{{arg}}</a>{{else}}Unknown{{/if}}
+            {{else}}
+                {{#if arg}}{{arg}}{{else}}Unknown{{/if}}
+            {{/if}}
+        </span>
+    </div>
+</template>
