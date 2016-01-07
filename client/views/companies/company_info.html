@@ -35,13 +35,12 @@
         </article>
         <hr>
         {{>tagsList}}
-        <section class="admin-section">
-            {{#if isAdmin}}
+        {{#if isAdmin}}
+            <section class="admin-section">
                 <button class="btn btn-default" id="b-update-company">Update GlassDoor Info</button>
                 <a class="btn btn-default" href="/companies/update/{{_id}}">Edit</a>
-
-            {{/if}}
-        </section>
+            </section>
+        {{/if}}
 
     </section>
 </template>
