@@ -44,3 +44,4 @@ http
 dburles:mongo-collection-instances
 percolate:synced-cron
 email
+reactive-var
