@@ -51,8 +51,19 @@ Meteor.publish("featured_companies", function() {
     return FeaturedCompanies.find({});
 });
 
-Meteor.publish('phrases', () => Phrases.find({}));
+
+
+Meteor.publish("userProfile", function(username) {
+    return Meteor.users.find({username: username}, {fields: {"_id": 1, "username": 1, profile: 1}});
+});
+
+
+
+
+Meteor.publish(null, () => Phrases.find({}));
 
 Meteor.publish(null, () => Meteor.roles.find({}));
 
 Meteor.publish(null, () => Thumbs.find({}));
+
+Meteor.publish(null, () => Avatars.find({}));

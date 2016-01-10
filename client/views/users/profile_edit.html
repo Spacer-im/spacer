@@ -1,0 +1,24 @@
+<template name="userProfileEdit">
+    <div class="col-md-8">
+
+        <div class="profile-edit">
+            {{#autoForm schema=profileSchema id="profileForm" type="method" meteormethod="saveProfile"}}
+                <h1>Edit Profile</h1><button class="btn btn-primary" type="submit">Save changes</button>
+                <div class="photo card">
+                    {{> afQuickField name="photoId"
+                        previewTemplate='photoImagePreview'
+                        selectFileBtnTemplate='selectFileBtn'
+                        prevUrl=avatarUrl}}
+
+                </div>
+                <div class="summary card">
+                    {{> afQuickField name="firstName" value=profile.firstName}}
+                    {{> afQuickField name="lastName" value=profile.lastName}}
+                    {{> afQuickField name="summary" value=profile.summary}}
+                </div>
+                <button class="btn btn-primary" type="submit">Save changes</button>
+            {{/autoForm}}
+        </div>
+
+    </div>
+</template>

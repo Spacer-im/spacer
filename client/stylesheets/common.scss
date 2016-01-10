@@ -104,3 +104,9 @@ a.grey-hover:-webkit-any-link {
     top: 10px;
   }
 }
+
+.hide-narrow {
+  @media screen and (max-width: $break-xs-narrow) {
+    display: none;
+  }
+}

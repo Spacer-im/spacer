@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <a class="build-resume" href="{{#if currentUser}}{{pathFor profile}}{{else}}{{pathFor login}}{{/if}}">
+                    <a class="build-resume" href="{{#if currentUser}}/profile/{{currentUser.username}}{{else}}{{pathFor login}}{{/if}}">
                         Build your space resume
                     </a>
                 </div>

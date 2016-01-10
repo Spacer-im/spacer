@@ -1,0 +1,20 @@
+<template name="userProfile">
+    <div class="col-md-10 col-lg-8 col-offset-lg-1 user-profile">
+        <div class="head-block clearfix-after">
+            <div class="avatar edit-block">
+                <img src="{{avatarUrl}}" class="img-responsive">
+
+            </div>
+            <div class="summary">
+                <div class="name card {{#if isOwner}}button-padding{{/if}}">{{fullName}}</div>
+                <div class="short card">{{profile.summary}}</div>
+            </div>
+            {{#if isOwner}}
+                <button class="btn btn-default" id="btnEdit">
+                    <i class="fa fa-pencil-square-o"></i>
+                    <span class="hide-narrow">&nbsp;Edit Profile</span>
+                </button>
+            {{/if}}
+        </div>
+    </div>
+</template>
