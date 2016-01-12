@@ -3,11 +3,14 @@
 
         <div class="profile-edit">
             {{#autoForm schema=profileSchema id="profileForm" type="method" meteormethod="saveProfile"}}
-                <h1>Edit Profile</h1><button class="btn btn-primary" type="submit">Save changes</button>
+                <h1>Edit Profile</h1>
+                <button class="btn btn-primary" type="submit">Save changes</button>
+                <a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>
                 <div class="photo card">
                     {{> afQuickField name="photoId"
                         previewTemplate='photoImagePreview'
                         selectFileBtnTemplate='selectFileBtn'
+                        removeFileBtnTemplate='removeFileBtn'
                         prevUrl=avatarUrl}}
 
                 </div>
@@ -17,8 +20,30 @@
                     {{> afQuickField name="summary" value=profile.summary}}
                 </div>
                 <button class="btn btn-primary" type="submit">Save changes</button>
+                <a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>
             {{/autoForm}}
         </div>
 
     </div>
+</template>
+
+
+<template name="photoImagePreview">
+    <div class="avatar-preview">
+        <img src="{{file.url}}">
+    </div>
+</template>
+
+<template name="selectFileBtn">
+    <div class="avatar-preview">
+        <img src="{{url}}">
+    </div>
+    <button type="button" class="btn btn-default af-select-file js-af-select-file">
+        Choose file
+        <input type="file" class="js-file">
+    </button>
+</template>
+
+<template name="removeFileBtn">
+    <!--It's removed because here the BUG with second upload-->
 </template>

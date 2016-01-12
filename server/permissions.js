@@ -24,9 +24,15 @@ Thumbs.allow({
 });
 
 Avatars.allow({
-    insert: allowAdmin,
-    update: allowAdmin,
-    remove: allowAdmin,
+    insert: function(userId, doc) {
+        return allowAdmin(userId) || (userId && doc.owner === userId && Avatars.find({owner: userId}).count() <= 5);
+    },
+    update: function(userId, doc) {
+        return allowAdmin() || (userId && doc.owner === userId);
+    },
+    remove: function(userId, doc) {
+        return allowAdmin(userId) || (userId && doc.owner === userId);
+    },
     download: () => true
 });
 

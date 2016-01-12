@@ -2,6 +2,8 @@ Template.userProfileEdit.helpers({
     profileSchema: Schemas.UserProfile
 });
 
+
+
 Template.afFileUpload.helpers({
         selectFileBtnData: function () {
             return {
@@ -13,7 +15,8 @@ Template.afFileUpload.helpers({
 );
 
 AutoForm.addHooks(["profileForm"], {
-    onSuccess: function(formType, result) {
+    onSuccess: function (formType, result) {
+        Meteor.call("clearTempAvatars");
         Router.go("/profile/");
     }
 });
