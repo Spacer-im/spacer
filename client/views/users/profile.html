@@ -16,5 +16,23 @@
                 </button>
             {{/if}}
         </div>
+        {{#if profile.education}}
+            <div class="education card">
+                <h2>Education</h2>
+                {{#each profile.education}}
+                    <div class="school panel panel-default">
+                        <div class="panel-body">
+                            <div class="name">
+                                {{schoolName}}
+                                {{#if gradeYear}} · {{gradeYear}}{{/if}}
+                            </div>
+                            {{#if fieldOfStudy}}
+                                <div class="field">{{fieldOfStudy}}</div>
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        {{/if}}
     </div>
 </template>

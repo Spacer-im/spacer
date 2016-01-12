@@ -5,6 +5,9 @@
   border: 1px solid $color-light-grey;
   padding: 10px;
   margin: 10px 0;
+  h1, h2, h3 {
+    margin-top: 0;
+  }
 }
 
 .user-profile {
@@ -51,6 +54,23 @@
     .short {
       min-height: 100px;
       white-space: pre-wrap;
+    }
+  }
+  .education {
+    .school {
+      .name {
+        font-weight: bold;
+        font-size: 110%;
+      }
+    }
+  }
+
+  .panel-body {
+    div {
+      margin-bottom: 10px;
+    }
+    div:last-child {
+      margin-bottom: 0;
     }
   }
 

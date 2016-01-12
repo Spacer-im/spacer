@@ -1,5 +1,14 @@
 Template.userProfileEdit.helpers({
-    profileSchema: Schemas.UserProfile
+    profileSchema: Schemas.UserProfile,
+    educationSchema: Schemas.Education
+});
+
+Template.userProfileEdit.events({
+    "click .b-education-remove": function(event) {
+        event.preventDefault();
+        let id = event.target.getAttribute("data-id");
+        Meteor.call("removeEducation", id);
+    }
 });
 
 

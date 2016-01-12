@@ -1,17 +1,18 @@
 <template name="userProfileEdit">
     <div class="col-md-8">
 
-        <div class="profile-edit">
-            {{#autoForm schema=profileSchema id="profileForm" type="method" meteormethod="saveProfile"}}
+        <div class="profile-edit user-profile">
+            {{#autoForm schema=profileSchema id="profileForm" doc=this type="method" meteormethod="saveProfile"}}
                 <h1>Edit Profile</h1>
                 <button class="btn btn-primary" type="submit">Save changes</button>
                 <a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>
+
                 <div class="photo card">
                     {{> afQuickField name="photoId"
-                        previewTemplate='photoImagePreview'
-                        selectFileBtnTemplate='selectFileBtn'
-                        removeFileBtnTemplate='removeFileBtn'
-                        prevUrl=avatarUrl}}
+                    previewTemplate='photoImagePreview'
+                    selectFileBtnTemplate='selectFileBtn'
+                    removeFileBtnTemplate='removeFileBtn'
+                    prevUrl=avatarUrl}}
 
                 </div>
                 <div class="summary card">
@@ -19,9 +20,37 @@
                     {{> afQuickField name="lastName" value=profile.lastName}}
                     {{> afQuickField name="summary" value=profile.summary}}
                 </div>
+
                 <button class="btn btn-primary" type="submit">Save changes</button>
                 <a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>
             {{/autoForm}}
+            <div class="education card">
+                <h2>Education</h2>
+                {{#each profile.education}}
+                    <div class="school panel panel-default">
+                        <div class="panel-body">
+                            <div class="name">
+                                {{schoolName}}
+                                {{#if gradeYear}} · {{gradeYear}}{{/if}}
+                            </div>
+                            {{#if fieldOfStudy}}
+                                <div class="field">{{fieldOfStudy}}</div>
+                            {{/if}}
+                            <div>
+                                <button class="btn btn-danger b-education-remove" data-id="{{id}}">Remove</button>
+                            </div>
+                        </div>
+
+                    </div>
+                {{/each}}
+                <div class="panel panel-default">
+                    <div class="panel-heading">Add education</div>
+                    <div class="panel-body">
+                        {{> quickForm schema=educationSchema buttonContent="Save"
+                        type="method" id="addEducation" meteormethod="addEducation"}}
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
