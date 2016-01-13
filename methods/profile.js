@@ -14,17 +14,36 @@ Meteor.methods({
         });
     },
     addEducation: function(doc) {
-        check(doc, Schemas.Education);
         if (!Meteor.userId()) {
             throw new Meteor.Error("not-authorized");
         }
         doc.id = Random.id();
+        check(doc, Schemas.Education);
         Meteor.users.update(Meteor.userId(), {
             $push: {
                 "profile.education": doc
             }
         })
     },
+    editEducation: function(obj) {
+        let doc = obj.$set;
+        if (!doc) {
+            throw new Meteor.Error("Education edit data not found");
+        }
+        check(doc, Schemas.Education);
+        if (!Meteor.userId()) {
+            throw new Meteor.Error("not-authorized");
+        }
+        Meteor.users.update({"_id": Meteor.userId(), "profile.education.id": doc.id}, {
+            $set: {
+                "profile.education.$.id": doc.id,
+                "profile.education.$.schoolName": doc.schoolName,
+                "profile.education.$.gradeYear": doc.gradeYear,
+                "profile.education.$.fieldOfStudy": doc.fieldOfStudy
+            }
+        })
+    },
+
     removeEducation: function(id) {
         if (!Meteor.userId()) {
             throw new Meteor.Error("not-authorized");
