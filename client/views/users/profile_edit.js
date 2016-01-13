@@ -10,7 +10,7 @@ Template.userProfileEdit.helpers({
     summaryCount: function() {return Template.instance().summaryCount.get()},
     summaryOver: function() { return Template.instance().summaryCount.get() > 2500;},
     callingCount: function() {return Template.instance().callingCount.get()},
-    callingOver: function() { return Template.instance().callingCountCount.get() > 140;},
+    callingOver: function() { return Template.instance().callingCount.get() > 140;},
     isEducationEdit: (id) => Session.get("editEducation") === id
 });
 
