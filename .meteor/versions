@@ -87,8 +87,6 @@ logging@1.0.8
 matb33:collection-hooks@0.8.1
 meteor@1.1.10
 meteor-base@1.0.1
-meteorhacks:kadira@2.11.11
-meteorhacks:kadira-binary-deps@1.2.1
 meteorhacks:meteorx@1.0.2
 meteorhacks:unblock@1.1.0
 mfactory:admin-lte@0.0.2
