@@ -35,8 +35,8 @@ Meteor.methods({
     },
     editEducation: function(obj) {
         let doc = obj.$set;
-        if (!doc) {
-            throw new Meteor.Error("Education edit data not found");
+        if (!doc || !doc.id) {
+            throw new Meteor.Error("Education edit data or id not found");
         }
         check(doc, Schemas.Education);
         if (!Meteor.userId()) {

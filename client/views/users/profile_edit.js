@@ -11,7 +11,8 @@ Template.userProfileEdit.helpers({
     summaryOver: function() { return Template.instance().summaryCount.get() > 2500;},
     callingCount: function() {return Template.instance().callingCount.get()},
     callingOver: function() { return Template.instance().callingCount.get() > 140;},
-    isEducationEdit: (id) => Session.get("editEducation") === id
+    isEducationEdit: (id) => Session.get("editEducation") === id,
+    randId: () => Random.Id()
 });
 
 Template.userProfileEdit.events({
