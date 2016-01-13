@@ -5,9 +5,56 @@
                 <img src="{{avatarUrl}}" class="img-responsive">
 
             </div>
-            <div class="summary">
-                <div class="name card {{#if isOwner}}button-padding{{/if}}">{{fullName}}</div>
-                <div class="short card">{{profile.summary}}</div>
+            <div class="short card">
+                <div class="name {{#if isOwner}}button-padding{{/if}}">{{fullName}}</div>
+                <div class="calling">{{profile.calling}}</div>
+                <div class="links">
+                    {{#if profile.links.website}}
+                        <a href="{{profile.links.website}}">
+                            <span class="fa-stack">
+                                <i class="fa fa-square fa-stack-2x"></i>
+                                <i class="fa fa-user fa-inverse fa-stack-1x"></i>
+                            </span>
+                        </a>
+
+                    {{/if}}
+                    {{#if profile.links.linkedin}}
+                        <a href="{{profile.links.linkedin}}">
+                            <span class="fa-stack">
+                                <i class="fa fa-linkedin-square fa-2x"></i>
+                            </span>
+                        </a>
+                    {{/if}}
+                    {{#if profile.links.facebook}}
+                        <a href="{{profile.links.facebook}}">
+                            <span class="fa-stack">
+                                <i class="fa fa-facebook-square fa-2x"></i>
+                            </span>
+                        </a>
+
+                    {{/if}}
+                    {{#if profile.links.twitter}}
+                        <a href="{{profile.links.twitter}}">
+                            <span class="fa-stack">
+                                <i class="fa fa-twitter-square fa-2x"></i>
+                            </span>
+                        </a>
+                    {{/if}}
+                    {{#if profile.links.github}}
+                        <a href="{{profile.links.github}}">
+                            <span class="fa-stack">
+                                <i class="fa fa-github-square fa-2x"></i>
+                            </span>
+                        </a>
+                    {{/if}}
+                    {{#if profile.links.gplus}}
+                        <a href="{{profile.links.gplus}}">
+                            <span class="fa-stack">
+                                <i class="fa fa-google-plus-square fa-2x"></i>
+                            </span>
+                        </a>
+                    {{/if}}
+                </div>
             </div>
             {{#if isOwner}}
                 <button class="btn btn-default" id="btnEdit">
@@ -16,6 +63,9 @@
                 </button>
             {{/if}}
         </div>
+        {{#if profile.summary}}
+            <div class="summary card">{{profile.summary}}</div>
+        {{/if}}
         {{#if profile.education}}
             <div class="education card">
                 <h2>Education</h2>

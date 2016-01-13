@@ -4,12 +4,20 @@ Meteor.methods({
         if (!Meteor.userId()) {
             throw new Meteor.Error("not-authorized");
         }
+        let links = doc.links || {};
         Meteor.users.update(Meteor.userId(), {
             $set: {
                 "profile.photoId": doc.photoId,
                 "profile.firstName": doc.firstName,
-                //"profile.lastName": doc.lastName,
-                "profile.summary": doc.summary
+                "profile.lastName": doc.lastName,
+                "profile.calling": doc.calling,
+                "profile.summary": doc.summary,
+                "profile.links.website": links.website,
+                "profile.links.linkedin": links.linkedin,
+                "profile.links.twitter": links.twitter,
+                "profile.links.facebook": links.facebook,
+                "profile.links.github": links.github,
+                "profile.links.gplus": links.gplus
             }
         });
     },

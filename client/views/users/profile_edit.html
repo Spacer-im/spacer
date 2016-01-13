@@ -2,29 +2,51 @@
     <div class="col-md-8">
 
         <div class="profile-edit user-profile">
-            {{#autoForm schema=profileSchema id="profileForm" doc=this type="method" meteormethod="saveProfile"}}
-                <h1>Edit Profile</h1>
-                <button class="btn btn-primary" type="submit">Save changes</button>
-                <a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>
+            <div class="card">
+                {{#autoForm schema=profileSchema id="profileForm" doc=profile type="method" meteormethod="saveProfile"}}
+                    <h1>Edit Profile</h1>
+                    <!--<button class="btn btn-primary" type="submit">Save changes</button>-->
 
-                <div class="photo card">
-                    {{> afQuickField name="photoId"
-                    previewTemplate='photoImagePreview'
-                    selectFileBtnTemplate='selectFileBtn'
-                    removeFileBtnTemplate='removeFileBtn'
-                    prevUrl=avatarUrl}}
+                    <!--<a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>-->
 
-                </div>
-                <div class="summary card">
-                    {{> afQuickField name="firstName" value=profile.firstName}}
-                    {{> afQuickField name="lastName" value=profile.lastName}}
-                    {{> afQuickField id="fSummary" name="summary" value=profile.summary}}
-                    <div class="shadow-text {{#if summaryOver}}text-error{{/if}}">{{summaryCount}}/2500</div>
-                </div>
+                    <div class="about panel panel-default">
+                        <div class="panel-heading">
+                            About
+                        </div>
+                        <div class="panel-body">
+                            {{> afQuickField name="photoId"
+                            previewTemplate='photoImagePreview'
+                            selectFileBtnTemplate='selectFileBtn'
+                            removeFileBtnTemplate='removeFileBtn'
+                            prevUrl=avatarUrl}}
 
-                <button class="btn btn-primary" type="submit">Save changes</button>
-                <a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>
-            {{/autoForm}}
+                            {{> afQuickField name="firstName"}}
+                            {{> afQuickField name="lastName"}}
+                            <div class="form-group">
+                                <label for="fCalling" class="control-label">Calling</label>
+                                <span class="shadow-text {{#if callingOver}}text-error{{/if}}">{{callingCount}}
+                                    /140</span>
+                                {{> afFieldInput id="fCalling" name="calling"}}
+                                <span class="help-block"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="fSummary" class="control-label">Summary</label>
+                                <span class="shadow-text {{#if summaryOver}}text-error{{/if}}">
+                                    {{summaryCount}}/2500</span>
+                                {{> afFieldInput id="fSummary" name="summary" value=profile.summary}}
+                                <span class="help-block"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                    {{> afQuickField name="links"}}
+
+
+                    <button class="btn btn-primary" type="submit">Save changes</button>
+                    <a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>
+
+                {{/autoForm}}
+            </div>
             <div class="education card">
                 <h2>Education</h2>
                 {{#each profile.education}}

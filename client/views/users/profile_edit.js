@@ -1,5 +1,6 @@
 Template.userProfileEdit.onCreated(function () {
     this.summaryCount = ReactiveVar(this.data.profile.summary ? this.data.profile.summary.length : 0);
+    this.callingCount = ReactiveVar(this.data.profile.calling ? this.data.profile.calling.length : 0);
     Session.set("editEducation", null);
 });
 
@@ -8,6 +9,8 @@ Template.userProfileEdit.helpers({
     educationSchema: Schemas.Education,
     summaryCount: function() {return Template.instance().summaryCount.get()},
     summaryOver: function() { return Template.instance().summaryCount.get() > 2500;},
+    callingCount: function() {return Template.instance().callingCount.get()},
+    callingOver: function() { return Template.instance().callingCountCount.get() > 140;},
     isEducationEdit: (id) => Session.get("editEducation") === id
 });
 
@@ -31,7 +34,12 @@ Template.userProfileEdit.events({
     "keyup #fSummary": function(event) {
         let text = event.target.value;
         Template.instance().summaryCount.set(text.length);
+    },
+    "keyup #fCalling": function(event) {
+        let text = event.target.value;
+        Template.instance().callingCount.set(text.length);
     }
+
 });
 
 

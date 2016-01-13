@@ -22,7 +22,7 @@
 
     #btnEdit {
       position: absolute;
-      top: 20px;
+      top: 21px;
       right: 0;
     }
   }
@@ -37,13 +37,18 @@
       max-height: 100%;
     }
   }
-  .summary {
+  .short {
     flex-grow: 1;
     min-width: 300px;
     .name {
-      font-size: 130%;
+      font-size: 30px;
       font-weight: bold;
-      line-height: 30px;
+      line-height: 34px;
+      padding-bottom: 5px;
+    }
+    .calling {
+      min-height: 30px;
+      color: $color-grey-3;
     }
     .button-padding {
       padding-right: 140px;
@@ -51,11 +56,22 @@
         padding-right: 0;
       }
     }
-    .short {
-      min-height: 100px;
-      white-space: pre-wrap;
+
+  }
+  .summary {
+    white-space: pre-wrap;
+  }
+  .links {
+    a {
+      text-decoration: none;
+      color: $color-grey-1;
+      font-size: 20px;
+      &:hover, &:active {
+        color: $color-grey-2;
+      }
     }
   }
+
   .education {
     .school {
       .name {
@@ -72,6 +88,10 @@
     div:last-child {
       margin-bottom: 0;
     }
+  }
+
+  .about {
+    margin-top: 20px;
   }
 
 }
