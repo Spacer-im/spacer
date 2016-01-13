@@ -18,7 +18,8 @@
                 <div class="summary card">
                     {{> afQuickField name="firstName" value=profile.firstName}}
                     {{> afQuickField name="lastName" value=profile.lastName}}
-                    {{> afQuickField name="summary" value=profile.summary}}
+                    {{> afQuickField id="fSummary" name="summary" value=profile.summary}}
+                    <div class="shadow-text {{#if summaryOver}}text-error{{/if}}">{{summaryCount}}/2500</div>
                 </div>
 
                 <button class="btn btn-primary" type="submit">Save changes</button>
