@@ -1,3 +1,9 @@
+function checkIsUser() {
+    if (!Meteor.userId()) {
+        throw new Meteor.Error("not-authorized");
+    }
+}
+
 Meteor.methods({
     saveProfile: function (doc) {
         check(doc, Schemas.UserProfile);
@@ -22,9 +28,7 @@ Meteor.methods({
         });
     },
     addEducation: function(doc) {
-        if (!Meteor.userId()) {
-            throw new Meteor.Error("not-authorized");
-        }
+        checkIsUser();
         doc.id = Random.id();
         check(doc, Schemas.Education);
         Meteor.users.update(Meteor.userId(), {
@@ -39,9 +43,7 @@ Meteor.methods({
             throw new Meteor.Error("Education edit data or id not found");
         }
         check(doc, Schemas.Education);
-        if (!Meteor.userId()) {
-            throw new Meteor.Error("not-authorized");
-        }
+        checkIsUser();
         Meteor.users.update({"_id": Meteor.userId(), "profile.education.id": doc.id}, {
             $set: {
                 "profile.education.$.id": doc.id,
@@ -53,12 +55,46 @@ Meteor.methods({
     },
 
     removeEducation: function(id) {
-        if (!Meteor.userId()) {
-            throw new Meteor.Error("not-authorized");
-        }
+        checkIsUser();
         Meteor.users.update(Meteor.userId(), {
             $pull: {
                 "profile.education": {"id": id}
+            }
+        })
+    },
+    addExperience: function(doc) {
+        checkIsUser();
+        doc.id = Random.id();
+        check(doc, Schemas.Experience);
+        Meteor.users.update(Meteor.userId(), {
+            $push: {
+                "profile.experience": doc
+            }
+        })
+    },
+    editExperience: function(obj) {
+        let doc = obj.$set;
+        if (!doc || !doc.id) {
+            throw new Meteor.Error("Experience edit data or id not found");
+        }
+        check(doc, Schemas.Experience);
+        checkIsUser();
+        Meteor.users.update({"_id": Meteor.userId(), "profile.experience.id": doc.id}, {
+            $set: {
+                "profile.experience.$.id": doc.id,
+                "profile.experience.$.company": doc.company,
+                "profile.experience.$.title": doc.title,
+                "profile.experience.$.dates": doc.dates,
+                "profile.experience.$.description": doc.description
+            }
+        })
+    },
+
+    removeExperience: function(id) {
+        checkIsUser();
+        Meteor.users.update(Meteor.userId(), {
+            $pull: {
+                "profile.experience": {"id": id}
             }
         })
     },

@@ -49,7 +49,20 @@
             </div>
 
             <!--Experience -->
-
+            <div class="experience card">
+                {{>editList
+                editTitle="Experience"
+                list=profile.experience
+                itemTemplate="experienceItem"
+                listName="Experience"
+                removeMethod="removeExperience"
+                addMethod="addExperience"
+                editMethod="editExperience"
+                schema=experienceSchema
+                addFormId="addExperience"
+                editFormId="editExperience"
+                }}
+            </div>
             <!--Education part-->
             <div class="education card">
                 {{>editList
@@ -60,7 +73,10 @@
                     itemTemplate="educationItem"
                     listName="Education"
                     removeMethod="removeEducation"
+                    addMethod="addEducation"
+                    editMethod="editEducation"
                     schema=educationSchema
+                    addFormId="addEducation"
                     editFormId="editEducation"
                 }}
             </div>

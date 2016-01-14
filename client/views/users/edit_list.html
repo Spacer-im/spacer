@@ -5,7 +5,15 @@
             {{#if isItemEdit id}}
                 <div class="panel-heading">Edit</div>
                 <div class="panel-body">
-                    {{> UI.dynamic template=../itemTemplateEdit data=this}}
+                    {{#autoForm doc=this schema=../schema
+                    type="method-update" id=../editFormId meteormethod=../editMethod}}
+                        {{> afQuickFields}}
+
+                        <div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-default b-cancel">Cancel</button>
+                        </div>
+                    {{/autoForm}}
                 </div>
             {{else}}
                 <div class="panel-body">
@@ -22,7 +30,8 @@
     <div class="panel panel-default">
         <div class="panel-heading">Add</div>
         <div class="panel-body">
-            {{> UI.dynamic template=itemTemplateAdd}}
+            {{> quickForm schema=schema buttonContent="Save"
+            type="method" id=addFormId meteormethod=addMethod}}
         </div>
     </div>
 </template>

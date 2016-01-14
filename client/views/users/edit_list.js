@@ -3,10 +3,9 @@ Template.editList.onCreated(function () {
     this.itemEditName = itemEditName;
     AutoForm.addHooks([this.data.editFormId], {
         onSuccess: function (formType, result) {
-            console.log(itemEditName);
             Session.set(itemEditName, null);
         }
-    });
+    }, true);
 });
 
 Template.editList.helpers({

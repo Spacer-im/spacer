@@ -74,11 +74,23 @@
   }
 
   .education {
-    .school {
-      .name {
+    .name {
         font-weight: bold;
         font-size: 110%;
-      }
+    }
+  }
+
+  .experience {
+    .company {
+      font-weight: bold;
+      font-size: 110%;
+    }
+    .dates {
+      font-size: 90%;
+      color: $color-grey-0;
+    }
+    .description {
+      white-space: pre-wrap;
     }
   }
 

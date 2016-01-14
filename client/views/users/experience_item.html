@@ -1,0 +1,13 @@
+<template name="experienceItem">
+    <div class="company">
+        {{company}} · {{title}}
+    </div>
+    {{#if dates}}
+        <div class="dates">{{dates}}</div>
+    {{/if}}
+
+    {{#if description}}
+        <div class="description">{{description}}</div>
+    {{/if}}
+
+</template>
