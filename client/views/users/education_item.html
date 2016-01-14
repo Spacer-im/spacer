@@ -1,0 +1,26 @@
+<template name="educationItem">
+    <div class="name">
+        {{schoolName}}
+        {{#if gradeYear}} · {{gradeYear}}{{/if}}
+    </div>
+    {{#if fieldOfStudy}}
+        <div class="field">{{fieldOfStudy}}</div>
+    {{/if}}
+</template>
+
+<template name="educationItemAdd">
+    {{> quickForm schema=educationSchema buttonContent="Save"
+    type="method" id="addEducation" meteormethod="addEducation"}}
+</template>
+
+<template name="educationItemEdit">
+    {{#autoForm doc=this schema=educationSchema
+    type="method-update" id="editEducation" meteormethod="editEducation"}}
+        {{> afQuickFields}}
+
+        <div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-default b-cancel">Cancel</button>
+        </div>
+    {{/autoForm}}
+</template>

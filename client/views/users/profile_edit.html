@@ -47,47 +47,22 @@
 
                 {{/autoForm}}
             </div>
-            <div class="education card">
-                <h2>Education</h2>
-                {{#each profile.education}}
-                    <div class="school panel panel-default">
-                        {{#if isEducationEdit id}}
-                            <div class="panel-heading">Edit education</div>
-                            <div class="panel-body">
-                                {{#autoForm doc=this schema=educationSchema
-                                type="method-update" id="editEducation" meteormethod="editEducation"}}
-                                    {{> afQuickFields}}
-                                    <div>
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                        <button type="button" class="btn btn-default b-education-cancel">Cancel</button>
-                                    </div>
-                                {{/autoForm}}
-                            </div>
-                        {{else}}
-                            <div class="panel-body">
-                                <div class="name">
-                                    {{schoolName}}
-                                    {{#if gradeYear}} · {{gradeYear}}{{/if}}
-                                </div>
-                                {{#if fieldOfStudy}}
-                                    <div class="field">{{fieldOfStudy}}</div>
-                                {{/if}}
-                                <div>
-                                    <button class="btn btn-primary b-education-edit" data-id="{{id}}">Edit</button>
-                                    <button class="btn btn-danger b-education-remove" data-id="{{id}}">Remove</button>
-                                </div>
-                            </div>
-                        {{/if}}
 
-                    </div>
-                {{/each}}
-                <div class="panel panel-default">
-                    <div class="panel-heading">Add education</div>
-                    <div class="panel-body">
-                        {{> quickForm schema=educationSchema buttonContent="Save"
-                        type="method" id="addEducation" meteormethod="addEducation"}}
-                    </div>
-                </div>
+            <!--Experience -->
+
+            <!--Education part-->
+            <div class="education card">
+                {{>editList
+                    editTitle="Education"
+                    list=profile.education
+                    itemTemplateEdit="educationItemEdit"
+                    itemTemplateAdd="educationItemAdd"
+                    itemTemplate="educationItem"
+                    listName="Education"
+                    removeMethod="removeEducation"
+                    schema=educationSchema
+                    editFormId="editEducation"
+                }}
             </div>
         </div>
 

@@ -1,0 +1,28 @@
+<template name="editList">
+    <h2>{{editTitle}}</h2>
+    {{#each list}}
+        <div class="{{listName}} panel panel-default">
+            {{#if isItemEdit id}}
+                <div class="panel-heading">Edit</div>
+                <div class="panel-body">
+                    {{> UI.dynamic template=../itemTemplateEdit data=this}}
+                </div>
+            {{else}}
+                <div class="panel-body">
+                    {{> UI.dynamic template=../itemTemplate}}
+                    <div>
+                        <button class="btn btn-primary b-edit" data-list="{{listName}}" data-id="{{id}}">Edit</button>
+                        <button class="btn btn-danger b-remove" data-list="{{listName}}" data-id="{{id}}">Remove</button>
+                    </div>
+                </div>
+            {{/if}}
+
+        </div>
+    {{/each}}
+    <div class="panel panel-default">
+        <div class="panel-heading">Add</div>
+        <div class="panel-body">
+            {{> UI.dynamic template=itemTemplateAdd}}
+        </div>
+    </div>
+</template>
