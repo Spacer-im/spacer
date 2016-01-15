@@ -1,5 +1,14 @@
 <template name="userProfile">
     <div class="col-md-10 col-lg-8 col-offset-lg-1 user-profile">
+        {{#if isOwner}}
+            <div class="clearfix-after">
+            <a class="btn btn-default" id="btnEdit" href="/profile-edit">
+                <i class="fa fa-pencil-square-o"></i>
+                <!--<span class="hide-narrow">&nbsp;Edit Profile</span>-->
+                Edit Profile
+            </a>
+            </div>
+        {{/if}}
         <div class="head-block clearfix-after">
             <div class="avatar edit-block">
                 <img src="{{avatarUrl}}" class="img-responsive">
@@ -56,16 +65,25 @@
                     {{/if}}
                 </div>
             </div>
-            {{#if isOwner}}
-                <button class="btn btn-default" id="btnEdit">
-                    <i class="fa fa-pencil-square-o"></i>
-                    <span class="hide-narrow">&nbsp;Edit Profile</span>
-                </button>
-            {{/if}}
+
         </div>
         {{#if profile.summary}}
             <div class="summary card">{{profile.summary}}</div>
         {{/if}}
+        {{#if profile.projects}}
+            <div class="projects card">
+                <h2>Projects</h2>
+                {{#each profile.projects}}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {{>projectItem this}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        {{/if}}
+
+
         {{#if profile.experience}}
             <div class="experience card">
                 <h2>Experience</h2>

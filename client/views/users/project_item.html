@@ -1,0 +1,18 @@
+<template name="projectItem">
+    <div class="project">
+        <div class="project-image">
+            {{#if projectImage onlySmall}}
+                <img src="{{projectImage.url}}" class="img-responsive">
+            {{else}}
+                <a href="{{projectImage.url store="personalProjectImagesFull"}}">
+                    <img src="{{projectImage.url}}" class="img-responsive">
+                </a>
+            {{/if}}
+        </div>
+        <div class="project-about">
+            <div class="name">{{name}}</div>
+            <div class="description">{{description}}</div>
+        </div>
+    </div>
+
+</template>

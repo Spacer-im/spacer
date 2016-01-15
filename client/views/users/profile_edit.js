@@ -45,3 +45,4 @@ AutoForm.addHooks(["profileForm"], {
 Template.registerHelper("profileSchema", () => Schemas.UserProfile);
 Template.registerHelper("educationSchema", () => Schemas.Education);
 Template.registerHelper("experienceSchema", () => Schemas.Experience);
+Template.registerHelper("personalProjectSchema", () => Schemas.PersonalProject);

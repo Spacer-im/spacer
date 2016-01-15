@@ -46,10 +46,28 @@
                 {{/autoForm}}
             </div>
 
+            <!--Projects -->
+            <div class="projects card">
+                {{>editList
+                editTitle="Projects"
+                titleComment="max 5 projects"
+                list=profile.projects
+                itemTemplate="projectItem"
+                listName="Projects"
+                removeMethod="removePersonalProject"
+                addMethod="addPersonalProject"
+                editMethod="editPersonalProject"
+                schema=personalProjectSchema
+                addFormId="addProject"
+                editFormId="editProject"
+                }}
+            </div>
+
             <!--Experience -->
             <div class="experience card">
                 {{>editList
                 editTitle="Experience"
+                titleComment="max 5 positions"
                 list=profile.experience
                 itemTemplate="experienceItem"
                 listName="Experience"
@@ -65,6 +83,7 @@
             <div class="education card">
                 {{>editList
                     editTitle="Education"
+                    titleComment="max 5 positions"
                     list=profile.education
                     itemTemplateEdit="educationItemEdit"
                     itemTemplateAdd="educationItemAdd"
@@ -85,13 +104,13 @@
 
 
 <template name="photoImagePreview">
-    <div class="avatar-preview">
+    <div class="avatar">
         <img src="{{file.url}}">
     </div>
 </template>
 
 <template name="selectFileBtn">
-    <div class="avatar-preview">
+    <div class="avatar">
         <img src="{{url}}">
     </div>
     <button type="button" class="btn btn-default af-select-file js-af-select-file">

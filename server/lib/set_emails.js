@@ -8,4 +8,4 @@ SetEmails = {
                 encodeURIComponent(noreplyEmail.server) + ':' + noreplyEmail.port;
         }
     }
-}
+};

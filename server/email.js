@@ -2,7 +2,6 @@ Meteor.startup(function () {
     if (!process.env.MAIL_URL) {
         SetEmails.noreply();
     }
-
     Accounts.emailTemplates.from = 'Spacer mailbot <noreply@spacer.im>';
     Accounts.emailTemplates.siteName = 'spacer.im';
     Accounts.emailTemplates.verifyEmail.subject = function (user) {

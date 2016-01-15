@@ -67,3 +67,5 @@ Meteor.publish(null, () => Meteor.roles.find({}));
 Meteor.publish(null, () => Thumbs.find({}));
 
 Meteor.publish(null, () => Avatars.find({}));
+
+Meteor.publish(null, () => ProjectImages.find({}));

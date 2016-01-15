@@ -1,5 +1,8 @@
 <template name="editList">
     <h2>{{editTitle}}</h2>
+    {{#if titleComment}}
+        <div class="shadow-text under-h">{{titleComment}}</div>
+    {{/if}}
     {{#each list}}
         <div class="{{listName}} panel panel-default">
             {{#if isItemEdit id}}
@@ -20,7 +23,8 @@
                     {{> UI.dynamic template=../itemTemplate}}
                     <div>
                         <button class="btn btn-primary b-edit" data-list="{{listName}}" data-id="{{id}}">Edit</button>
-                        <button class="btn btn-danger b-remove" data-list="{{listName}}" data-id="{{id}}">Remove</button>
+                        <button class="btn btn-danger b-remove" data-list="{{listName}}" data-id="{{id}}">Remove
+                        </button>
                     </div>
                 </div>
             {{/if}}

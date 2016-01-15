@@ -36,6 +36,19 @@ Avatars.allow({
     download: () => true
 });
 
+ProjectImages.allow({
+    insert: function(userId, doc) {
+        return allowAdmin(userId) || (userId && doc.owner === userId && Avatars.find({owner: userId}).count() <= 10);
+    },
+    update: function(userId, doc) {
+        return allowAdmin() || (userId && doc.owner === userId);
+    },
+    remove: function(userId, doc) {
+        return allowAdmin(userId) || (userId && doc.owner === userId);
+    },
+    download: () => true
+});
+
 Meteor.users.deny({
     update: function() {
         return true;

@@ -8,22 +8,36 @@
   h1, h2, h3 {
     margin-top: 0;
   }
+  .under-h {
+    margin-top: -10px;
+  }
 }
 
 .user-profile {
-
+  #btnEdit {
+    //position: absolute;
+    //top: 21px;
+    //right: 0;
+    display: block;
+    margin-top: 20px;
+    margin-left: 10px;
+    bottom: 10px;
+    float: left;
+    width: 150px;
+  }
   .head-block {
-    margin-top: 30px;
     position: relative;
     display: flex;
-    @media screen and (max-width: $break-xs-narrow) {
-      flex-wrap: wrap;
-    }
+    flex-wrap: wrap;
+    //@media screen and (max-width: $break-xs-narrow) {
+    //  flex-wrap: wrap;
+    //}
 
     #btnEdit {
-      position: absolute;
-      top: 21px;
-      right: 0;
+      //position: absolute;
+      //top: 21px;
+      //right: 0;
+      margin: 10px 0;
     }
   }
   .avatar {
@@ -41,6 +55,8 @@
   .short {
     flex-grow: 1;
     min-height: 150px;
+    //min-width: 260px;
+    flex-basis: 60%;
     .name {
       font-size: 30px;
       font-weight: bold;
@@ -94,6 +110,38 @@
     }
   }
 
+  .project {
+    display: flex;
+    flex-wrap: wrap;
+    div {
+      margin-bottom: 0;
+    }
+    .project-about {
+      flex-grow: 1;
+      flex-basis: 70%;
+      .name {
+        font-weight: bold;
+        font-size: 110%;
+      }
+      .description {
+        white-space: pre-wrap;
+      }
+    }
+
+    .project-image {
+      width: 150px;
+      min-width: 150px;
+      max-height: 150px;
+      margin-right: 10px;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+  }
+  .panel:last-of-type {
+    margin-bottom: 0;
+  }
   .panel-body {
     div {
       margin-bottom: 10px;
@@ -112,8 +160,8 @@
 
 .profile-edit {
   .avatar-preview {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     padding: 10px;
     text-align: center;
     img {

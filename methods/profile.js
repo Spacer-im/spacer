@@ -27,7 +27,7 @@ Meteor.methods({
             }
         });
     },
-    addEducation: function(doc) {
+    addEducation: function (doc) {
         checkIsUser();
         doc.id = Random.id();
         check(doc, Schemas.Education);
@@ -37,7 +37,7 @@ Meteor.methods({
             }
         })
     },
-    editEducation: function(obj) {
+    editEducation: function (obj) {
         let doc = obj.$set;
         if (!doc || !doc.id) {
             throw new Meteor.Error("Education edit data or id not found");
@@ -54,7 +54,7 @@ Meteor.methods({
         })
     },
 
-    removeEducation: function(id) {
+    removeEducation: function (id) {
         checkIsUser();
         Meteor.users.update(Meteor.userId(), {
             $pull: {
@@ -62,7 +62,7 @@ Meteor.methods({
             }
         })
     },
-    addExperience: function(doc) {
+    addExperience: function (doc) {
         checkIsUser();
         doc.id = Random.id();
         check(doc, Schemas.Experience);
@@ -72,7 +72,7 @@ Meteor.methods({
             }
         })
     },
-    editExperience: function(obj) {
+    editExperience: function (obj) {
         let doc = obj.$set;
         if (!doc || !doc.id) {
             throw new Meteor.Error("Experience edit data or id not found");
@@ -90,7 +90,7 @@ Meteor.methods({
         })
     },
 
-    removeExperience: function(id) {
+    removeExperience: function (id) {
         checkIsUser();
         Meteor.users.update(Meteor.userId(), {
             $pull: {
@@ -98,7 +98,41 @@ Meteor.methods({
             }
         })
     },
+    addPersonalProject: function (doc) {
+        checkIsUser();
+        doc.id = Random.id();
+        check(doc, Schemas.PersonalProject);
+        Meteor.users.update(Meteor.userId(), {
+            $push: {
+                "profile.projects": doc
+            }
+        })
+    },
+    editPersonalProject: function (obj) {
+        let doc = obj.$set;
+        if (!doc || !doc.id) {
+            throw new Meteor.Error("Projects edit data or id not found");
+        }
+        check(doc, Schemas.PersonalProject);
+        checkIsUser();
+        Meteor.users.update({"_id": Meteor.userId(), "profile.projects.id": doc.id}, {
+            $set: {
+                "profile.projects.$.id": doc.id,
+                "profile.projects.$.name": doc.name || null,
+                "profile.projects.$.description": doc.description || null,
+                "profile.projects.$.imageId": doc.imageId || null
+            }
+        })
+    },
 
+    removePersonalProject: function (id) {
+        checkIsUser();
+        Meteor.users.update(Meteor.userId(), {
+            $pull: {
+                "profile.projects": {"id": id}
+            }
+        })
+    },
 
     clearTempAvatars: function (protectedId) {
         if (!Meteor.userId()) {
@@ -109,9 +143,35 @@ Meteor.methods({
             if (doc._id === actualAvatarId || doc._id === protectedId) {
                 return true;
             }
-            Avatars.remove(doc._id);
+            Avatars.remove(doc._id, function (err) {
+                if (err) {
+                    console.error(err);
+                }
+            });
         })
 
-    }
+    },
+
+    clearProjectImages: function (protectedId) {
+        if (!Meteor.userId()) {
+            return null;
+        }
+        let userProjects = Meteor.user().profile && Meteor.user().profile.projects || [];
+        let userImageIds = userProjects.map(function (el) {
+            return el.imageId;
+        }).filter((el) => !!el);
+        ProjectImages.find({owner: Meteor.userId()}).forEach(function (doc) {
+            if (userImageIds.indexOf(doc._id) !== -1 || doc._id === protectedId) {
+                return true;
+            }
+            ProjectImages.remove(doc._id, function (err) {
+                if (err) {
+                    console.error(err);
+                }
+            });
+        })
+
+    },
+
 });
 
