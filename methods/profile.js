@@ -13,17 +13,17 @@ Meteor.methods({
         let links = doc.links || {};
         Meteor.users.update(Meteor.userId(), {
             $set: {
-                "profile.photoId": doc.photoId,
-                "profile.firstName": doc.firstName,
-                "profile.lastName": doc.lastName,
-                "profile.calling": doc.calling,
-                "profile.summary": doc.summary,
-                "profile.links.website": links.website,
-                "profile.links.linkedin": links.linkedin,
-                "profile.links.twitter": links.twitter,
-                "profile.links.facebook": links.facebook,
-                "profile.links.github": links.github,
-                "profile.links.gplus": links.gplus
+                "profile.photoId": doc.photoId || null,
+                "profile.firstName": doc.firstName || null,
+                "profile.lastName": doc.lastName || null,
+                "profile.calling": doc.calling || null,
+                "profile.summary": doc.summary || null,
+                "profile.links.website": links.website || null,
+                "profile.links.linkedin": links.linkedin || null,
+                "profile.links.twitter": links.twitter || null,
+                "profile.links.facebook": links.facebook || null,
+                "profile.links.github": links.github || null,
+                "profile.links.gplus": links.gplus || null
             }
         });
     },
@@ -47,9 +47,9 @@ Meteor.methods({
         Meteor.users.update({"_id": Meteor.userId(), "profile.education.id": doc.id}, {
             $set: {
                 "profile.education.$.id": doc.id,
-                "profile.education.$.schoolName": doc.schoolName,
-                "profile.education.$.gradeYear": doc.gradeYear,
-                "profile.education.$.fieldOfStudy": doc.fieldOfStudy
+                "profile.education.$.schoolName": doc.schoolName || null,
+                "profile.education.$.gradeYear": doc.gradeYear || null,
+                "profile.education.$.fieldOfStudy": doc.fieldOfStudy || null
             }
         })
     },
@@ -82,10 +82,10 @@ Meteor.methods({
         Meteor.users.update({"_id": Meteor.userId(), "profile.experience.id": doc.id}, {
             $set: {
                 "profile.experience.$.id": doc.id,
-                "profile.experience.$.company": doc.company,
-                "profile.experience.$.title": doc.title,
-                "profile.experience.$.dates": doc.dates,
-                "profile.experience.$.description": doc.description
+                "profile.experience.$.company": doc.company || null,
+                "profile.experience.$.title": doc.title || null,
+                "profile.experience.$.dates": doc.dates || null,
+                "profile.experience.$.description": doc.description || null
             }
         })
     },
