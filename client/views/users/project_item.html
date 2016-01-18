@@ -1,12 +1,13 @@
 <template name="projectItem">
     <div class="project">
         <div class="project-image">
-            {{#if projectImage onlySmall}}
-                <img src="{{projectImage.url}}" class="img-responsive">
-            {{else}}
-                <a href="{{projectImage.url store="personalProjectImagesFull"}}">
+            {{#if imageId}}
+                <a href="{{projectImage.url store="personalProjectImagesFull"}}" target="_blank">
                     <img src="{{projectImage.url}}" class="img-responsive">
                 </a>
+            {{else}}
+                <img src="{{projectImage.url}}" class="img-responsive">
+
             {{/if}}
         </div>
         <div class="project-about">

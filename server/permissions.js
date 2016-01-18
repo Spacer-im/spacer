@@ -28,7 +28,7 @@ Avatars.allow({
         return allowAdmin(userId) || (userId && doc.owner === userId && Avatars.find({owner: userId}).count() <= 5);
     },
     update: function(userId, doc) {
-        return allowAdmin() || (userId && doc.owner === userId);
+        return allowAdmin(userId) || (userId && doc.owner === userId);
     },
     remove: function(userId, doc) {
         return allowAdmin(userId) || (userId && doc.owner === userId);
@@ -41,7 +41,7 @@ ProjectImages.allow({
         return allowAdmin(userId) || (userId && doc.owner === userId && Avatars.find({owner: userId}).count() <= 10);
     },
     update: function(userId, doc) {
-        return allowAdmin() || (userId && doc.owner === userId);
+        return allowAdmin(userId) || (userId && doc.owner === userId);
     },
     remove: function(userId, doc) {
         return allowAdmin(userId) || (userId && doc.owner === userId);

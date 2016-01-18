@@ -39,9 +39,10 @@
                     </div>
                     {{> afQuickField name="links"}}
 
-
-                    <button class="btn btn-primary" type="submit">Save changes</button>
-                    <a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>
+                    <div>
+                        <button class="btn btn-primary" type="submit">Save changes</button>
+                        <a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>
+                    </div>
 
                 {{/autoForm}}
             </div>
@@ -53,13 +54,13 @@
                 titleComment="max 5 projects"
                 list=profile.projects
                 itemTemplate="projectItem"
-                listName="Projects"
+                listName="PersonalProject"
                 removeMethod="removePersonalProject"
                 addMethod="addPersonalProject"
                 editMethod="editPersonalProject"
                 schema=personalProjectSchema
-                addFormId="addProject"
-                editFormId="editProject"
+                addFormId="addPersonalProject"
+                editFormId="editPersonalProject"
                 }}
             </div>
 
@@ -82,19 +83,19 @@
             <!--Education part-->
             <div class="education card">
                 {{>editList
-                    editTitle="Education"
-                    titleComment="max 5 positions"
-                    list=profile.education
-                    itemTemplateEdit="educationItemEdit"
-                    itemTemplateAdd="educationItemAdd"
-                    itemTemplate="educationItem"
-                    listName="Education"
-                    removeMethod="removeEducation"
-                    addMethod="addEducation"
-                    editMethod="editEducation"
-                    schema=educationSchema
-                    addFormId="addEducation"
-                    editFormId="editEducation"
+                editTitle="Education"
+                titleComment="max 5 positions"
+                list=profile.education
+                itemTemplateEdit="educationItemEdit"
+                itemTemplateAdd="educationItemAdd"
+                itemTemplate="educationItem"
+                listName="Education"
+                removeMethod="removeEducation"
+                addMethod="addEducation"
+                editMethod="editEducation"
+                schema=educationSchema
+                addFormId="addEducation"
+                editFormId="editEducation"
                 }}
             </div>
         </div>

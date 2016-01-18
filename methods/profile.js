@@ -29,13 +29,7 @@ Meteor.methods({
     },
     addEducation: function (doc) {
         checkIsUser();
-        doc.id = Random.id();
-        check(doc, Schemas.Education);
-        Meteor.users.update(Meteor.userId(), {
-            $push: {
-                "profile.education": doc
-            }
-        })
+        Meteor.users.update(Meteor.userId(), {$push: {"profile.education": doc}})
     },
     editEducation: function (obj) {
         let doc = obj.$set;
@@ -65,7 +59,6 @@ Meteor.methods({
     addExperience: function (doc) {
         checkIsUser();
         doc.id = Random.id();
-        check(doc, Schemas.Experience);
         Meteor.users.update(Meteor.userId(), {
             $push: {
                 "profile.experience": doc
@@ -100,8 +93,6 @@ Meteor.methods({
     },
     addPersonalProject: function (doc) {
         checkIsUser();
-        doc.id = Random.id();
-        check(doc, Schemas.PersonalProject);
         Meteor.users.update(Meteor.userId(), {
             $push: {
                 "profile.projects": doc
@@ -118,7 +109,7 @@ Meteor.methods({
         Meteor.users.update({"_id": Meteor.userId(), "profile.projects.id": doc.id}, {
             $set: {
                 "profile.projects.$.id": doc.id,
-                "profile.projects.$.name": doc.name || null,
+                "profile.projects.$.projectName": doc.projectName || null,
                 "profile.projects.$.description": doc.description || null,
                 "profile.projects.$.imageId": doc.imageId || null
             }
@@ -171,7 +162,7 @@ Meteor.methods({
             });
         })
 
-    },
+    }
 
 });
 
