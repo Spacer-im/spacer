@@ -49,3 +49,6 @@ matb33:collection-hooks
 random
 yogiben:autoform-file
 cfs:s3
+comerc:autoform-typeahead
+comerc:bs-typeahead
+udondan:bulk-collection-update

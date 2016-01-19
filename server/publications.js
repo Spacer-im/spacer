@@ -57,6 +57,9 @@ Meteor.publish("userProfile", function(username) {
     return Meteor.users.find({username: username}, {fields: {"_id": 1, "username": 1, profile: 1}});
 });
 
+Meteor.publish('countries', function () {
+   return Locations.find({});
+});
 
 
 

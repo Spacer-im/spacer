@@ -65,7 +65,10 @@
       padding-bottom: 5px;
     }
     .calling {
-      min-height: 30px;
+      min-height: 20px;
+      color: $color-grey-3;
+    }
+    .location {
       color: $color-grey-3;
     }
     .button-padding {

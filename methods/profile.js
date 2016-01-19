@@ -17,6 +17,7 @@ Meteor.methods({
                 "profile.firstName": doc.firstName || null,
                 "profile.lastName": doc.lastName || null,
                 "profile.calling": doc.calling || null,
+                "profile.location": doc.location || null,
                 "profile.summary": doc.summary || null,
                 "profile.links.website": links.website || null,
                 "profile.links.linkedin": links.linkedin || null,

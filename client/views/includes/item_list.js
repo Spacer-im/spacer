@@ -1,14 +1,3 @@
-//function subscribeItems(subscriptionName, increment) {
-//    increment = increment || 5;
-//    let limit = Session.get("itemLimit");
-//    limit += increment;
-//    Session.set("itemLimit", limit);
-//    Session.set("listReady", false);
-//    Meteor.subscribe(subscriptionName, limit, function () {
-//        Session.set("listReady", true);
-//    });
-//}
-
 Template.itemList.onCreated(function () {
     this.itemLimit = ReactiveVar(5);
     this.listReady = ReactiveVar(false);
