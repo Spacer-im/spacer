@@ -2,14 +2,14 @@
 @import "values";
 
 .company-list {
-  h1:first-of-type {
-    margin-bottom: 40px;
-  }
   ul {
     list-style-type: none;
     padding-left: 0;
     a:hover, a:active {
       text-decoration: none;
+    }
+    li:first-of-type {
+      margin-top: 40px;
     }
     li {
       display: block;
