@@ -1,6 +1,6 @@
 <template name="companyItem">
     <li>
-        <a href="/companies/{{_id}}">
+        <a href="/companies/{{slug}}">
             <div class="thumb">
                 <img class="img-responsive" src="{{imageURL}}">
             </div>
@@ -8,7 +8,7 @@
         <a class="job-button white-link-button" href="/companies/jobs/{{_id}}">View Jobs</a>
 
         <div class="clearfix-xs"></div>
-        <a href="/companies/{{_id}}">
+        <a href="/companies/{{slug}}">
             <div class="info">
                 <h3 class="name">{{name}}</h3>
 

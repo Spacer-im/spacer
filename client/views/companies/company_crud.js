@@ -1,10 +1,14 @@
 AutoForm.addHooks(["insertCompanyForm", "updateCompanyForm"], {
-    after: {
-        insert: function (doc) {
-            Router.go(this.insertDoc && this.insertDoc._id ? `/news/${this.insertDoc._id}` : "Home");
-        },
-        update: function (oldDoc, newDoc) {
-            Router.go(this.docId ? `/companies/${this.docId}` : "Home");
-        }
+    CompanySchema: () => Schemas.CompanyV2,
+    onSuccess: function(formType, result) {
+        Router.go("/companies/");
+    }
+});
+
+Template.insertCompanyForm.events({
+    'input #insertCompanyForm input[name="name"]': function (e) {
+        e.preventDefault();
+        let $slug = document.querySelector("#insertCompanyForm input[name='slug']");
+        $slug.value = URLify2(e.target.value);
     }
 });

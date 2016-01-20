@@ -41,8 +41,8 @@ Meteor.publish("companies", function(limit) {
 });
 
 
-Meteor.publish("company", function(id) {
-    return Companies.find({_id: id});
+Meteor.publish("company", function(slug) {
+    return Companies.find({slug: slug});
 });
 
 

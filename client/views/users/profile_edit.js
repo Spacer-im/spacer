@@ -7,7 +7,6 @@ Template.userProfileEdit.onCreated(function () {
 Template.userProfileEdit.helpers({
     countryOptions: function () {
         if (Template.instance().countrySubscription.ready()) {
-            console.log("country ready");
             return Locations.find({}).map((el) => {return {"label": el.country, "value": el.country}})
         }
         else {
