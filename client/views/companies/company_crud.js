@@ -1,5 +1,4 @@
 AutoForm.addHooks(["insertCompanyForm", "updateCompanyForm"], {
-    CompanySchema: () => Schemas.CompanyV2,
     onSuccess: function(formType, result) {
         Router.go("/companies/");
     }

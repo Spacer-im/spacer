@@ -1,13 +1,13 @@
 <template name="insertCompanyForm">
     <div class="container">
         <h1>Add a company</h1>
-        {{> quickForm collection="Companies" schema=CompanySchema id="insertCompanyForm" type="insert"}}
+        {{> quickForm collection="Companies" id="insertCompanyForm" type="insert"}}
     </div>
 </template>
 
 <template name="updateCompanyForm">
     <div class="container">
         <h1>Update the company</h1>
-        {{> quickForm collection="Companies" schema=CompanySchema doc=this id="updateCompanyForm" type="update"}}
+        {{> quickForm collection="Companies" doc=this id="updateCompanyForm" type="update"}}
     </div>
 </template>
