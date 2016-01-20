@@ -1,7 +1,6 @@
 
 
 Meteor.publish('news', function (limit) {
-    Meteor._sleepForMs(2000);
     let options = {fields: {"text": false}, sort: {submitted: -1}};
     if (limit) {
         options.limit = limit;
