@@ -8,13 +8,8 @@ Template.insertNewsForm.events({
 });
 
 AutoForm.addHooks(["insertNewsForm", "updateNewsForm"], {
-    after: {
-        insert: function (doc) {
-            Router.go(this.insertDoc && this.insertDoc.slug ? `/news/${this.insertDoc.slug}` : "Home");
-        },
-        update: function (doc) {
-            Router.go(this.updateDoc && this.updateDoc.$set && this.updateDoc.$set.slug ?
-                `/news/${this.updateDoc.$set.slug}` : "Home");
-        }
+    onSuccess: function (doc) {
+        Router.go("home");
     }
+
 });

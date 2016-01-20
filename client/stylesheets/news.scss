@@ -1,28 +1,34 @@
 @import "colors";
 @import "values";
 
-.news-list li {
-  list-style-type: none;
-}
-
-.news-list li a {
-  display: block;
-  min-height: 50px;
-  font-size: 200%;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  background-color: $color-grey-1;
-  border: 2px solid $color-grey-2;
-  border-radius: 10px;
+.news-list {
+  li {
+    list-style-type: none;
+    a {
+      display: block;
+      min-height: 50px;
+      font-size: 200%;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      background-color: $color-grey-1;
+      border: 2px solid $color-grey-2;
+      border-radius: 10px;
+    }
+  }
 }
 
 .home-news {
-  @media screen and (min-width: $break-xs) {
-    border-right: 1px solid black;
+  .list-content {
+    @media screen and (min-width: $break-xs) {
+      border-right: 1px solid black;
+    }
   }
   ul {
     list-style-type: none;
     padding: 0;
+    li:not(:first-of-type) {
+      margin-top: 15px;
+    }
   }
   a {
     &:hover {
@@ -69,10 +75,7 @@
     }
   }
 
-
-
 }
-
 
 .news-article, #insertNewsForm {
   img {

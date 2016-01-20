@@ -75,7 +75,10 @@ a.grey-hover:-webkit-any-link {
 .more-container {
   text-align: center;
   position: relative;
-  min-height: 100px;
+  .spinner-container {
+    min-height: 100px;
+  }
+
 
   button {
     width: 200px;
