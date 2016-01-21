@@ -58,11 +58,13 @@
     min-height: 150px;
     //min-width: 260px;
     flex-basis: 60%;
+    div:not(:last-of-type) {
+      margin-bottom: 5px;
+    }
     .name {
       font-size: 30px;
       font-weight: bold;
       line-height: 34px;
-      padding-bottom: 5px;
     }
     .calling {
       min-height: 20px;
@@ -86,7 +88,7 @@
     a {
       text-decoration: none;
       color: $color-grey-1;
-      font-size: 20px;
+      font-size: 15px;
       &:hover, &:active {
         color: $color-grey-2;
       }

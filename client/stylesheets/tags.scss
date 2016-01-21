@@ -1,11 +1,9 @@
 @import "colors";
 
 .tags-list button.tag {
-  border: 0;
-  border-radius: 4px;
+  border: 2px solid $color-grey-0;
   min-width: 100px;
-  background-color: $color-grey-0;
-  color: white;
+  background-color: white;
   text-transform: uppercase;
   margin: 10px 5px;
   &:active, &:focus {
@@ -14,34 +12,34 @@
     outline: 0;
   }
   &:active {
-    background: $color-grey-2 none;
+    //background: $color-grey-2 none;
   }
 }
 
 .tags-list .tag.tag-company {
-  background-color: $color-blue-0;
+  border-color: $color-blue-0;
   &:active {
-    background-color: $color-blue-2;
+    //background-color: $color-blue-2;
   }
 }
 
 .tags-list .tag.tag-skill {
-  background-color: $color-green-0;
+  border-color: $color-green-0;
   &:active {
-    background-color: $color-green-2;
+    //background-color: $color-green-2;
   }
 }
 
 .tags-list .tag.tag-segment {
-  background-color: $color-orange-0;
+  border-color:: $color-orange-0;
   &:active {
-    background-color: $color-orange-2;
+    //background-color: $color-orange-2;
   }
 }
 
 .tags-list .tag.tag-specific {
-  background-color: $color-purple-0;
+  border-color: $color-purple-0;
   &:active {
-    background-color: $color-purple-2;
+    //background-color: $color-purple-2;
   }
 }

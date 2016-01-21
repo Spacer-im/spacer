@@ -76,11 +76,9 @@
     }
     .rating {
       position: absolute;
-      right: 15px;
+      right: 0;
       top: 5px;
-      @media screen and (max-width: $break-xs) {
-        right: 5px;
-      }
+
     }
   }
   .data-cell {
