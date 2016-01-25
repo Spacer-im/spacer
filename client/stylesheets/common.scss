@@ -125,3 +125,15 @@ a.grey-hover:-webkit-any-link {
 h1.lesser-h1 {
   font-size: 32px;
 }
+
+.flex-spacing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 0;
+  margin-left: -10px;
+  & > * {
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+}

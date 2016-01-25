@@ -160,6 +160,17 @@
   .about {
     margin-top: 20px;
   }
+  .profession-tag {
+    border: 2px solid $color-grey-0;
+    padding: 2px 5px;
+    span {
+      display: inline-block;
+    }
+    .remove-prof {
+      cursor: pointer;
+    }
+
+  }
 
 }
 
@@ -179,6 +190,8 @@
       display: none;
     }
   }
+
+
   //.js-af-select-file {
   //  position: absolute;
   //  bottom: 10px;

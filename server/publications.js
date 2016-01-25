@@ -12,12 +12,9 @@ Meteor.publish("news_by_slug", function(slug) {
     return News.find({slug: slug});
 });
 
-
 Meteor.publish("news_by_id", function(id) {
     return News.find(id);
 });
-
-
 
 Meteor.publish("tags", function() {
     return Tags.find({});
@@ -60,6 +57,11 @@ Meteor.publish("userProfile", function(username) {
 Meteor.publish('countries', function () {
    return Locations.find({});
 });
+
+Meteor.publish('professions', function () {
+   return Professions.find({});
+});
+
 
 
 

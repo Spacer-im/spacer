@@ -28,12 +28,37 @@
                                 {{> afFieldInput id="fCalling" name="calling"}}
                                 <span class="help-block"></span>
                             </div>
+
                             <div class="form-group">
                                 <label for="fSummary" class="control-label">Summary</label>
                                 <span class="shadow-text {{#if summaryOver}}text-error{{/if}}">
                                     {{summaryCount}}/2500</span>
                                 {{> afFieldInput id="fSummary" name="summary" value=profile.summary}}
                                 <span class="help-block"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="fProfessions" class="control-label">Roles </label>
+                                <span class="shadow-text">(5 max, each less 32 characters)</span>
+
+                                <div class="flex-spacing">
+                                    <input class="form-control typeahead" id="iProf"
+                                           name="team" type="text"
+                                           placeholder="Astronaut"
+                                           autocomplete="off" spellcheck="off"
+                                           data-source="profList" max="32"/>
+                                    <button id="addRole" class="btn btn-default">Add role</button>
+                                </div>
+                                <div class="flex-spacing">
+                                    {{#each workProfList}}
+                                        <div class="profession-tag">
+                                            <span class="name">{{this}}</span>
+                                            <span class="remove-prof" data-prof="{{this}}">
+                                                <i class="fa fa-times fa-lg"></i>
+                                            </span>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                                {{> afFieldInput name="professions" type="hidden" id="profOut"}}
                             </div>
 
                         </div>
