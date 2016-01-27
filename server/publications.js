@@ -1,10 +1,13 @@
 
 
-Meteor.publish('news', function (limit) {
+Meteor.smartPublish('news', function (limit) {
     let options = {fields: {"text": false}, sort: {submitted: -1}};
     if (limit) {
         options.limit = limit;
     }
+    this.addDependency("news", "imageId", function(doc) {
+        return NewsImages.find(doc.imageId);
+    });
     return News.find({}, options);
 });
 
