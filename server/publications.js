@@ -8,7 +8,10 @@ Meteor.publish('news', function (limit) {
     return News.find({}, options);
 });
 
-Meteor.publish("news_by_slug", function(slug) {
+Meteor.smartPublish("news_by_slug", function(slug) {
+    this.addDependency("news", "imageId", function(doc) {
+        return NewsImages.find(doc.imageId);
+    });
     return News.find({slug: slug});
 });
 
@@ -70,6 +73,8 @@ Meteor.publish(null, () => Phrases.find({}));
 Meteor.publish(null, () => Meteor.roles.find({}));
 
 Meteor.publish(null, () => Thumbs.find({}));
+
+//Meteor.publish(null, () => NewsImages.find({}));
 
 Meteor.publish(null, () => Avatars.find({}));
 

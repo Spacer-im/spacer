@@ -23,6 +23,16 @@ Thumbs.allow({
     download: () => true
 });
 
+
+NewsImages.allow({
+    insert: allowAdmin,
+    update: allowAdmin,
+    remove: allowAdmin,
+    download: () => true
+});
+
+
+
 Avatars.allow({
     insert: function(userId, doc) {
         return allowAdmin(userId) || (userId && doc.owner === userId && Avatars.find({owner: userId}).count() <= 5);
