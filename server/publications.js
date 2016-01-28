@@ -39,12 +39,18 @@ Meteor.publish("job", function(jobId) {
     return Jobs.find({_id: jobId});
 });
 
-Meteor.publish("companies", function(limit) {
+Meteor.smartPublish("companies", function(limit) {
+    this.addDependency("companies", "thumbId", function(doc) {
+        return Thumbs.find(doc.thumbId);
+    });
     return Companies.find({}, {fields: {"text": false}, limit: limit, sort: {name: 1}});
 });
 
 
-Meteor.publish("company", function(slug) {
+Meteor.smartPublish("company", function(slug) {
+    this.addDependency("companies", "thumbId", function(doc) {
+        return Thumbs.find(doc.thumbId);
+    });
     return Companies.find({slug: slug});
 });
 
@@ -56,7 +62,16 @@ Meteor.publish("featured_companies", function() {
 
 
 
-Meteor.publish("userProfile", function(username) {
+Meteor.smartPublish("userProfile", function(username) {
+    this.addDependency("users", "profile.photoId", function(doc) {
+        return Avatars.find(doc.profile.photoId);
+    });
+    
+    this.addDependency("users", "profile.projects", function(doc) {
+        const ids = doc.profile.projects.map((p) => p.imageId);
+        return ProjectImages.find({_id: {$in: ids}});
+    });
+    
     return Meteor.users.find({username: username}, {fields: {"_id": 1, "username": 1, profile: 1}});
 });
 
@@ -75,10 +90,6 @@ Meteor.publish(null, () => Phrases.find({}));
 
 Meteor.publish(null, () => Meteor.roles.find({}));
 
-Meteor.publish(null, () => Thumbs.find({}));
+//Meteor.publish(null, () => Avatars.find({}));
 
-//Meteor.publish(null, () => NewsImages.find({}));
-
-Meteor.publish(null, () => Avatars.find({}));
-
-Meteor.publish(null, () => ProjectImages.find({}));
+//Meteor.publish(null, () => ProjectImages.find({}));
