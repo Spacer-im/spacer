@@ -15,6 +15,13 @@ Companies.allow({
     remove: allowAdmin
 });
 
+Jobs.allow({
+    insert: allowAdmin,
+    update: allowAdmin,
+    remove: allowAdmin
+});
+
+
 
 Thumbs.allow({
     insert: allowAdmin,

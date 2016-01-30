@@ -190,7 +190,10 @@
       display: none;
     }
   }
-
+  .twitter-typeahead {
+    flex-grow: 1;
+    width: auto;
+  }
 
   //.js-af-select-file {
   //  position: absolute;

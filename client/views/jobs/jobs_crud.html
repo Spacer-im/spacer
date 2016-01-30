@@ -1,0 +1,9 @@
+<template name="insertJobForm">
+    <h1>Add a job</h1>
+    {{> quickForm collection="Jobs" id="insertJobForm" type="insert"}}
+</template>
+
+<template name="updateJobForm">
+    <h1>Update the Job</h1>
+    {{> quickForm collection="Jobs" doc=this id="updateJobForm" type="update"}}
+</template>

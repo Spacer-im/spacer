@@ -27,16 +27,28 @@ Meteor.publish("tags", function() {
 });
 
 
-Meteor.publish('jobs', function(limit) {
+Meteor.smartPublish('jobs', function(limit) {
     let options = {fields: {"description": false}, sort: {submitted: -1}};
     if (limit) {
         options.limit = limit;
     }
+    this.addDependency("jobs", "companyName", function(doc) {
+        return Companies.find({name: doc.companyName});
+    });
+    this.addDependency("companies", "thumbId", function(doc) {
+        return Thumbs.find(doc.thumbId);
+    });
     return Jobs.find({}, options);
 });
 
-Meteor.publish("job", function(jobId) {
-    return Jobs.find({_id: jobId});
+Meteor.smartPublish("job", function(slug) {
+    this.addDependency("jobs", "companyName", function(doc) {
+        return Companies.find({name: doc.companyName});
+    });
+    this.addDependency("companies", "thumbId", function(doc) {
+        return Thumbs.find(doc.thumbId);
+    });
+    return Jobs.find({slug: slug});
 });
 
 Meteor.smartPublish("companies", function(limit) {
@@ -44,6 +56,10 @@ Meteor.smartPublish("companies", function(limit) {
         return Thumbs.find(doc.thumbId);
     });
     return Companies.find({}, {fields: {"text": false}, limit: limit, sort: {name: 1}});
+});
+
+Meteor.publish("companyNames", function () {
+    return Companies.find({}, {fields: {name: 1}});
 });
 
 

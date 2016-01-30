@@ -1,9 +1,41 @@
 <template name="jobDescription">
-    <div class="col-md-8 col-xs-12">
-        <img class="job-image" src="{{logoURL}}">
-        <h1>{{title}}</h1>
-        <h3>{{location}}</h3>
-        {{#markdown}}{{description}}{{/markdown}}
-        {{> tagsList}}
+    <div class="col-md-10 col-xs-12 job-block">
+        <div class="job-item">
+
+            <div class="logo">
+                <a href="/companies/{{companySlug}}">
+                    <img class="img-responsive" src="{{companyLogoURL}}">
+                </a>
+            </div>
+
+            <div class="short">
+                <h4 class="title">{{title}}</h4>
+
+                <div>
+                    <a href="/companies/{{companySlug}}"><span class="company-name">{{companyName}}</span></a>
+                    <span class="location">{{location}}</span>
+                </div>
+            </div>
+            <div class="additional-info">
+                <div class="keywords">
+                    {{#each keywords}}
+                        <div>{{this}}</div>
+                    {{/each}}
+                </div>
+                <div class="job-type">{{jobType}}</div>
+
+            </div>
+        </div>
+        <div class="job-description">
+            {{#markdown}}{{description}}{{/markdown}}
+        </div>
+        <div class="apply-block">
+            <a class="btn btn-default btn-apply" href="{{applyLink}}">Apply</a>
+        </div>
+        {{#if isAdmin}}
+            <section class="admin-section">
+                <a class="btn btn-default" href="/jobs/update/{{slug}}">Edit</a>
+            </section>
+        {{/if}}
     </div>
 </template>
