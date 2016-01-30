@@ -1,8 +1,11 @@
 Template.itemList.onCreated(function () {
     this.itemLimit = ReactiveVar(5);
     this.listReady = ReactiveVar(false);
-    Meteor.subscribe(this.data.subscription, this.itemLimit.get(), () => {
-        this.listReady.set(true);
+    let self = this;
+    this.autorun(function () {
+        self.subscribe(self.data.subscription, self.itemLimit.get(), () => {
+            self.listReady.set(true);
+        })
     });
 });
 
@@ -24,8 +27,5 @@ Template.itemList.events({
         let limit = instance.itemLimit.get() + 5;
         instance.itemLimit.set(limit);
         instance.listReady.set(false);
-        Meteor.subscribe(instance.data.subscription, limit, () => {
-            instance.listReady.set(true);
-        });
     }
 });
