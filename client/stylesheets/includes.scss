@@ -220,3 +220,10 @@ body {
   }
 }
 
+.item-list {
+  list-style-type: none;
+  padding-left: 0;
+  li:first-of-type {
+    margin-top: 40px;
+  }
+}
