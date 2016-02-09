@@ -1,9 +1,22 @@
-<template name="jobs">
-    <div class="jobs-filter col-md-3">
+<template name="jobsCover">
+    {{#showcase}}
+        <div class="showcase-content container">
+            <p class="showcase-title">Jobs</p>
+        </div>
+    {{/showcase}}
+</template>
 
-    </div>
-    <div class="jobs-list col-md-9">
-        <h3>Jobs</h3>
+
+<template name="jobsSidebar">
+    <h5>Filter</h5>
+    <p>
+        Here will be some fiters. later.
+    </p>
+</template>
+
+
+<template name="jobsContent">
+    <div class="company-list">
         {{>itemList itemTemplate='jobItem' collection="jobs" subscription="jobs" moreWriting="More jobs" filter=filter}}
     </div>
 </template>

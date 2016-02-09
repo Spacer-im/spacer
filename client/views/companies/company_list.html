@@ -1,5 +1,8 @@
 <template name="companiesCover">
     {{#showcase}}
+        <div class="showcase-content container">
+            <p class="showcase-title">Space Industry Companies</p>
+        </div>
     {{/showcase}}
 </template>
 
@@ -12,10 +15,8 @@
 </template>
 
 
-
 <template name="companiesContent">
     <div class="company-list">
-        <h3>Space Industry Companies</h3>
         {{>itemList itemTemplate='companyItem' collection="companies" subscription="companies" moreWriting="More Companies"}}
     </div>
 </template>

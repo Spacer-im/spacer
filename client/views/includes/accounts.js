@@ -1,4 +1,3 @@
-
 Template.login.rendered = function()
 {
     Accounts._loginButtonsSession.set('dropdownVisible', true);
@@ -22,11 +21,7 @@ Template._loginButtonsLoggedInDropdown.events({
     'click #login-buttons-add-company': function(event) {
         Router.go('/company-add');
     },
-
     'click #login-buttons-add-job': function(event) {
         Router.go('/job-add');
     }
-
-
-
 });
