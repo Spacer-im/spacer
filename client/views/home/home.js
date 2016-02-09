@@ -1,4 +1,4 @@
-Template.home.onCreated(function () {
+Template.homeSidebar.onCreated(function () {
     Meteor.subscribe("jobs", 3, function () {
         Session.set("jobsHomeReady", true);
     });
@@ -8,7 +8,7 @@ Template.home.onCreated(function () {
 
 });
 
-Template.home.helpers({
+Template.homeSidebar.helpers({
     jobs: () => Jobs.find({}, {sort: {submitted: -1}}),
     fCompanies: () => FeaturedCompanies.find({}, {sort: {submitted: -1}}),
     jobsAreReady: () => Session.get("jobsHomeReady"),

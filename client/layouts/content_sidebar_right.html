@@ -1,0 +1,13 @@
+<template name="contentSidebarRight">
+    {{>header}}
+    {{> yield "cover"}}
+    <section class="container">
+        <section class="col-sm-9">
+            {{> yield "content"}}
+        </section>
+        <section class="col-sm-3">
+            {{> yield "sidebar"}}
+        </section>
+    </section>
+    {{>footer}}
+</template>

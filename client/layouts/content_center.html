@@ -1,0 +1,10 @@
+<template name="contentCenter">
+    {{>header}}
+    {{> yield "cover"}}
+    <section class="container">
+        <section class="col-sm-10 col-offset-1">
+            {{> yield "content"}}
+        </section>
+    </section>
+    {{>footer}}
+</template>

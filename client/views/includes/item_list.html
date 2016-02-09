@@ -3,7 +3,7 @@
         {{#if listTitle}}
             <h4>{{listTitle}}</h4>
         {{/if}}
-        <ul class="item-list">
+        <ul class="item-list {{#if listClass}}{{listClass}}{{/if}}">
             {{#each items}}
                 {{> UI.dynamic template=../itemTemplate}}
             {{/each}}

@@ -1,25 +1,6 @@
 <template name="showcase">
     <header class="page-header showcase">
-        <div class="container showcase-content">
-
-            <div class="row">
-                <div class="col-sm-8 show-phrases">
-                    <h1>Spacer</h1>
-
-                    <h4>{{phrase "keyPhrase"}}</h4>
-
-                    <div class="text">
-                        {{phrase "showcaseAbout"}}
-
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <a class="build-resume" href="{{#if currentUser}}/profile/{{else}}/login{{/if}}">
-                        Build your space resume
-                    </a>
-                </div>
-            </div>
-        </div>
+        {{> Template.contentBlock}}
         <div class="background-showcase">
             <div class="color-layer"></div>
             <div class="image-layer image-layer-low"></div>
