@@ -4,8 +4,11 @@
         <div class="background-showcase">
             <div class="color-layer"></div>
             <div class="image-layer image-layer-low"></div>
-            <div class="image-layer image-layer-normal"></div>
+            {{#if backgroundUrl}}
+                <div class="image-layer image-layer-normal" style='background-image: url("{{backgroundUrl}}")'></div>
+            {{else}}
+                <div class="image-layer image-layer-normal"></div>
+            {{/if}}
         </div>
-
     </header>
 </template>

@@ -1,15 +1,17 @@
-<template name="newsArticle">
-    <div class="container">
-        <div class="col-md-8 col-xs-12 news-article">
-            <h1>{{title}}</h1>
-            {{#markdown}}{{text}}{{/markdown}}
-            {{> tagsList}}
-            {{#if isAdmin}}
-                <section class="admin-section">
-                    <a class="btn btn-default" href="/news/update/{{_id}}">Edit</a>
-                </section>
-            {{/if}}
-        </div>
+<template name="newsCover">
+    {{#showcase backgroundUrl=this.coverURL}}
+    {{/showcase}}
+</template>
 
-    </div>
+<template name="newsContent">
+    <article class="news-article">
+        <h1>{{title}}</h1>
+        {{#markdown}}{{text}}{{/markdown}}
+        {{> tagsList}}
+        {{#if isAdmin}}
+            <section class="admin-section">
+                <a class="btn btn-default" href="/news/update/{{_id}}">Edit</a>
+            </section>
+        {{/if}}
+    </article>
 </template>
