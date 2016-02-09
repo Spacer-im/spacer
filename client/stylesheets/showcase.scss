@@ -1,0 +1,156 @@
+@import "values";
+@import "colors";
+
+.showcase {
+  position: relative;
+  color: white;
+  min-height: 200px;
+  width: 100%;
+  margin-top: 0;
+  .showcase-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 400%;
+  }
+  .show-phrases {
+
+    .text {
+      font-size: 0.8em;
+      margin-top: 20px;
+      max-width: 600px;
+    }
+  }
+  .showcase-content {
+    z-index: 40;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    .site-name {
+      font-family: $fontMonoton;
+      font-size: 60px;
+      flex-grow: 1;
+      text-align: right;
+    }
+    .title {
+      flex-grow: 1;
+    }
+    .category {
+      font-size: 40px;
+    }
+
+    @media screen and (max-width: $break-xs) {
+      .site-name {
+        text-align: center;
+        order: 1;
+      }
+      .title {
+        order: 2;
+        text-align: center;
+      }
+    }
+  }
+  .background-showcase {
+    div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+    .image-layer {
+      background-size: cover;
+      background-position: 0 70%;
+    }
+
+    // default
+    .image-layer-low {
+      background-image: url("/assets/skynight_low.jpg");
+      z-index: 20;
+    }
+    .image-layer-normal {
+      background-image: url("/assets/skynight.jpg");
+      z-index: 30;
+    }
+    .color-layer {
+      z-index: 1;
+      background-color: $color-space;
+    }
+
+     //home
+    &.home-cover {
+      .image-layer-low {
+        background-image: url("/assets/covers/blue_low.jpg");
+      }
+      .image-layer-normal {
+        background-image: url("/assets/covers/blue.jpg");
+      }
+      .color-layer {
+        background-color: $color-cover-blue;
+      }
+    }
+
+    //company
+    &.company-cover {
+      .image-layer-low {
+        background-image: url("/assets/covers/green_low.jpg");
+      }
+      .image-layer-normal {
+        background-image: url("/assets/covers/green.jpg");
+      }
+      .color-layer {
+        background-color: $color-cover-green;
+      }
+    }
+
+    //jobs
+    &.job-cover {
+      .image-layer-low {
+        background-image: url("/assets/covers/orange_low.jpg");
+      }
+      .image-layer-normal {
+        background-image: url("/assets/covers/orange.jpg");
+      }
+      .color-layer {
+        background-color: $color-cover-orange;
+      }
+    }
+
+
+
+  }
+
+  a.build-resume {
+    display: block;
+    border-radius: 10px;
+    width: 200px;
+    font-size: 1.5em;
+    font-weight: 300;
+    color: white;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: 0;
+
+    &:hover {
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    &:visited {
+      text-decoration: none;
+    }
+
+    @media screen and (max-width: $break-xs) {
+      margin-top: 10px;
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+}

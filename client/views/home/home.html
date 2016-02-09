@@ -1,22 +1,8 @@
 <template name="homeCover">
-    {{#showcase}}
-        <div class="container showcase-content">
-            <div class="row">
-                <div class="col-sm-8 show-phrases">
-                    <p class="showcase-title">Spacer</p>
-
-                    <h4>{{phrase "keyPhrase"}}</h4>
-
-                    <div class="text">
-                        {{phrase "showcaseAbout"}}
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <a class="build-resume" href="{{#if currentUser}}/profile/{{else}}/login{{/if}}">
-                        Build your space resume
-                    </a>
-                </div>
-            </div>
+    {{#showcase coverClass="home-cover"}}
+        <div class="showcase-content container">
+            <h2 class="title">{{phrase "keyPhrase"}}</h2>
+            <h1 class="site-name">SPACER</h1>
         </div>
     {{/showcase}}
 </template>
