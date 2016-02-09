@@ -1,9 +1,16 @@
 Template.itemList.onCreated(function () {
     this.itemLimit = ReactiveVar(5);
     this.listReady = ReactiveVar(false);
+    this.filter = this.data.filter;
     let self = this;
     this.autorun(function () {
-        self.subscribe(self.data.subscription, self.itemLimit.get(), () => {
+        let filter = {};
+        if (self.filter) {
+            Object.keys(self.filter).forEach((key) => {
+                filter[key] = self.filter.get(key);
+            });
+        }
+        self.subscribe(self.data.subscription, self.itemLimit.get(), filter, () => {
             self.listReady.set(true);
         })
     });

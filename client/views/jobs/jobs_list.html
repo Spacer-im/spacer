@@ -1,6 +1,9 @@
 <template name="jobs">
-    <div class="jobs-list col-md-10">
+    <div class="jobs-filter col-md-3">
+
+    </div>
+    <div class="jobs-list col-md-9">
         <h3>Jobs</h3>
-        {{>itemList itemTemplate='jobItem' collection="jobs" subscription="jobs" moreWriting="More jobs"}}
+        {{>itemList itemTemplate='jobItem' collection="jobs" subscription="jobs" moreWriting="More jobs" filter=filter}}
     </div>
 </template>

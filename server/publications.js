@@ -27,7 +27,8 @@ Meteor.publish("tags", function() {
 });
 
 
-Meteor.smartPublish('jobs', function(limit) {
+Meteor.smartPublish('jobs', function(limit, filter) {
+    filter = filter || {};
     let options = {fields: {"description": false}, sort: {submitted: -1}};
     if (limit) {
         options.limit = limit;
@@ -38,7 +39,7 @@ Meteor.smartPublish('jobs', function(limit) {
     this.addDependency("companies", "thumbId", function(doc) {
         return Thumbs.find(doc.thumbId);
     });
-    return Jobs.find({}, options);
+    return Jobs.find(filter, options);
 });
 
 Meteor.smartPublish("job", function(slug) {
