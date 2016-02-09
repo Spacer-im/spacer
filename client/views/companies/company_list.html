@@ -1,5 +1,20 @@
-<template name="companyList">
-    <div class="company-list col-md-10">
+<template name="companiesCover">
+    {{#showcase}}
+    {{/showcase}}
+</template>
+
+
+<template name="companiesSidebar">
+    <h5>Filter</h5>
+    <p>
+        Here will be some fiters. later.
+    </p>
+</template>
+
+
+
+<template name="companiesContent">
+    <div class="company-list">
         <h3>Space Industry Companies</h3>
         {{>itemList itemTemplate='companyItem' collection="companies" subscription="companies" moreWriting="More Companies"}}
     </div>

@@ -1,5 +1,10 @@
-<template name="companyInfo">
-    <section class="company-info col-sm-8">
+<template name="companyInfoCover">
+    {{#showcase}}
+    {{/showcase}}
+</template>
+
+<template name="companyInfoContent">
+    <section class="company-info">
         <section class="clearfix-after">
             <div class="logo">
                 <img class="img-responsive" src="{{imageURL}}">
@@ -38,7 +43,7 @@
         {{#if isAdmin}}
             <section class="admin-section">
                 <button class="btn btn-default" id="b-update-company">Update GlassDoor Info</button>
-                <a class="btn btn-default" href="/companies/update/{{_id}}">Edit</a>
+                <a class="btn btn-default" href="/company-update/{{_id}}">Edit</a>
             </section>
         {{/if}}
 

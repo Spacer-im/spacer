@@ -17,14 +17,14 @@ Template._loginButtonsLoggedInDropdown.events({
         Router.go('/admin');
     },
     'click #login-buttons-add-news': function(event) {
-        Router.go('/news/add');
+        Router.go('/news-add');
     },
     'click #login-buttons-add-company': function(event) {
-        Router.go('/companies/add');
+        Router.go('/company-add');
     },
 
     'click #login-buttons-add-job': function(event) {
-        Router.go('/jobs/add');
+        Router.go('/job-add');
     }
 
 
