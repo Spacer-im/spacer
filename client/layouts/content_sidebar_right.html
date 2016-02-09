@@ -9,5 +9,10 @@
             {{> yield "sidebar"}}
         </section>
     </section>
+    {{#if isAdmin}}
+        <section class="container">
+            {{> yield "adminPanel"}}
+        </section>
+    {{/if}}
     {{>footer}}
 </template>

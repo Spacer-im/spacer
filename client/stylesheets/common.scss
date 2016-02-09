@@ -106,7 +106,7 @@ a.grey-hover:-webkit-any-link {
 
 .admin-section {
   border: 1px solid $color-grey-1;
-  margin: 10px 0;
+  margin: 10px 20px;
   padding: 40px 10px 10px;
   position: relative;
   background-color: $color-light-grey;
@@ -145,4 +145,8 @@ h1.lesser-h1 {
     margin-left: 10px;
     margin-bottom: 10px;
   }
+}
+
+.zero-margin {
+  margin: 0;
 }

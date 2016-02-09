@@ -46,13 +46,8 @@
 }
 
 .company-info {
-  margin-top: 20px;
-  .logo {
-    height: 150px;
-    width: 150px;
-    float: left;
-    border: 1px solid $color-light-grey;
-    padding: 5px;
+  article {
+    margin-top: 30px;
   }
   a.job-button {
     width: 100px;
@@ -63,10 +58,6 @@
     position: relative;
     margin-top: 10px;
     margin-left: 5px;
-    .name {
-      margin-right: 140px;
-      word-wrap: break-word;
-    }
     .rating {
       position: absolute;
       right: 0;
@@ -96,4 +87,24 @@
     }
   }
 
+}
+
+.company-logo {
+  height: 150px;
+  width: 150px;
+  border: 1px solid $color-light-grey;
+  padding: 5px;
+  background-color: white;
+}
+
+.moved-up {
+  position: absolute;
+  top: -95px;
+  z-index: 100;
+}
+
+.near-logo-title {
+  text-indent: 170px;
+  line-height: 55px;
+  font-size: 30px;
 }
