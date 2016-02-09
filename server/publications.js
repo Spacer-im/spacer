@@ -79,7 +79,7 @@ Meteor.publish("featured_companies", function() {
 
 
 
-Meteor.smartPublish("userProfile", function(username) {
+Meteor.smartPublish("profile", function(username) {
     this.addDependency("users", "profile.photoId", function(doc) {
         return Avatars.find(doc.profile.photoId);
     });

@@ -1,131 +1,127 @@
-<template name="userProfileEdit">
-    <div class="col-md-8">
+<template name="userProfileEditContent">
+    <div class="profile-edit user-profile">
+        <div class="card">
+            {{#autoForm schema=profileSchema id="profileForm" doc=profile type="method" meteormethod="saveProfile"}}
+                <h1>Edit Profile</h1>
+                <!--<button class="btn btn-primary" type="submit">Save changes</button>-->
 
-        <div class="profile-edit user-profile">
-            <div class="card">
-                {{#autoForm schema=profileSchema id="profileForm" doc=profile type="method" meteormethod="saveProfile"}}
-                    <h1>Edit Profile</h1>
-                    <!--<button class="btn btn-primary" type="submit">Save changes</button>-->
+                <!--<a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>-->
 
-                    <!--<a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>-->
+                <div class="about panel panel-default">
+                    <div class="panel-heading">
+                        About
+                    </div>
+                    <div class="panel-body">
+                        {{> afQuickField name="photoId"
+                        previewTemplate='photoImagePreview'
+                        prevUrl=avatarUrl}}
 
-                    <div class="about panel panel-default">
-                        <div class="panel-heading">
-                            About
-                        </div>
-                        <div class="panel-body">
-                            {{> afQuickField name="photoId"
-                            previewTemplate='photoImagePreview'
-                            prevUrl=avatarUrl}}
-
-                            {{> afQuickField name="firstName"}}
-                            {{> afQuickField name="lastName"}}
-                            {{> afQuickField name="location" options=countryOptions}}
-                            <div class="form-group">
-                                <label for="fCalling" class="control-label">Short about me </label>
+                        {{> afQuickField name="firstName"}}
+                        {{> afQuickField name="lastName"}}
+                        {{> afQuickField name="location" options=countryOptions}}
+                        <div class="form-group">
+                            <label for="fCalling" class="control-label">Short about me </label>
                                 <span class="shadow-text {{#if callingOver}}text-error{{/if}}">{{callingCount}}
                                     /140</span>
-                                {{> afFieldInput id="fCalling" name="calling"}}
-                                <span class="help-block"></span>
-                            </div>
+                            {{> afFieldInput id="fCalling" name="calling"}}
+                            <span class="help-block"></span>
+                        </div>
 
-                            <div class="form-group">
-                                <label for="fSummary" class="control-label">Summary</label>
+                        <div class="form-group">
+                            <label for="fSummary" class="control-label">Summary</label>
                                 <span class="shadow-text {{#if summaryOver}}text-error{{/if}}">
                                     {{summaryCount}}/2500</span>
-                                {{> afFieldInput id="fSummary" name="summary" value=profile.summary}}
-                                <span class="help-block"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="fProfessions" class="control-label">Roles </label>
-                                <span class="shadow-text">(5 max, each less 32 characters)</span>
+                            {{> afFieldInput id="fSummary" name="summary" value=profile.summary}}
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="fProfessions" class="control-label">Roles </label>
+                            <span class="shadow-text">(5 max, each less 32 characters)</span>
 
-                                <div class="flex-spacing">
-                                    <input class="form-control typeahead" id="iProf"
-                                           name="team" type="text"
-                                           placeholder="Astronaut"
-                                           autocomplete="off" spellcheck="off"
-                                           data-source="profList" max="32"/>
-                                    <button id="addRole" class="btn btn-default">Add role</button>
-                                </div>
-                                <div class="flex-spacing">
-                                    {{#each workProfList}}
-                                        <div class="profession-tag">
-                                            <span class="name">{{this}}</span>
+                            <div class="flex-spacing">
+                                <input class="form-control typeahead" id="iProf"
+                                       name="team" type="text"
+                                       placeholder="Astronaut"
+                                       autocomplete="off" spellcheck="off"
+                                       data-source="profList" max="32"/>
+                                <button id="addRole" class="btn btn-default">Add role</button>
+                            </div>
+                            <div class="flex-spacing">
+                                {{#each workProfList}}
+                                    <div class="profession-tag">
+                                        <span class="name">{{this}}</span>
                                             <span class="remove-prof" data-prof="{{this}}">
                                                 <i class="fa fa-times fa-lg"></i>
                                             </span>
-                                        </div>
-                                    {{/each}}
-                                </div>
-                                {{> afFieldInput name="professions" type="hidden" id="profOut"}}
+                                    </div>
+                                {{/each}}
                             </div>
-
+                            {{> afFieldInput name="professions" type="hidden" id="profOut"}}
                         </div>
+
                     </div>
-                    {{> afQuickField name="links"}}
+                </div>
+                {{> afQuickField name="links"}}
 
-                    <div>
-                        <button class="btn btn-primary" type="submit">Save</button>
-                        <a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>
-                    </div>
+                <div>
+                    <button class="btn btn-primary" type="submit">Save</button>
+                    <a href="/profile" class="btn btn-warning" id="bCancel">Cancel</a>
+                </div>
 
-                {{/autoForm}}
-            </div>
-
-            <!--Projects -->
-            <div class="projects card">
-                {{>editList
-                editTitle="Projects"
-                titleComment="max 5 projects"
-                list=profile.projects
-                itemTemplate="projectItem"
-                listName="PersonalProject"
-                removeMethod="removePersonalProject"
-                addMethod="addPersonalProject"
-                editMethod="editPersonalProject"
-                schema=personalProjectSchema
-                addFormId="addPersonalProject"
-                editFormId="editPersonalProject"
-                }}
-            </div>
-
-            <!--Experience -->
-            <div class="experience card">
-                {{>editList
-                editTitle="Experience"
-                titleComment="max 5 positions"
-                list=profile.experience
-                itemTemplate="experienceItem"
-                listName="Experience"
-                removeMethod="removeExperience"
-                addMethod="addExperience"
-                editMethod="editExperience"
-                schema=experienceSchema
-                addFormId="addExperience"
-                editFormId="editExperience"
-                }}
-            </div>
-            <!--Education part-->
-            <div class="education card">
-                {{>editList
-                editTitle="Education"
-                titleComment="max 5 positions"
-                list=profile.education
-                itemTemplateEdit="educationItemEdit"
-                itemTemplateAdd="educationItemAdd"
-                itemTemplate="educationItem"
-                listName="Education"
-                removeMethod="removeEducation"
-                addMethod="addEducation"
-                editMethod="editEducation"
-                schema=educationSchema
-                addFormId="addEducation"
-                editFormId="editEducation"
-                }}
-            </div>
+            {{/autoForm}}
         </div>
 
+        <!--Projects -->
+        <div class="projects card">
+            {{>editList
+            editTitle="Projects"
+            titleComment="max 5 projects"
+            list=profile.projects
+            itemTemplate="projectItem"
+            listName="PersonalProject"
+            removeMethod="removePersonalProject"
+            addMethod="addPersonalProject"
+            editMethod="editPersonalProject"
+            schema=personalProjectSchema
+            addFormId="addPersonalProject"
+            editFormId="editPersonalProject"
+            }}
+        </div>
+
+        <!--Experience -->
+        <div class="experience card">
+            {{>editList
+            editTitle="Experience"
+            titleComment="max 5 positions"
+            list=profile.experience
+            itemTemplate="experienceItem"
+            listName="Experience"
+            removeMethod="removeExperience"
+            addMethod="addExperience"
+            editMethod="editExperience"
+            schema=experienceSchema
+            addFormId="addExperience"
+            editFormId="editExperience"
+            }}
+        </div>
+        <!--Education part-->
+        <div class="education card">
+            {{>editList
+            editTitle="Education"
+            titleComment="max 5 positions"
+            list=profile.education
+            itemTemplateEdit="educationItemEdit"
+            itemTemplateAdd="educationItemAdd"
+            itemTemplate="educationItem"
+            listName="Education"
+            removeMethod="removeEducation"
+            addMethod="addEducation"
+            editMethod="editEducation"
+            schema=educationSchema
+            addFormId="addEducation"
+            editFormId="editEducation"
+            }}
+        </div>
     </div>
 </template>
 

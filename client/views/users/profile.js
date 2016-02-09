@@ -1,14 +1,10 @@
-Template.userProfile.onCreated(function () {
-   this.editedPart = ReactiveVar("");
-});
-
-Template.userProfile.helpers({
+Template.userProfileContent.helpers({
     isOwner: function() {
         return Meteor.userId() === this._id;
     }
 });
 
-Template.userProfile.events({
+Template.userProfileContent.events({
     "click #btnEdit": function (event) {
         event.preventDefault();
         Router.go(`/profile-edit`);
