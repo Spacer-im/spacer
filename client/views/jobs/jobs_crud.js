@@ -38,7 +38,6 @@ Template.updateJobForm.helpers({
 Template.insertJobForm.events({
     'input #insertJobForm input[name="title"], input #insertJobForm input[name="companyName"], input #insertJobForm select[name="location"]': function (e) {
         e.preventDefault();
-        console.log("YES");
         let $slug = document.querySelector("#insertJobForm input[name='slug']");
         let $title = document.querySelector("#insertJobForm input[name='title']");
         let $company = document.querySelector("#insertJobForm input[name='companyName']");

@@ -4,13 +4,7 @@ Template.itemList.onCreated(function () {
     this.filter = this.data.filter;
     let self = this;
     this.autorun(function () {
-        let filter = {};
-        if (self.filter) {
-            Object.keys(self.filter).forEach((key) => {
-                filter[key] = self.filter.get(key);
-            });
-        }
-        self.subscribe(self.data.subscription, self.itemLimit.get(), filter, () => {
+        self.subscribe(self.data.subscription, self.itemLimit.get(), Template.currentData().filter, () => {
             self.listReady.set(true);
         })
     });
