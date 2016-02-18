@@ -1,5 +1,5 @@
 Template.projectItem.helpers({
     projectImage: function () {
-        return this.imageId ? ProjectImages.findOne(this.imageId) : {url: "/icons/logo-cut.png"};
+        return this.imageId ? UserImages.findOne(this.imageId) : {url: "/icons/logo-cut.png"};
     }
 });

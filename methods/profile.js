@@ -153,11 +153,11 @@ Meteor.methods({
         let userImageIds = userProjects.map(function (el) {
             return el.imageId;
         }).filter((el) => !!el);
-        ProjectImages.find({owner: Meteor.userId()}).forEach(function (doc) {
+        UserImages.find({owner: Meteor.userId()}).forEach(function (doc) {
             if (userImageIds.indexOf(doc._id) !== -1 || doc._id === protectedId) {
                 return true;
             }
-            ProjectImages.remove(doc._id, function (err) {
+            UserImages.remove(doc._id, function (err) {
                 if (err) {
                     console.error(err);
                 }

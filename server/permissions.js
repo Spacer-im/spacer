@@ -23,21 +23,12 @@ Jobs.allow({
 
 
 
-Thumbs.allow({
+Images.allow({
     insert: allowAdmin,
     update: allowAdmin,
     remove: allowAdmin,
     download: () => true
 });
-
-
-NewsImages.allow({
-    insert: allowAdmin,
-    update: allowAdmin,
-    remove: allowAdmin,
-    download: () => true
-});
-
 
 
 Avatars.allow({
@@ -53,7 +44,7 @@ Avatars.allow({
     download: () => true
 });
 
-ProjectImages.allow({
+UserImages.allow({
     insert: function(userId, doc) {
         return allowAdmin(userId) || (userId && doc.owner === userId && Avatars.find({owner: userId}).count() <= 10);
     },

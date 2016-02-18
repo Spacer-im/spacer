@@ -14,33 +14,7 @@
         {{#if jobsAreReady}}
 
             {{#each jobs}}
-                <li><a href="/jobs/{{_id}}">{{title}}/{{companyName}}</a></li>
-            {{/each}}
-
-        {{else}}
-            {{>spinner}}
-        {{/if}}
-    </ul>
-
-    <h4>Featured companies:</h4>
-    <ul class="jobs">
-        {{#if fCompaniesAreReady}}
-
-            {{#each fCompanies}}
-                <li><a href="/companies/{{companyId}}">{{companyName}}</a></li>
-            {{/each}}
-
-        {{else}}
-            {{>spinner}}
-        {{/if}}
-    </ul>
-
-    <h4>Top projects:</h4>
-    <ul class="jobs">
-        {{#if fCompaniesAreReady}}
-
-            {{#each fCompanies}}
-                <li><a href="/companies/{{companyId}}">{{companyName}}</a></li>
+                <li><a href="/jobs/{{slug}}">{{title}}/{{companyName}}</a></li>
             {{/each}}
 
         {{else}}

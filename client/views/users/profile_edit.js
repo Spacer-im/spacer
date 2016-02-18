@@ -7,29 +7,41 @@ Template.userProfileEditContent.onCreated(function () {
 
 });
 
-Template.userProfileEditContent.onRendered(function(){
+Template.userProfileEditContent.onRendered(function () {
     Meteor.typeahead.inject();
 });
 
 Template.userProfileEditContent.helpers({
     countryOptions: function () {
         if (Template.instance().countrySubscription.ready()) {
-            return Locations.find({}).map((el) => {return {"label": el.country, "value": el.country}})
+            return Locations.find({}).map((el) => {
+                return {"label": el.country, "value": el.country}
+            })
         }
         else {
             return [{label: "World", value: "World"}];
         }
     },
-    s2opts: () => {return {"placeholder": "Choose a country"}},
-    summaryCount: function() {return Template.instance().summaryCount.get()},
-    summaryOver: function() { return Template.instance().summaryCount.get() > 2500;},
-    callingCount: function() {return Template.instance().callingCount.get()},
-    callingOver: function() { return Template.instance().callingCount.get() > 140;},
-    profList: function() {
+    s2opts: () => {
+        return {"placeholder": "Choose a country"}
+    },
+    summaryCount: function () {
+        return Template.instance().summaryCount.get()
+    },
+    summaryOver: function () {
+        return Template.instance().summaryCount.get() > 2500;
+    },
+    callingCount: function () {
+        return Template.instance().callingCount.get()
+    },
+    callingOver: function () {
+        return Template.instance().callingCount.get() > 140;
+    },
+    profList: function () {
         return Professions.find().fetch().map((el) => el.name);
     },
 
-    workProfList: function() {
+    workProfList: function () {
         return Template.instance().profList.array();
     },
 
@@ -37,11 +49,11 @@ Template.userProfileEditContent.helpers({
 });
 
 Template.userProfileEditContent.events({
-    "keyup #fSummary": function(event) {
+    "keyup #fSummary": function (event) {
         let text = event.target.value;
         Template.instance().summaryCount.set(text.length);
     },
-    "keyup #fCalling": function(event) {
+    "keyup #fCalling": function (event) {
         let text = event.target.value;
         Template.instance().callingCount.set(text.length);
     },
@@ -68,7 +80,6 @@ Template.userProfileEditContent.events({
         document.getElementById("profOut").value = profList.array();
     }
 });
-
 
 
 Template.afFileUpload.helpers({
