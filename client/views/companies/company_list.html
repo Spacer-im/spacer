@@ -2,6 +2,7 @@
     {{#showcase coverClass="company-cover"}}
         <div class="showcase-content container">
             <h2 class="title category">Companies</h2>
+
             <h1 class="site-name">SPACER</h1>
         </div>
     {{/showcase}}
@@ -9,15 +10,16 @@
 
 
 <template name="companiesSidebar">
-    <h5>Filter</h5>
-    <p>
-        Here will be some fiters. later.
-    </p>
+    <div class="form-group">
+        <label for="iCompanyWord">Search</label>
+        <input type="text" class="form-control" id="iCompanyWord" placeholder="Keyword">
+    </div>
 </template>
 
 
 <template name="companiesContent">
     <div class="company-list">
-        {{>itemList itemTemplate='companyItem' collection="companies" subscription="companies" moreWriting="More Companies"}}
+        {{>itemList itemTemplate='companyItem' collection="companies"
+        subscription="companies" moreWriting="More Companies" filter=filter}}
     </div>
 </template>

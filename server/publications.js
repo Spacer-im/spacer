@@ -54,11 +54,14 @@ Meteor.smartPublish("job", function(slug) {
     return Jobs.find({slug: slug});
 });
 
-Meteor.smartPublish("companies", function(limit) {
+Meteor.smartPublish("companies", function(limit, inFilter) {
+    inFilter = inFilter || {};
+    const filter = {};
+    Object.keys(inFilter).forEach((k) => {if (inFilter[k]) {filter[k] = inFilter[k]}});
     this.addDependency("companies", "imageId", function(doc) {
         return Images.find(doc.imageId);
     });
-    return Companies.find({}, {fields: {"text": false}, limit: limit, sort: {name: 1}});
+    return Companies.find(filter, {fields: {"text": false}, limit: limit || 0, sort: {submitted: -1}});
 });
 
 Meteor.publish("companyNames", function () {
