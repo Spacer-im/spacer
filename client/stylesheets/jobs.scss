@@ -28,10 +28,15 @@ a.job-item {
 }
 
 .job-block {
-  margin-top: 20px;
   .btn-apply {
     border: 2px solid $color-green-0;
-    width: 150px;
+    background-color: $color-green-0;
+    color: white;
+    width: 100%;
+  }
+  .company-name {
+    font-size: 120%;
+    color: $color-grey-4;
   }
 }
 
@@ -59,11 +64,6 @@ a.job-item {
       margin-bottom: 10px;
       text-decoration: underline;
     }
-    .company-name {
-      font-size: 120%;
-      color: $color-grey-4;
-    }
-
   }
   .additional-info {
     flex-grow: 1;

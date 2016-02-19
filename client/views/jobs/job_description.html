@@ -5,42 +5,47 @@
 
 <template name="jobDescription">
     <div class="job-block">
-        <div class="job-item">
-
-            <div class="logo">
-                <a href="/companies/{{companySlug}}">
-                    <img class="img-responsive" src="{{companyLogoURL}}">
-                </a>
-            </div>
-
-            <div class="short">
-                <h4 class="title">{{title}}</h4>
-
-                <div>
-                    <a href="/companies/{{companySlug}}"><span class="company-name">{{companyName}}</span></a>
-                    <span class="location">{{location}}</span>
-                </div>
-            </div>
-            <div class="additional-info">
-                <div class="keywords">
-                    {{#each keywords}}
-                        <div>{{this}}</div>
-                    {{/each}}
-                </div>
-                <div class="job-type">{{jobType}}</div>
-
-            </div>
+        <div class="company-logo moved-up">
+            <img class="img-responsive" src="{{companyLogoURL}}">
         </div>
+        <h1 class="zero-margin near-logo-title">{{title}}</h1>
+
+
         <div class="job-description">
             {{#markdown}}{{description}}{{/markdown}}
+        </div>
+
+    </div>
+</template>
+
+<template name="jobSidebar">
+    <div class="job-block">
+        <h3>Additional Info</h3>
+        <section>
+            <b>Location: </b><span class="location">{{location}}</span>
+        </section>
+        <section>
+            <b>Company: </b> <a href="/companies/{{companySlug}}"><span class="company-name">{{companyName}}</span></a>
+        </section>
+        <section>
+            <b>Job Type: </b><span class="job-type">{{jobType}}</span>
+        </section>
+        <div class="keyword-block">
+            <b>Keywords: </b><br>
+            {{#each keywords}}
+                <div class="keyword">{{this}}</div>
+            {{/each}}
         </div>
         <div class="apply-block">
             <a class="btn btn-default btn-apply" href="{{applyLink}}">Apply</a>
         </div>
-        {{#if isAdmin}}
-            <section class="admin-section">
-                <a class="btn btn-default" href="/jobs/update/{{slug}}">Edit</a>
-            </section>
-        {{/if}}
+
     </div>
+</template>
+
+
+<template name="jobAdmin">
+    <section class="admin-section">
+        <a class="btn btn-default" href="/jobs/update/{{slug}}">Edit</a>
+    </section>
 </template>
