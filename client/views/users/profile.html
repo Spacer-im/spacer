@@ -13,13 +13,13 @@
                 <img src="{{avatarUrl}}" class="img-responsive">
 
             </div>
-            <div class="short card">
+            <div class="short">
                 <div class="name {{#if isOwner}}button-padding{{/if}}">{{fullName}}</div>
                 <div class="calling">{{profile.calling}}</div>
                 <div class="location"><i
                         class="fa fa-map-marker"></i> {{#if profile.location}}{{profile.location}}{{else}}Earth{{/if}}
                 </div>
-                <div class="flex-spacing">
+                <div class="inline-blocks">
                     {{#each profile.professions}}
                         <div class="profession-tag">
                             <span>{{this}}</span>

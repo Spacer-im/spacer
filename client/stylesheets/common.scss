@@ -178,3 +178,7 @@ h1.lesser-h1 {
   line-height: 55px;
   font-size: 30px;
 }
+
+.inline-blocks > * {
+  display: inline-block;
+}

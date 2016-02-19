@@ -45,7 +45,7 @@
     width: 150px;
     min-width: 150px;
     height: 150px;
-    margin: 10px;
+    margin: 5px 10px 10px;
     img {
       border-radius: 10px;
       max-width: 100%;
@@ -54,10 +54,11 @@
     }
   }
   .short {
+    padding: 0 10px 10px;
     flex-grow: 1;
     min-height: 150px;
     //min-width: 260px;
-    flex-basis: 60%;
+    flex-basis: 75%;
     div:not(:last-of-type) {
       margin-bottom: 5px;
     }
@@ -162,7 +163,7 @@
   }
   .profession-tag {
     border: 2px solid $color-grey-0;
-    padding: 2px 5px;
+    padding: 3px 5px;
     span {
       display: inline-block;
     }
