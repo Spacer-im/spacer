@@ -46,7 +46,7 @@ Template.jobsSidebar.events({
     "change #jobsFilter select[name='jobType']": function (event) {
         const list = event.target;
         const value = list.options[list.selectedIndex].value;
-        if (!Session.equals("job-location", value)) {
+        if (!Session.equals("job-type", value)) {
             Session.set("job-type", value);
         }
     },

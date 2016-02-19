@@ -31,6 +31,7 @@ Meteor.smartPublish('jobs', function(limit, inFilter) {
     inFilter = inFilter || {};
     const filter = {};
     Object.keys(inFilter).forEach((k) => {if (inFilter[k]) {filter[k] = inFilter[k]}});
+    console.log(filter);
     let options = {fields: {"description": false}, sort: {submitted: -1}};
     if (limit) {
         options.limit = limit;
