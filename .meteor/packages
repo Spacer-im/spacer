@@ -47,7 +47,6 @@ email
 reactive-var
 matb33:collection-hooks
 random
-yogiben:autoform-file
 cfs:s3
 comerc:autoform-typeahead
 comerc:bs-typeahead
@@ -59,3 +58,4 @@ manuel:reactivearray
 mrt:smart-publish
 reactive-dict
 underscore
+yogiben:autoform-file

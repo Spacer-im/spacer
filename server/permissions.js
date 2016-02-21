@@ -22,6 +22,13 @@ Jobs.allow({
 });
 
 
+Projects.allow({
+    insert: allowAdmin,
+    update: allowAdmin,
+    remove: allowAdmin
+});
+
+
 
 Images.allow({
     insert: allowAdmin,

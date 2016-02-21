@@ -23,5 +23,8 @@ Template._loginButtonsLoggedInDropdown.events({
     },
     'click #login-buttons-add-job': function(event) {
         Router.go('/job-add');
+    },
+    'click #login-buttons-add-project': function(event) {
+        Router.go('/project-add');
     }
 });

@@ -1,0 +1,19 @@
+<template name="projectItem">
+    <li>
+        <a href="/projects/{{slug}}">
+            <div class="thumb">
+                <img class="img-responsive" src="{{thumbURL}}">
+            </div>
+            <div class="info">
+                <h4 class="name">{{name}}</h4>
+                <p>{{short}}</p>
+                <div class="keyword-block">
+                    {{#each keywords}}
+                        <div class="keyword">{{this}}</div>
+                    {{/each}}
+                </div>
+            </div>
+        </a>
+
+    </li>
+</template>

@@ -1,0 +1,24 @@
+<template name="projectsCover">
+    {{#showcase coverClass="project-cover"}}
+        <div class="showcase-content container">
+            <h2 class="title category">Projects</h2>
+            <h1 class="site-name">SPACER</h1>
+        </div>
+    {{/showcase}}
+</template>
+
+
+<template name="projectsSidebar">
+    <div class="form-group">
+        <label for="iProjectWord">Search</label>
+        <input type="text" class="form-control" id="iProjectWord" placeholder="Keyword">
+    </div>
+</template>
+
+
+<template name="projectsContent">
+    <div class="company-list">
+        {{>itemList itemTemplate='projectItem' collection="projects"
+        subscription="projects" moreWriting="More Projects" filter=filter}}
+    </div>
+</template>

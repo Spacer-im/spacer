@@ -8,7 +8,9 @@
         <section class="col-sm-3">
             {{> yield "sidebar"}}
         </section>
+        {{> yield "coverBottom"}}
     </section>
+
     {{#if isAdmin}}
         <section class="container">
             {{> yield "adminPanel"}}

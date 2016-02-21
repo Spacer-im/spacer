@@ -1,0 +1,13 @@
+<template name="insertProjectForm">
+    <div class="container">
+        <h1>Add a project</h1>
+        {{> quickForm collection="Projects" id="insertProjectForm" type="insert"}}
+    </div>
+</template>
+
+<template name="updateProjectForm">
+    <div class="container">
+        <h1>Update the project</h1>
+        {{> quickForm collection="Projects" doc=this id="updateProjectForm" type="update"}}
+    </div>
+</template>

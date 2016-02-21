@@ -1,0 +1,44 @@
+<template name="projectInfoCover">
+    {{#showcase coverClass="project-cover"}}
+        <div class="showcase-content container">
+            <h2 class="title category">Projects</h2>
+
+            <h1 class="site-name">SPACER</h1>
+        </div>
+    {{/showcase}}
+</template>
+
+<template name="projectInfoBottom">
+    <div class="clearfix"></div>
+    <div class="low-showcase">
+        {{#showcase backgroundUrl=fullImageURL coverClass="profile-cover"}}
+        {{/showcase}}
+    </div>
+</template>
+
+<template name="projectInfoContent">
+    <section class="project-info">
+        <h1>{{name}}</h1>
+        <article>
+            {{#markdown}}{{description}}{{/markdown}}
+        </article>
+        <div class="keyword-block">
+            {{#each keywords}}
+                <div class="keyword">{{this}}</div>
+            {{/each}}
+        </div>
+    </section>
+</template>
+
+<template name="projectInfoSidebar">
+    <div class="h1-margin">
+        <a class="btn btn-default btn-participate" href="{{participateLink}}" target="_blank">PARTICIPATE</a>
+    </div>
+
+</template>
+
+<template name="projectInfoAdmin">
+    <section class="admin-section">
+        <a class="btn btn-default" href="/project-update/{{slug}}">Edit</a>
+    </section>
+</template>

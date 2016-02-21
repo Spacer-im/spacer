@@ -1,6 +1,10 @@
 @import "values";
 @import "colors";
 
+.low-showcase .showcase {
+  min-height: 150px;
+}
+
 .showcase {
   position: relative;
   color: white;
@@ -118,6 +122,32 @@
         background-color: $color-cover-orange;
       }
     }
+
+    &.project-cover {
+      .image-layer-low {
+        background-image: url("/assets/covers/purple_low.jpg");
+      }
+      .image-layer-normal {
+        background-image: url("/assets/covers/purple.jpg");
+      }
+      .color-layer {
+        background-color: $color-cover-purple;
+      }
+    }
+
+    &.profile-cover {
+      .image-layer-low {
+        background-image: url("/assets/covers/grey_low.jpg");
+      }
+      .image-layer-normal {
+        background-image: url("/assets/covers/grey.jpg");
+      }
+      .color-layer {
+        background-color: $color-cover-grey;
+      }
+    }
+
+
 
 
 
