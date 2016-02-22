@@ -9,13 +9,32 @@
     border: 1px solid $color-grey-1;
     border-radius: 3px;
     box-sizing: border-box;
-    overflow: hidden;
+    //overflow: hidden;
     .comment-head {
       background-color: $color-light-grey;
-      padding: 3px 5px;
+      padding: 10px 15px;
+      position: relative;
+      &::before, &::after{
+        position: absolute;
+        content: "";
+        left: -10px;
+        top: 10px;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+
+        border-right: 10px solid $color-grey-1;
+      }
+      &::after {
+        border-right-color: $color-light-grey;
+        border-width: 9px;
+        margin-top: 1px;
+        margin-left: 2px;
+      }
     }
     .comment-body {
-      padding: 5px;
+      padding: 10px 15px;
     }
   }
 }
