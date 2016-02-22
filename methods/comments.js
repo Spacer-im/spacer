@@ -9,7 +9,7 @@ Meteor.methods({
             throw new Meteor.Error(`A project with id ${projectId} doesn't exist`);
         }
         ProjectComments.insert({"docId": projectId, "authorId": Meteor.userId(), "text": text}, function (err, res) {
-            console.log(err, res);
+            return res;
         });
     }
 });

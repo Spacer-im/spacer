@@ -15,7 +15,7 @@ Template.projectInfoContent.events({
             instance.commentDisabled.set(true);
             Meteor.call("addProjectComment", instance.data._id, addComment.value,
                 function (err, res) {
-                    if (!err) {
+                    if (err) {
                         console.error(err);
                     }
                     else {
