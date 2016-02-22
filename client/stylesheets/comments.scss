@@ -1,0 +1,21 @@
+@import "colors";
+
+.comment-list {
+  position: relative;
+  margin-top: 10px;
+  .comment {
+    min-height: 62px;
+    margin-left: 80px;
+    border: 1px solid $color-grey-1;
+    border-radius: 3px;
+    box-sizing: border-box;
+    overflow: hidden;
+    .comment-head {
+      background-color: $color-light-grey;
+      padding: 3px 5px;
+    }
+    .comment-body {
+      padding: 5px;
+    }
+  }
+}

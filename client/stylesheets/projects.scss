@@ -7,6 +7,7 @@
       text-decoration: none;
     }
     li {
+      min-height: 120px;
       .thumb-container {
         float: left;
         padding: 5px;
@@ -17,14 +18,11 @@
           overflow: hidden;
           position: relative;
           img {
-            border-radius: 10px;
             position: absolute;
             margin: auto;
             min-height: 100%;
             min-width: 100%;
 
-            /* For the following settings we set 100%, but it can be higher if needed
-            See the answer's update */
             left: -100%;
             right: -100%;
             top: -100%;

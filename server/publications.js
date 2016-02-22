@@ -103,6 +103,13 @@ Meteor.publish('professions', function () {
     return Professions.find({});
 });
 
+Meteor.smartPublish("projectComments", function (limit, filter) {
+    filter = clearFilter(filter);
+    this.addDependency("projectComments", "authorId",
+            doc => Meteor.users.find(doc.authorId, {fields: {"username": 1, "profile.photoId": 1}}));
+    this.addDependency("users", "profile.photoId", doc => Avatars.find(doc.profile.photoId));
+    return ProjectComments.find(filter, generateOptions(limit, sort="createdBy"));
+});
 
 Meteor.publish(null, () => Phrases.find({}));
 

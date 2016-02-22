@@ -1,0 +1,15 @@
+<template name="commentItem">
+    <li>
+        <div class="thumb-container float-left">
+            <div class="thumb th-small">
+                <img class="img-responsive" src="{{avatarURL}}">
+            </div>
+        </div>
+        <div class="comment">
+            <div class="comment-head">{{authorName}} commented {{createdAtReadable}}</div>
+            <div class="comment-body">{{text}}</div>
+        </div>
+
+    </li>
+
+</template>
