@@ -3,8 +3,8 @@ Template.userProfileContent.helpers({
         return Meteor.userId() === this._id;
     },
     participations: function () {
-        if (Meteor.userId()) {
-            return Participations.find({authorId: Meteor.userId()}, {sort: {createdAt: -1}});
+        if (Template.instance().data) {
+            return Participations.find({authorId: Template.instance().data._id}, {sort: {createdAt: -1}});
         }
         return [];
     }
