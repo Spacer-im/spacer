@@ -15,6 +15,35 @@
 <template name="projectInfoContent">
     <section class="project-info">
         <h1>{{name}}</h1>
+        <section class="participation">
+            {{#if currentUser}}
+                {{#if showParticipationForm}}
+                    <form id="participationForm">
+                        <div class="form-group">
+                            <label for="addParticipation">Tell about your participation in this project</label>
+                            <input type="text" maxlength="140" class="form-control" id="addParticipation"
+                                   placeholder="I developed/created/improved ... (140 symbols max)"
+                                   value="{{userParticipation}}">
+                        </div>
+                        <button type="submit" class="btn btn-default">Add to profile</button>
+                    </form>
+                {{else}}
+                    {{#if userParticipation}}
+                        <blockquote class="participation-text">
+                            {{userParticipation}}
+                            <footer><cite title="Source Title">{{currentUser.fullName}}</cite></footer>
+                        </blockquote>
+                        <div class="edit-control-container">
+                            <button class="btn btn-default btn-xs" id="editParticipation">Edit</button>
+                            <button class="btn btn-default btn-xs" id="removeParticipation">Remove</button>
+                        </div>
+                    {{/if}}
+                {{/if}}
+            {{else}}
+                <a href="/login">Sign in</a> to tell about your participation in this project.
+            {{/if}}
+
+        </section>
         <article>
             {{#markdown}}{{description}}{{/markdown}}
         </article>

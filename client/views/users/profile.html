@@ -80,15 +80,15 @@
             <div class="summary card">{{profile.summary}}</div>
         {{/if}}
 
-        {{#if profile.projects}}
-            <div class="projects card">
+        {{#if participations}}
+            <div class="participation-list card item-list">
                 <h3>Projects</h3>
-                {{#each profile.projects}}
-                    <div class="panel panel-default">
+                {{#each participations}}
+                    <li class="panel panel-default">
                         <div class="panel-body">
-                            {{>personalProjectItem this}}
+                            {{>participationItem this}}
                         </div>
-                    </div>
+                    </li>
                 {{/each}}
             </div>
         {{/if}}

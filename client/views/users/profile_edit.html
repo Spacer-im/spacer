@@ -71,23 +71,6 @@
             {{/autoForm}}
         </div>
 
-        <!--Projects -->
-        <div class="projects card">
-            {{>editList
-            editTitle="Projects"
-            titleComment="max 5 projects"
-            list=profile.projects
-            itemTemplate="personalProjectItem"
-            listName="PersonalProject"
-            removeMethod="removePersonalProject"
-            addMethod="addPersonalProject"
-            editMethod="editPersonalProject"
-            schema=personalProjectSchema
-            addFormId="addPersonalProject"
-            editFormId="editPersonalProject"
-            }}
-        </div>
-
         <!--Experience -->
         <div class="experience card">
             {{>editList

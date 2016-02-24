@@ -83,15 +83,23 @@ Meteor.smartPublish("projects", function (limit, filter) {
 
 Meteor.smartPublish("project", function (slug) {
     this.addDependency("projects", "imageId", doc => Images.find(doc.imageId));
+    if (this.userId) {
+        this.addDependency("projects", "_id",
+                doc => Participations.find({authorId: this.userId, projectId: doc._id}))
+    }
     return Projects.find({slug: slug});
 });
 
 Meteor.smartPublish("profile", function (username) {
     this.addDependency("users", "profile.photoId", doc => Avatars.find(doc.profile.photoId));
-    this.addDependency("users", "profile.projects", doc => {
-        const ids = doc.profile.projects.map((p) => p.imageId);
-        return UserImages.find({_id: {$in: ids}});
-    });
+    //this.addDependency("users", "profile.projects", doc => {
+    //    const ids = doc.profile.projects.map((p) => p.imageId);
+    //    return UserImages.find({_id: {$in: ids}});
+    //});
+    this.addDependency("users", "_id", doc => Participations.find({authorId: doc._id}));
+    this.addDependency("participations", "projectId",
+            doc => Projects.find(doc.projectId, {fields: {name: 1, slug: 1, imageId: 1}}));
+    this.addDependency("projects", "imageId", doc => Images.find(doc.imageId));
     return Meteor.users.find({username: username}, {fields: {"_id": 1, "username": 1, profile: 1}});
 });
 

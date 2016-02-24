@@ -1,0 +1,18 @@
+<template name="participationItem">
+    <a href="/projects/{{projectSlug}}" target="_blank">
+        <div class="participation-item item clearfix-after">
+
+            <div class="thumb-container item-image">
+                <div class="thumb th-4x3small">
+                    <img class="img-responsive" src="{{projectImageUrl}}">
+                </div>
+            </div>
+            <div class="participation-item-body item-body">
+                <h4>{{projectName}}</h4>
+
+                <blockquote>{{text}}</blockquote>
+            </div>
+
+        </div>
+    </a>
+</template>
