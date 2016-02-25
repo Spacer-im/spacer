@@ -1,0 +1,29 @@
+<template name="jobItem">
+    <li>
+        <a href="/jobs/{{slug}}">
+            <div class="item job-item highlight-hover-block">
+                <div class="item-image thumb-container bordered">
+                    <div class="thumb">
+                        <img class="img-responsive" src="{{companyLogoURL}}">
+                    </div>
+                </div>
+                <div class="item-body">
+                    <h3 class="title">{{title}}</h3>
+
+                    <div class="job-info">
+                        <span class="company-name">{{companyName}}</span>
+                        <span class="location">{{location}}</span>
+                        <br>
+                        <span class="job-type">{{jobType}}</span>
+                    </div>
+                    <div class="keyword-block">
+                        {{#each keywords}}
+                            <div class="keyword">{{this}}</div>
+                        {{/each}}
+                    </div>
+
+                </div>
+            </div>
+        </a>
+    </li>
+</template>

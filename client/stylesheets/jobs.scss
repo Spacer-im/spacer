@@ -9,20 +9,6 @@
   min-height: 100px;
 }
 
-
-.jobs-list {
-  ul {
-    list-style: none;
-  }
-}
-
-a.job-item {
-  &:hover {
-    text-decoration: none;
-    color: black;
-    background-color: $color-light-grey-0;
-  }
-}
 .job-description {
   margin-top: 20px;
 }
@@ -37,37 +23,5 @@ a.job-item {
   .company-name {
     font-size: 120%;
     color: $color-grey-4;
-  }
-}
-
-.job-item {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  color: black;
-
-  & > div {
-    padding: 5px;
-  }
-  .logo {
-    flex-basis: 100px;
-    padding: 5px;
-    border: 1px solid #dddddd;
-    margin-right: 10px;
-  }
-  .short {
-    flex-grow: 2;
-    flex-basis: 300px;
-    h4 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      text-decoration: underline;
-    }
-  }
-  .additional-info {
-    flex-grow: 1;
-    flex-basis: 200px;
-
   }
 }
