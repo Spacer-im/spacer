@@ -60,7 +60,7 @@
     //min-width: 260px;
     flex-basis: 75%;
     div:not(:last-of-type) {
-      margin-bottom: 5px;
+      margin-bottom: 7px;
     }
     .name {
       font-size: 30px;
@@ -69,10 +69,10 @@
     }
     .calling {
       min-height: 20px;
-      color: $color-grey-3;
+      color: $color-grey-4;
     }
     .location {
-      color: $color-grey-3;
+      color: $color-grey-4;
     }
     .button-padding {
       padding-right: 140px;
@@ -160,6 +160,13 @@
 
   .about {
     margin-top: 20px;
+  }
+  .keyword-block {
+    margin-bottom: 0;
+    .keyword {
+      text-transform: none;
+      font-style: normal;
+    }
   }
   .profession-tag {
     border: 2px solid $color-grey-0;

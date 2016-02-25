@@ -19,11 +19,9 @@
                 <div class="location"><i
                         class="fa fa-map-marker"></i> {{#if profile.location}}{{profile.location}}{{else}}Earth{{/if}}
                 </div>
-                <div class="inline-blocks">
+                <div class="keyword-block">
                     {{#each profile.professions}}
-                        <div class="profession-tag">
-                            <span>{{this}}</span>
-                        </div>
+                        <span class="keyword">{{this}}</span>
                     {{/each}}
                 </div>
                 <div class="links">
