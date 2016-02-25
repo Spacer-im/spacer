@@ -1,15 +1,16 @@
 Template.jobsSidebar.onCreated(function () {
     Session.set("job-location", "");
-    Session.set("job-type", "");
+    Session.set("job-type", []);
     Session.set("job-word", "");
     this.countrySubscription = this.subscribe("countries");
 });
 
 Template.jobsContent.helpers({
     filter: function () {
+        const jobTypes = Session.get("job-type");
         const dict = {
             location: Session.get("job-location"),
-            jobType: Session.get("job-type")
+            jobType: jobTypes && jobTypes.length ? {$all: Session.get("job-type")}: null
         };
         if (Session.get("job-word")) {
             const regExpr = {$regex: Session.get("job-word"), $options: '-i'};
@@ -32,7 +33,9 @@ Template.jobsSidebar.helpers({
         else {
             return [{label: "World", value: "World"}];
         }
-    }
+    },
+    allJobTypes: () => Schemas.JOB_TYPES,
+    emptyList: []
 });
 
 Template.jobsSidebar.events({
@@ -44,11 +47,11 @@ Template.jobsSidebar.events({
         }
     },
     "change #jobsFilter select[name='jobType']": function (event) {
-        const list = event.target;
-        const value = list.options[list.selectedIndex].value;
-        if (!Session.equals("job-type", value)) {
-            Session.set("job-type", value);
-        }
+        const $list = $(event.target);
+        const value = $list.val() || [];
+        //if (!Session.equals("job-type", value)) {
+        Session.set("job-type", value);
+        //}
     },
     "input #iJobWord": _.debounce(function (e) {
         const value = e.target.value;

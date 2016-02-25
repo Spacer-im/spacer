@@ -16,7 +16,7 @@
                 <input type="text" class="form-control" id="iJobWord" placeholder="Keyword">
             </div>
             {{> afQuickField name="location" options=countryOptions}}
-            {{> afQuickField name="jobType"}}
+            {{> afQuickField name="jobType" defaultValue=emptyList}}
         {{/autoForm}}
     </div>
 </template>
