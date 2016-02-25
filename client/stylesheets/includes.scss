@@ -125,9 +125,17 @@ body {
       display: none;
     }
     #login-buttons-logout {
-      border-color: $color-orange-0;
-      border-width: 2px;
+      border: 2px $color-orange-0;
       background-color: white;
+      &:hover {
+        background-color: $color-orange-1;
+        color: white;
+      }
+
+      &:active {
+        background-color: $color-orange-2;
+        color: white;
+      }
 
     }
   }
