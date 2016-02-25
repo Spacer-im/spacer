@@ -12,7 +12,9 @@ Template.registerHelper("phrase", (name) => {
 });
 
 Template.registerHelper("isNews", isPage(['newsList', "newsArticle"]));
-Template.registerHelper("isJobs", isPage(['jobsList', "jobDescription"]));
+Template.registerHelper("isJobs", isPage(['jobList', "jobDescription"]));
+Template.registerHelper("isCompanies", isPage(['companyList', "companyDescription"]));
+Template.registerHelper("isProjects", isPage(['projectList', "projectDescription"]));
 
 // Tags unwrap
 
