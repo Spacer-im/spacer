@@ -25,6 +25,20 @@
         <article>
             {{#markdown}}{{additionalText}}{{/markdown}}
         </article>
+        <h3>Registration</h3>
+        {{#if currentUser}}
+            {{#if alreadyRegistered}}
+                <div>Thank you. You are registered as <i>{{registeredRole}}</i>. We’ll get back to you with more details soon.</div>
+            {{else}}
+                {{#autoForm collection="EventRegistrations" id="eventRegistrationForm"}}
+                    {{> afQuickField name="role" id="roleSelect"}}
+                    <button type="button" id="bRegister"
+                            class="btn btn-success btn-width" {{registerStatus}}>Register</button>
+                {{/autoForm}}
+            {{/if}}
+        {{else}}
+            <a href="/login">Sign in/Sign up</a> if you want to register for the event
+        {{/if}}
     </div>
 
 </template>
