@@ -125,7 +125,7 @@ body {
       display: none;
     }
     #login-buttons-logout {
-      border: 2px $color-orange-0;
+      border: 2px solid $color-orange-0;
       background-color: white;
       &:hover {
         background-color: $color-orange-1;

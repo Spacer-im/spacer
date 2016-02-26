@@ -90,6 +90,21 @@ Meteor.smartPublish("project", function (slug) {
     return Projects.find({slug: slug});
 });
 
+
+Meteor.smartPublish("events", function (limit, filter) {
+    filter = clearFilter(filter);
+    return Events.find(filter, generateOptions(limit, ["text", "additionalText"]));
+});
+
+Meteor.smartPublish("event", function (slug) {
+    const userId = this.userId || "";
+    return [
+        Events.find({slug: slug}),
+        EventRegistrations.find({userId: userId})
+    ]
+});
+
+
 Meteor.smartPublish("profile", function (username) {
     this.addDependency("users", "profile.photoId", doc => Avatars.find(doc.profile.photoId));
     //this.addDependency("users", "profile.projects", doc => {

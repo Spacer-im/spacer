@@ -29,6 +29,15 @@ Projects.allow({
 });
 
 
+Events.allow({
+    insert: allowAdmin,
+    update: allowAdmin,
+    remove: allowAdmin
+});
+
+
+
+
 
 Images.allow({
     insert: allowAdmin,

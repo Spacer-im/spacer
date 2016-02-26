@@ -1,0 +1,36 @@
+<template name="eventInfoCover">
+    {{#showcase coverClass="project-cover"}}
+        <div class="showcase-content container">
+            <h2 class="title category">{{name}}</h2>
+
+            <h1 class="site-name">SPACER</h1>
+        </div>
+    {{/showcase}}
+</template>
+
+<template name="eventInfoBottom">
+    <div class="clearfix"></div>
+</template>
+
+<template name="eventInfoContent">
+    <section class="project-info">
+        <article>
+            {{#markdown}}{{text}}{{/markdown}}
+        </article>
+    </section>
+</template>
+
+<template name="eventInfoSidebar">
+    <div class="h1-margin">
+        <article>
+            {{#markdown}}{{additionalText}}{{/markdown}}
+        </article>
+    </div>
+
+</template>
+
+<template name="eventInfoAdmin">
+    <section class="admin-section">
+        <a class="btn btn-default" href="/event-update/{{slug}}">Edit</a>
+    </section>
+</template>

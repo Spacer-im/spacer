@@ -1,0 +1,13 @@
+<template name="insertEventForm">
+    <div class="container">
+        <h1>Add a event</h1>
+        {{> quickForm collection="Events" id="insertEventForm" type="insert"}}
+    </div>
+</template>
+
+<template name="updateEventForm">
+    <div class="container">
+        <h1>Update the event</h1>
+        {{> quickForm collection="Events" doc=this id="updateEventForm" type="update"}}
+    </div>
+</template>
