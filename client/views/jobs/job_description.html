@@ -1,14 +1,23 @@
 <template name="jobInfoCover">
     {{#showcase coverClass="job-cover"}}
+        <div class="showcase-content container">
+            <h2 class="title category">Careers</h2>
+            <h1 class="site-name">SPACER</h1>
+        </div>
     {{/showcase}}
 </template>
 
 <template name="jobDescription">
     <div class="job-block">
-        <div class="company-logo moved-up">
-            <img class="img-responsive" src="{{companyLogoURL}}">
-        </div>
-        <h1 class="zero-margin near-logo-title">{{title}}</h1>
+        <a href="/companies/{{companySlug}}">
+            <div class="thumb-container bordered float-left company-logo">
+                <div class="thumb">
+                    <img class="img-responsive" src="{{companyLogoURL}}">
+                </div>
+            </div>
+        </a>
+        <h1 class="job-title">{{title}}</h1>
+        <div class="clearfix"></div>
 
 
         <div class="job-description">
