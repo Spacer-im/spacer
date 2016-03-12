@@ -9,13 +9,13 @@
 
 <template name="jobDescription">
     <div class="job-block">
-        <a href="/companies/{{companySlug}}">
-            <div class="thumb-container bordered float-left company-logo">
-                <div class="thumb">
-                    <img class="img-responsive" src="{{companyLogoURL}}">
-                </div>
-            </div>
-        </a>
+        <!--<a href="/companies/{{companySlug}}">-->
+            <!--<div class="thumb-container bordered float-left company-logo">-->
+                <!--<div class="thumb">-->
+                    <!--<img class="img-responsive" src="{{companyLogoURL}}">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</a>-->
         <h1 class="job-title">{{title}}</h1>
         <div class="clearfix"></div>
 
@@ -31,16 +31,16 @@
     <div class="job-block">
         <h3>Additional Info</h3>
         <section>
-            <b>Location: </b><span class="location">{{location}}</span>
+            <b class="fixed-inline">Location: </b><span class="location">{{location}}</span>
         </section>
         <section>
-            <b>Company: </b> <a href="/companies/{{companySlug}}"><span class="company-name">{{companyName}}</span></a>
+            <b class="fixed-inline">Company: </b><a href="/companies/{{companySlug}}">{{companyName}}</a>
         </section>
         <section>
-            <b>Job Type: </b><span class="job-type">{{jobType}}</span>
+            <b class="fixed-inline">Job Type: </b><span class="job-type">{{jobType}}</span>
         </section>
         <div class="keyword-block">
-            <b>Keywords: </b><br>
+            <br>
             {{#each keywords}}
                 <div class="keyword">{{this}}</div>
             {{/each}}

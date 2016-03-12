@@ -38,7 +38,7 @@ Meteor.smartPublish("news_by_slug", function (slug) {
 });
 
 Meteor.publish("tags", function () {
-    return Tags.find({});
+    return Tags.find();
 });
 
 Meteor.smartPublish('jobs', function (limit, filter) {
