@@ -5,10 +5,18 @@
 
 <template name="companyInfoContent">
     <section class="company-info">
-        <div class="company-logo moved-up">
-            <img class="img-responsive" src="{{imageURL}}">
+        <div class="thumb-container bordered float-left company-logo margin-right">
+            <div class="thumb">
+                <img class="img-responsive" src="{{imageURL}}">
+            </div>
         </div>
-        <h1 class="zero-margin near-logo-title">{{name}}</h1>
+        <h1>{{name}}</h1>
+        <div class="rating">
+            {{#if gdRating}}
+                {{>filledStars value=gdRating}}
+            {{/if}}
+        </div>
+        <div class="clearfix"></div>
         <article>
             {{#markdown}}{{description}}{{/markdown}}
         </article>
@@ -20,11 +28,6 @@
 <template name="companyInfoSidebar">
     <h3>Additional Info</h3>
 
-    <div class="rating">
-        {{#if gdRating}}
-            {{>filledStars value=gdRating}}
-        {{/if}}
-    </div>
     <section class="data clearfix-after">
         {{>companyDataCell argName='Website' arg=website isLink=true}}
         {{>companyDataCell argName='Headquarters' arg=headquarters}}
