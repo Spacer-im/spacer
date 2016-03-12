@@ -19,6 +19,7 @@
 <template name="projectsContent">
     <div class="project-list">
         {{>itemList itemTemplate='projectItem' collection="projects"
-        subscription="projects" moreWriting="More Projects" filter=filter sortBy="createdAt"}}
+        subscription="projects" moreWriting="More Projects" filter=filter sortBy="createdAt"
+        emptyPhrase="Sorry, your search didn't return any projects"}}
     </div>
 </template>

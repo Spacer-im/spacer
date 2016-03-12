@@ -25,6 +25,9 @@ Template.itemList.helpers({
         }
         return Mongo.Collection.get(this.collection).find({}, options)
     },
+    isEmpty: function () {
+        return Mongo.Collection.get(this.collection).find({}).count() > 0;
+    },
     listIsReady: () => Template.instance().listReady.get(),
     moreItems: function () {
         return Template.instance().itemLimit.get() <= Mongo.Collection.get(this.collection).find().count();

@@ -4,9 +4,17 @@
             <h4>{{listTitle}}</h4>
         {{/if}}
         <ul class="item-list {{#if listClass}}{{listClass}}{{/if}}">
-            {{#each items}}
-                {{> UI.dynamic template=../itemTemplate}}
-            {{/each}}
+            {{#if isEmpty items}}
+                {{#each items}}
+                    {{> UI.dynamic template=../itemTemplate}}
+                {{/each}}
+            {{else}}
+                {{#if emptyPhrase}}
+                    <p class="empty-phrase">{{emptyPhrase}}</p>
+                {{else}}
+                    Sorry, your search didn't return any results
+                {{/if}}
+            {{/if}}
         </ul>
     </div>
     <div class="more-container">
@@ -16,7 +24,7 @@
             {{/if}}
         {{else}}
             <div class="spinner-container">
-            {{>spinner}}
+                {{>spinner}}
             </div>
         {{/if}}
     </div>

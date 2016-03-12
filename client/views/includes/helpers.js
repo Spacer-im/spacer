@@ -11,6 +11,7 @@ Template.registerHelper("phrase", (name) => {
     return el ? el.text : "";
 });
 
+
 Template.registerHelper("isNews", isPage(['newsList', "newsArticle"]));
 Template.registerHelper("isJobs", isPage(['jobList', "jobDescription"]));
 Template.registerHelper("isCompanies", isPage(['companyList', "companyDescription"]));

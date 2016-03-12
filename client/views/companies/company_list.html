@@ -20,6 +20,7 @@
 <template name="companiesContent">
     <div class="company-list">
         {{>itemList itemTemplate='companyItem' collection="companies"
-        subscription="companies" moreWriting="More Companies" filter=filter}}
+        subscription="companies" moreWriting="More Companies" filter=filter
+        emptyPhrase="Sorry, your search didn't return any companies"}}
     </div>
 </template>

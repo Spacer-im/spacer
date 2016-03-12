@@ -24,6 +24,8 @@
 
 <template name="jobsContent">
     <div class="jobs-list item-list">
-        {{>itemList itemTemplate='jobItem' collection="jobs" subscription="jobs" moreWriting="More jobs" filter=filter}}
+        {{>itemList itemTemplate='jobItem' collection="jobs"
+        subscription="jobs" moreWriting="More jobs" filter=filter
+        emptyPhrase="Sorry, your search didn't return any jobs"}}
     </div>
 </template>

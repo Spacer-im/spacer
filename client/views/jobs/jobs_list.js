@@ -41,9 +41,11 @@ Template.jobsSidebar.helpers({
 Template.jobsSidebar.events({
     "change #jobsFilter select[name='location']": function (event) {
         const list = event.target;
-        const value = list.options[list.selectedIndex].value;
-        if (!Session.equals("job-location", value)) {
-            Session.set("job-location", value);
+        if (list.options[list.selectedIndex]) {
+            const value = list.options[list.selectedIndex].value;
+            if (!Session.equals("job-location", value)) {
+                Session.set("job-location", value);
+            }
         }
     },
     "change #jobsFilter select[name='jobType']": function (event) {
