@@ -1,7 +1,11 @@
 <template name="newsList">
-    <div class="home-news">
-    {{>itemList itemTemplate='newsItem' collection="news" subscription="news"
-    moreWriting="More News" listTitle="Latest News:"
-    emptyPhrase="Sorry, your search didn't return any articles"}}
+    <div class="news__list">
+        <h3 class="news__list__title">Latest Articles:</h3>
+
+        <div class="item-list">
+            {{>itemList itemTemplate='newsItem' collection="news" subscription="news"
+            moreWriting="More News"
+            emptyPhrase="Sorry, your search didn't return any articles"}}
+        </div>
     </div>
 </template>

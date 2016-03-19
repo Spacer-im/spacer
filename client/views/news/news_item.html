@@ -1,15 +1,20 @@
 <template name="newsItem">
-    <li class="clearfix-after">
+    <li>
         <a href="/news/{{slug}}">
-            <div class="thumb">
-                <img src="{{thumbURL}}">
-            </div>
-            <div class="news-introduce">
-                <h4>{{title}}</h4>
+            <div class="item news__list__item">
+                <div class="item-image thumb-container">
+                    <div class="thumb th-4x3">
+                        <img class="img-responsive" src="{{thumbURL}}">
+                    </div>
+                </div>
 
-                <p class="short">
-                    {{short}}
-                </p>
+                <div class="item-body">
+                    <h4>{{title}}</h4>
+
+                    <p class="short">
+                        {{short}}
+                    </p>
+                </div>
             </div>
         </a>
     </li>
