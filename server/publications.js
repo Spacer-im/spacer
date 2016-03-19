@@ -1,3 +1,9 @@
+function debugSleep(ms) {
+    if (Meteor.settings.debug) {
+        Meteor._sleepForMs(ms);
+    }
+}
+
 function clearFilter(inFilter) {
     inFilter = inFilter || {};
     const filter = {};
@@ -93,6 +99,7 @@ Meteor.smartPublish("project", function (slug) {
 
 Meteor.smartPublish("events", function (limit, filter) {
     filter = clearFilter(filter);
+    debugSleep(2000);
     return Events.find(filter, generateOptions(limit, ["text", "additionalText"]));
 });
 

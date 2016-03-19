@@ -2,6 +2,7 @@
     {{#showcase coverClass="home-cover"}}
         <div class="showcase-content container">
             <h2 class="title">{{phrase "keyPhrase"}}</h2>
+
             <h1 class="site-name">SPACER</h1>
         </div>
     {{/showcase}}
@@ -9,16 +10,32 @@
 
 
 <template name="homeSidebar">
-    <h4>Latest jobs:</h4>
-    <ul class="jobs">
-        {{#if jobsAreReady}}
+    <section class="home-sidebar">
+        <h4>Upcoming Events</h4>
+        <ul class="home-sidebar__list">
+            {{#if upcomingEventsReady}}
+                {{#each upcomingEvents}}
+                    <li><a href="/events/{{slug}}">{{name}}</a></li>
+                {{/each}}
 
-            {{#each jobs}}
-                <li><a href="/jobs/{{slug}}">{{title}}/{{companyName}}</a></li>
-            {{/each}}
+            {{else}}
+                <div class="home-sidebar__list__loading">
+                    {{>spinner}}
+                </div>
+            {{/if}}
+        </ul>
+        <h4>Latest jobs:</h4>
+        <ul class="home-sidebar__loading__list">
+            {{#if jobsAreReady}}
+                {{#each jobs}}
+                    <li><a href="/jobs/{{slug}}">{{title}}/{{companyName}}</a></li>
+                {{/each}}
+            {{else}}
+                <div class="home-sidebar__list__loading">
+                    {{>spinner}}
+                </div>
+            {{/if}}
+        </ul>
+    </section>
 
-        {{else}}
-            {{>spinner}}
-        {{/if}}
-    </ul>
 </template>
