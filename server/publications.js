@@ -77,7 +77,7 @@ Meteor.smartPublish("company", function (slug) {
 });
 
 
-Meteor.publish("featured_companies", function () {
+Meteor.publish("featuredCompanies", function () {
     return FeaturedCompanies.find({});
 });
 
@@ -96,10 +96,12 @@ Meteor.smartPublish("project", function (slug) {
     return Projects.find({slug: slug});
 });
 
+Meteor.publish("featuredProjects", function (limit) {
+    return Projects.find({}, generateOptions(limit, ["description"], "importance", true));
+});
 
 Meteor.smartPublish("events", function (limit, filter) {
     filter = clearFilter(filter);
-    debugSleep(2000);
     return Events.find(filter, generateOptions(limit, ["text", "additionalText"]));
 });
 
