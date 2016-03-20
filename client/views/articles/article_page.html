@@ -1,11 +1,18 @@
 <template name="articleCover">
-    {{#showcase backgroundUrl=this.coverURL coverClass="article__cover"}}
+    {{#showcase coverClass="article__cover"}}
+        <div class="showcase-content container">
+            <h2 class="title category">Articles</h2>
+
+            <h1 class="site-name">SPACER</h1>
+        </div>
     {{/showcase}}
 </template>
 
 <template name="articleContent">
     <article class="article__content">
         <h1>{{title}}</h1>
+
+        <img class="img-responsive article__content__image" src="{{imageURL}}"/>
         {{#markdown}}{{text}}{{/markdown}}
         {{> tagsList}}
         {{#if isAdmin}}

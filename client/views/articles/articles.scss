@@ -1,5 +1,4 @@
-@import "../../stylesheets/colors";
-@import "../../stylesheets/values";
+@import "../lib/variables";
 
 .article {
   &__list {
@@ -14,19 +13,24 @@
     }
   }
   &__content {
+    font-size: 16px;
     img {
       max-width: 100%;
     }
+    &__image {
+      margin: 5px auto 10px;
+    }
   }
-  &.__cover {
+  &__cover {
+    border: 10px solid black;
     .image-layer-low {
-      background-image: url("/assets/covers/blue_low.jpg");
+      background-image: url("/assets/covers/blue_low.jpg") !important;
     }
     .image-layer-normal {
-      background-image: url("/assets/covers/blue.jpg");
+      background-image: url("/assets/covers/blue.jpg") !important;;
     }
     .color-layer {
-      background-color: $color-cover-blue;
+      background-color: $color-cover-blue !important;;
     }
   }
 }
