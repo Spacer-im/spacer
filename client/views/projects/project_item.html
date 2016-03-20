@@ -1,20 +1,23 @@
 <template name="projectItem">
     <li>
         <a href="/projects/{{slug}}">
-            <div class="thumb-container float-left">
-                <div class="thumb">
-                    <img class="img-responsive" src="{{thumbURL}}">
+            <div class="item projects__list__item">
+                <div class="item-image thumb-container">
+                    <div class="thumb th-4x3">
+                        <img class="img-responsive" src="{{thumbURL}}">
+                    </div>
                 </div>
-            </div>
-            <div class="info">
-                <h4 class="name">{{name}}</h4>
 
-                <p>{{short}}</p>
+                <div class="info item-body">
+                    <h4 class="name">{{name}}</h4>
 
-                <div class="keyword-block">
-                    {{#each keywords}}
-                        <div class="keyword">{{this}}</div>
-                    {{/each}}
+                    <p>{{short}}</p>
+
+                    <div class="keyword-block">
+                        {{#each keywords}}
+                            <div class="keyword">{{this}}</div>
+                        {{/each}}
+                    </div>
                 </div>
             </div>
         </a>
