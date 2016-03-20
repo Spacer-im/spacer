@@ -1,0 +1,11 @@
+<template name="articleList">
+    <div class="article__list">
+        <h3 class="article__list__title">Latest Articles:</h3>
+
+        <div class="item-list">
+            {{>itemList itemTemplate='articleItem' collection="articles" subscription="articles"
+            moreWriting="More Articles"
+            emptyPhrase="Sorry, your search didn't return any articles"}}
+        </div>
+    </div>
+</template>

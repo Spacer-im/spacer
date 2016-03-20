@@ -1,7 +1,7 @@
-<template name="newsItem">
+<template name="articleItem">
     <li>
-        <a href="/news/{{slug}}">
-            <div class="item news__list__item">
+        <a href="/articles/{{slug}}">
+            <div class="item article__list__item">
                 <div class="item-image thumb-container">
                     <div class="thumb th-4x3">
                         <img class="img-responsive" src="{{thumbURL}}">
@@ -11,7 +11,7 @@
                 <div class="item-body">
                     <h4>{{title}}</h4>
 
-                    <p class="short">
+                    <p class="article__list__item__short">
                         {{short}}
                     </p>
                 </div>

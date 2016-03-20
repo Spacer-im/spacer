@@ -1,0 +1,17 @@
+<template name="articleCover">
+    {{#showcase backgroundUrl=this.coverURL coverClass="article__cover"}}
+    {{/showcase}}
+</template>
+
+<template name="articleContent">
+    <article class="article__content">
+        <h1>{{title}}</h1>
+        {{#markdown}}{{text}}{{/markdown}}
+        {{> tagsList}}
+        {{#if isAdmin}}
+            <section class="admin-section">
+                <a class="btn btn-default" href="/article-update/{{slug}}">Edit</a>
+            </section>
+        {{/if}}
+    </article>
+</template>

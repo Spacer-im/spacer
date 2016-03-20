@@ -1,0 +1,9 @@
+<template name="insertArticleForm">
+    <h1>Add an article</h1>
+    {{> quickForm collection="Articles" id="insertArticleForm" type="insert"}}
+</template>
+
+<template name="updateArticleForm">
+    <h1>Update the article</h1>
+    {{> quickForm collection="Articles" doc=this id="updateArticleForm" type="update"}}
+</template>

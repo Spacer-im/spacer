@@ -33,14 +33,14 @@ function generateOptions(limit = 0, omitFields = [], sortField = "submitted", re
     return options;
 }
 
-Meteor.smartPublish('news', function (limit) {
-    this.addDependency("news", "imageId", doc => Images.find(doc.imageId));
-    return News.find({}, generateOptions(limit, ["text"]));
+Meteor.smartPublish('articles', function (limit) {
+    this.addDependency("articles", "imageId", doc => Images.find(doc.imageId));
+    return Articles.find({}, generateOptions(limit, ["text"]));
 });
 
-Meteor.smartPublish("news_by_slug", function (slug) {
-    this.addDependency("news", "imageId", doc => Images.find(doc.imageId));
-    return News.find({slug: slug});
+Meteor.smartPublish("article", function (slug) {
+    this.addDependency("articles", "imageId", doc => Images.find(doc.imageId));
+    return Articles.find({slug: slug});
 });
 
 Meteor.publish("tags", function () {

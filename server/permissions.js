@@ -2,7 +2,7 @@ var allowAdmin = function(userId, doc) {
     return userId && Roles.userIsInRole(userId, ['admin']);
 };
 
-News.allow({
+Articles.allow({
     insert: allowAdmin,
     update: allowAdmin,
     remove: allowAdmin
