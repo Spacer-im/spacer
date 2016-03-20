@@ -3,7 +3,7 @@ Template.insertArticleForm.events({
         e.preventDefault();
         let $slug = document.querySelector("#insertArticleForm input[name='slug']");
         let date = new Date();
-        $slug.value = URLify2(`${e.target.value}-${date.getDate()}-${date.getMonth()}-${date.getUTCFullYear()}`);
+        $slug.value = URLify2(`${e.target.value}-${moment(date).format('YYYY-MM-DD')}`);
     }
 });
 
