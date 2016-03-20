@@ -9,10 +9,12 @@
                     {{> UI.dynamic template=../itemTemplate}}
                 {{/each}}
             {{else}}
-                {{#if emptyPhrase}}
-                    <p class="empty-phrase">{{emptyPhrase}}</p>
-                {{else}}
-                    Sorry, your search didn't return any results
+                {{#if listIsReady}}
+                    {{#if emptyPhrase}}
+                        <p class="empty-phrase">{{emptyPhrase}}</p>
+                    {{else}}
+                        Sorry, your search didn't return any results
+                    {{/if}}
                 {{/if}}
             {{/if}}
         </ul>
