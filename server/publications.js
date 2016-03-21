@@ -35,7 +35,7 @@ function generateOptions(limit = 0, omitFields = [], sortField = "submitted", re
 
 Meteor.smartPublish('articles', function (limit) {
     this.addDependency("articles", "imageId", doc => Images.find(doc.imageId));
-    return Articles.find({}, generateOptions(limit, ["text"]));
+    return Articles.find({}, generateOptions(limit, ["text"], "createdAt"));
 });
 
 Meteor.smartPublish("article", function (slug) {
