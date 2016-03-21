@@ -5,13 +5,15 @@
     margin-top: 30px;
   }
   @media screen and (min-width: $break-xs) {
-    padding-left: 30px;
+    padding-left: 10px;
   }
 
   &__list {
     list-style-type: disc;
+    padding-left: 20px;
     li {
       margin: 10px 0;
+      word-wrap: break-word;
     }
     &__loading {
       position: relative;
