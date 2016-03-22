@@ -25,8 +25,7 @@ fortawesome:fontawesome
 mrt:flash-messages
 check
 yogiben:admin
-aldeed:autoform-bs-datetimepicker
-tsega:bootstrap3-datetimepicker@=3.1.3_3
+tsega:bootstrap3-datetimepicker
 sacha:spin
 chuangbo:marked
 q42:autoform-markdown
@@ -62,3 +61,6 @@ yogiben:autoform-file
 momentjs:moment
 aldeed:autoform-select2
 okgrow:router-autoscroll
+rajit:bootstrap3-datepicker
+aldeed:autoform-bs-datepicker
+aldeed:autoform-bs-datetimepicker
