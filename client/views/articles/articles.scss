@@ -11,6 +11,18 @@
     }
     &__item {
     }
+    &__search {
+      position: relative;
+      .fa-search {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      input {
+        padding-left: 30px;
+      }
+    }
   }
   &__content {
     font-size: 16px;
@@ -34,16 +46,5 @@
     }
   }
 
-  &__search {
-    position: relative;
-    .fa-search {
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    input {
-      padding-left: 30px;
-    }
-  }
+
 }
