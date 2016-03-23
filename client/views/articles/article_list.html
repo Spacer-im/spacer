@@ -1,11 +1,15 @@
 <template name="articleList">
     <div class="article__list">
-        <h3 class="article__list__title">Latest Articles:</h3>
-
+        <h3 class="article__list__title">Latest Spacer Picks:</h3>
+        <div class="form-group article__list__search">
+            <i class="fa fa-search"></i>
+            <input type="text" class="form-control" id="inputArticleWord"
+                   placeholder="Search by keywords and titles">
+        </div>
         <div class="item-list">
             {{>itemList itemTemplate='articleItem' collection="articles" subscription="articles"
-            moreWriting="More Articles"  sortBy="createdAt"
-            emptyPhrase="Sorry, your search didn't return any articles"}}
+            moreWriting="More Articles"  sortBy="createdAt" filter=filter
+            emptyPhrase="Sorry, your search didn't return any picks"}}
         </div>
     </div>
 </template>
