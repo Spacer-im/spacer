@@ -13,10 +13,14 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="{{#if isJobs }}active{{/if}}"><a href="{{pathFor 'jobList'}}">Careers</a></li>
-                    <li class="{{#if isCompanies }}active{{/if}}"><a href="{{pathFor 'companyList'}}">Companies</a></li>
-                    <li class="{{#if isProjects }}active{{/if}}"><a href="{{pathFor 'projectList'}}">Projects</a></li>
-                    <li class="{{#if isEvents }}active{{/if}}"><a href="/events/">Events</a></li>
+                    <li class="{{#if isActivePath regex='^\\/job' }}active{{/if}}">
+                        <a href="{{pathFor 'jobList'}}">Careers</a></li>
+                    <li class="{{#if isActivePath regex='^\\/compan' }}active{{/if}}">
+                        <a href="{{pathFor 'companyList'}}">Companies</a></li>
+                    <li class="{{#if isActivePath regex='^\\/project' }}active{{/if}}">
+                        <a href="{{pathFor 'projectList'}}">Projects</a></li>
+                    <li class="{{#if isActivePath regex='^\\/event' }}active{{/if}}">
+                        <a href="/events/">Events</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right" id="login-header">
