@@ -29,7 +29,7 @@ Projects.allow({
 });
 
 
-Events.allow({
+SpEvents.allow({
     insert: allowAdmin,
     update: allowAdmin,
     remove: allowAdmin

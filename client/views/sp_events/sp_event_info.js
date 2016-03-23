@@ -1,24 +1,24 @@
-Template.eventInfoSidebar.onCreated(function () {
+Template.spEventInfoSidebar.onCreated(function () {
     this.roleSelected = ReactiveVar("");
 });
 
-Template.eventInfoSidebar.helpers({
+Template.spEventInfoSidebar.helpers({
     alreadyRegistered: function () {
         const data = Template.instance().data;
-        return Meteor.userId() && data && EventRegistrations.findOne({userId: Meteor.userId(), eventId: data._id});
+        return Meteor.userId() && data && SpEventRegistrations.findOne({userId: Meteor.userId(), eventId: data._id});
     },
     registerStatus: () => Template.instance().roleSelected.get() ? "" : "disabled",
     registeredRole: () => {
         const eventId = Template.instance().data ? Template.instance().data._id : "";
         if (eventId && Meteor.userId()) {
-            const reg = EventRegistrations.findOne({userId: Meteor.userId(), eventId: eventId});
+            const reg = SpEventRegistrations.findOne({userId: Meteor.userId(), eventId: eventId});
             return reg ? reg.role : "";
         }
         return "";
     }
 });
 
-Template.eventInfoSidebar.events({
+Template.spEventInfoSidebar.events({
     "change #roleSelect": function (event, template) {
         const $select = $(event.target);
         template.roleSelected.set($select ? $select.val() : "");

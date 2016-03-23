@@ -101,16 +101,17 @@ Meteor.publish("featuredProjects", function (limit) {
     return Projects.find({}, generateOptions(limit, ["description"], "importance", true));
 });
 
-Meteor.smartPublish("events", function (limit, filter) {
+Meteor.smartPublish("spEvents", function (limit, filter) {
     filter = clearFilter(filter);
-    return Events.find(filter, generateOptions(limit, ["text", "additionalText"]));
+    console.log(SpEvents.find({}).fetch());
+    return SpEvents.find(filter, generateOptions(limit, ["text", "additionalText"]));
 });
 
-Meteor.smartPublish("event", function (slug) {
+Meteor.smartPublish("spEvent", function (slug) {
     const userId = this.userId || "";
     return [
-        Events.find({slug: slug}),
-        EventRegistrations.find({userId: userId})
+        SpEvents.find({slug: slug}),
+        SpEventRegistrations.find({userId: userId})
     ]
 });
 

@@ -1,4 +1,4 @@
-<template name="eventInfoCover">
+<template name="spEventInfoCover">
     {{#showcase coverClass="project-cover"}}
         <div class="showcase-content container">
             <h2 class="title category">{{name}}</h2>
@@ -8,11 +8,11 @@
     {{/showcase}}
 </template>
 
-<template name="eventInfoBottom">
+<template name="spEventInfoBottom">
     <div class="clearfix"></div>
 </template>
 
-<template name="eventInfoContent">
+<template name="spEventInfoContent">
     <section class="project-info">
         <article>
             {{#markdown}}{{text}}{{/markdown}}
@@ -20,7 +20,7 @@
     </section>
 </template>
 
-<template name="eventInfoSidebar">
+<template name="spEventInfoSidebar">
     <div class="h1-margin">
         <article>
             {{#markdown}}{{additionalText}}{{/markdown}}
@@ -37,7 +37,7 @@
                 <p>
                     For us to build awesome teams tell us who you are:
                 </p>
-                {{#autoForm collection="EventRegistrations" id="eventRegistrationForm"}}
+                {{#autoForm collection="SpEventRegistrations" id="eventRegistrationForm"}}
                     <div class="form-group">
                         {{> afFieldInput name="role" id="roleSelect"}}
                     </div>
@@ -53,7 +53,7 @@
 
 </template>
 
-<template name="eventInfoAdmin">
+<template name="spEventInfoAdmin">
     <section class="admin-section">
         <a class="btn btn-default" href="/event-update/{{slug}}">Edit</a>
     </section>
