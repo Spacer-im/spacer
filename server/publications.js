@@ -103,7 +103,6 @@ Meteor.publish("featuredProjects", function (limit) {
 
 Meteor.smartPublish("spEvents", function (limit, filter) {
     filter = clearFilter(filter);
-    console.log(SpEvents.find({}).fetch());
     return SpEvents.find(filter, generateOptions(limit, ["text", "additionalText"]));
 });
 
@@ -148,3 +147,13 @@ Meteor.smartPublish("projectComments", function (limit, filter) {
 Meteor.publish(null, () => Phrases.find({}));
 
 Meteor.publish(null, () => Meteor.roles.find({}));
+
+Meteor.publish(null, function() {
+    if (this.userId) {
+        const user = Meteor.users.findOne({_id: this.userId});
+        if (user && user.profile) {
+            return Avatars.find(user.profile.photoId);
+        }
+    }
+    this.ready();
+});

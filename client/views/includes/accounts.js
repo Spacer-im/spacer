@@ -28,3 +28,13 @@ Template._loginButtonsLoggedInDropdown.events({
         Router.go('/project-add');
     }
 });
+
+Template._loginButtonsLoggedInDropdown.helpers({
+    user_profile_picture: function() {
+        var user = Meteor.user();
+        if (user && user.avatarUrl()) {
+            return user.avatarUrl();
+        }
+        return "";
+    }
+});
