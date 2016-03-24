@@ -135,6 +135,18 @@
       }
     }
 
+    &.event-cover {
+      .image-layer-low {
+        background-image: url("/assets/covers/red_low.jpg");
+      }
+      .image-layer-normal {
+        background-image: url("/assets/covers/red.jpg");
+      }
+      .color-layer {
+        background-color: $color-red-3;
+      }
+    }
+
     &.profile-cover {
       .image-layer-low {
         background-image: url("/assets/covers/grey_low.jpg");
