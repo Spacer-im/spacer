@@ -144,6 +144,10 @@ Meteor.smartPublish("projectComments", function (limit, filter) {
     return ProjectComments.find(filter, generateOptions(limit, [], "createdAt", true));
 });
 
+Meteor.publish('customPage', function (slug) {
+    return CustomPages.find({slug});
+});
+
 Meteor.publish(null, () => Phrases.find({}));
 
 Meteor.publish(null, () => Meteor.roles.find({}));

@@ -1,0 +1,10 @@
+.custom-page {
+  &__content {
+    font-size: 19px;
+    &__portrait {
+      width: 150px;
+      float: left;
+      padding: 5px 15px 0 0;
+    }
+  }
+}

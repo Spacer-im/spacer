@@ -1,0 +1,10 @@
+<template name="contentCenterNarrow">
+    {{>header}}
+    {{> yield "cover"}}
+    <section class="container">
+        <section class="col-md-8 col-md-offset-2">
+            {{> yield "content"}}
+        </section>
+    </section>
+    {{>footer}}
+</template>
