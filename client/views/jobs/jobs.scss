@@ -1,4 +1,4 @@
-@import "colors";
+@import "../../stylesheets/colors";
 
 .job-image {
   max-width: 100px;
@@ -26,5 +26,13 @@
   .company-name {
     font-size: 120%;
     color: $color-grey-4;
+  }
+}
+
+.job {
+  &__list {
+    &__item {
+      padding-top: 10px !important;
+    }
   }
 }

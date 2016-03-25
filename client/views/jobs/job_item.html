@@ -1,7 +1,7 @@
 <template name="jobItem">
     <li>
         <a href="/jobs/{{slug}}">
-            <div class="item job-item highlight-hover-block">
+            <div class="item job__list__item highlight-hover-block">
                 <div class="item-image thumb-container bordered">
                     <div class="thumb">
                         <img class="img-responsive" src="{{companyLogoURL}}">
@@ -11,7 +11,7 @@
                     <h4>{{title}}</h4>
 
                     <div class="job-info">
-                        <span class="company-name">{{companyName}}</span>
+                        <span class="company-name">{{companyName}}</span> /
                         <span class="location">{{location}}</span>
                         <br>
                         <span class="job-type">{{jobType}}</span>
