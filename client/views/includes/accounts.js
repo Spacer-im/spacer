@@ -52,8 +52,7 @@ Template._loginButtonsFormField.onRendered(function () {
 
 accountsUIBootstrap3.setCustomSignupOptions = function() {
     const checkbox = document.getElementById('login-subscribeDigest');
-    console.log(checkbox.checked);
     return {
-        subscribeDigest:
+        subscribeDigest: checkbox && checkbox.checked
     }
 };
