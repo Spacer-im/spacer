@@ -36,20 +36,20 @@ Template.updateJobForm.helpers({
 });
 
 Template.insertJobForm.events({
-    'input #insertJobForm input[name="title"], input #insertJobForm input[name="companyName"], input #insertJobForm select[name="location"]': function (e) {
+    'input #insertJobForm input[name="title"], input #insertJobForm input[name="companyName"], change #insertJobForm select[name="location"]': function (e) {
         e.preventDefault();
         let $slug = document.querySelector("#insertJobForm input[name='slug']");
         let $title = document.querySelector("#insertJobForm input[name='title']");
         let $company = document.querySelector("#insertJobForm input[name='companyName']");
         let $location = document.querySelector("#insertJobForm select[name='location']");
-        let date = new Date();
-        $slug.value = URLify2(`${date.getDate()}-${date.getMonth()}-${date.getUTCFullYear()}-${$title.value}-${$company.value}-${$location.value}`);
+        let rand = Random.hexString(6);
+        $slug.value = URLify2(`${$title.value}-${$company.value}-${$location.value}-${rand}`);
     }
 });
 
 AutoForm.addHooks(["insertJobForm", "updateJobForm"], {
     onSuccess: function (doc) {
-        Router.go("jobs");
+        Router.go("jobList");
     }
 
 });

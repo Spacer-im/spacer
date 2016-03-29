@@ -52,7 +52,7 @@ Meteor.smartPublish('jobs', function (limit, filter) {
     filter = clearFilter(filter);
     this.addDependency("jobs", "companyName", doc => Companies.find({name: doc.companyName}));
     this.addDependency("companies", "imageId", doc => Images.find(doc.imageId));
-    return Jobs.find(filter, generateOptions(limit, ["description"]));
+    return Jobs.find(filter, generateOptions(limit, ["description"], "createdAt"));
 });
 
 Meteor.smartPublish("job", function (slug) {
