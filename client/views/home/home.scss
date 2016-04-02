@@ -21,3 +21,43 @@
     }
   }
 }
+
+.home {
+  &__showcase {
+    .showcase {
+      min-height: 300px !important;
+      @media screen and (max-width: $break-xs) {
+        min-height: 400px !important;
+      }
+    }
+    .showcase-content {
+      align-items: flex-start !important;
+    }
+    &__title {
+      h1 {
+        font-family: $fontMonoton;
+        font-size: 60px;
+      }
+      text-align: left;
+      flex-grow: 1;
+      @media screen and (max-width: $break-xs) {
+        text-align: center;
+      }
+    }
+    &__explain {
+      text-align: right;
+      @media screen and (max-width: $break-xs) {
+        text-align: center;
+      }
+      flex-grow: 1;
+      h2 {
+        font-size: 26px;
+
+      }
+      a {
+        color: white;
+        text-decoration: underline;
+      }
+    }
+  }
+}
