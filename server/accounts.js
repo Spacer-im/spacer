@@ -3,6 +3,5 @@ Accounts.onCreateUser(function (user, options) {
         user.profile = options.profile;
     }
     user.createdAt = new Date();
-    console.log(user);
     return user;
 });
