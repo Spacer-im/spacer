@@ -24,23 +24,30 @@ function sendEmailAboutEvent(userEmail, name) {
 }
 
 Meteor.methods({
-    registerToEvent: function (eventId, eventRole) {
-        check(eventId, String);
-        check(eventRole, String);
+    registerToEvent: function (doc, doc_id) {
+        check(doc, Schemas.SpEventRegistration);
         if (!Meteor.userId()) {
             throw new Meteor.Error("not-authorized");
         }
-        if (!SpEvents.findOne(eventId)) {
-            throw new Meteor.Error(`An event with id ${eventId} doesn't exist`);
+        doc.userId = Meteor.userId();
+        if (!SpEvents.findOne(doc.eventId)) {
+            throw new Meteor.Error(`An event with id ${doc.eventId} doesn't exist`);
         }
-        SpEventRegistrations.upsert({eventId: eventId, userId: Meteor.userId()},
-            {$set: {eventId: eventId, userId: Meteor.userId(), role: eventRole}},
+        doc.createdAt = new Date();
+        SpEventRegistrations.upsert({eventId: doc.eventId, userId: Meteor.userId()},
+            {$set: doc},
             function (err, res) {
-                const user = Meteor.user();
-                if (user.emails && user.emails[0] && user.emails[0].verified) {
-                    sendEmailAboutEvent(user.emails[0].address, user.profile.firstName || user.username);
+                if (err) {
+                    return err;
                 }
-                return res;
+                else {
+                    const user = Meteor.user();
+                    if (user.emails && user.emails[0] && user.emails[0].verified) {
+                        sendEmailAboutEvent(user.emails[0].address, user.profile.firstName || user.username);
+                    }
+                    return res;
+                }
+
             });
     }
 });

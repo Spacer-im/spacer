@@ -34,16 +34,17 @@
                     you get selected.
                 </div>
             {{else}}
-                <p>
-                    For us to build awesome teams tell us who you are:
-                </p>
-                {{#autoForm collection="SpEventRegistrations" id="eventRegistrationForm"}}
-                    <div class="form-group">
-                        {{> afFieldInput name="role" id="roleSelect"}}
+                {{#autoForm collection="SpEventRegistrations"
+                id="eventRegistrationForm" type="method" meteormethod="registerToEvent"}}
+                    {{> afQuickField name="eventId" value=_id}}
+                    {{> afQuickField name="role" label="For us to build awesome teams tell us who you are:"}}
+                    {{> afQuickField name="interest" label="What is your space interest?"}}
+                    {{> afQuickField name="knowEnglish" label="Do you know English?"}}
+                    {{> afQuickField name="additional" label="Why do you want to participate? Do you have an idea/project (250 symbols max)"}}
+
+                    <div>
+                        <button type="submit" id="bRegister" class="btn btn-success btn-width">Register</button>
                     </div>
-                    <button type="button" id="bRegister"
-                            class="btn btn-success btn-width" {{registerStatus}}>Register
-                    </button>
                 {{/autoForm}}
             {{/if}}
         {{else}}

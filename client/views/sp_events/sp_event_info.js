@@ -17,16 +17,16 @@ Template.spEventInfoSidebar.helpers({
         return "";
     }
 });
-
-Template.spEventInfoSidebar.events({
-    "change #roleSelect": function (event, template) {
-        const $select = $(event.target);
-        template.roleSelected.set($select ? $select.val() : "");
-    },
-    "click #bRegister": function (event, template) {
-        event.preventDefault();
-        const roleSelected = template.roleSelected.get();
-        template.roleSelected.set("");
-        Meteor.call("registerToEvent", template.data._id, roleSelected);
-    }
-});
+//
+//Template.spEventInfoSidebar.events({
+//    "change #roleSelect": function (event, template) {
+//        const $select = $(event.target);
+//        template.roleSelected.set($select ? $select.val() : "");
+//    },
+//    "click #bRegister": function (event, template) {
+//        event.preventDefault();
+//        const roleSelected = template.roleSelected.get();
+//        template.roleSelected.set("");
+//        Meteor.call("registerToEvent", template.data._id, roleSelected);
+//    }
+//});

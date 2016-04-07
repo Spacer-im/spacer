@@ -1,0 +1,20 @@
+<template name="eventSidebarRight">
+    {{>header}}
+    {{> yield "cover"}}
+    <section class="container">
+        <section class="col-sm-8">
+            {{> yield "content"}}
+        </section>
+        <section class="col-sm-4">
+            {{> yield "sidebar"}}
+        </section>
+        {{> yield "bottom"}}
+    </section>
+
+    {{#if isAdmin}}
+        <section class="container">
+            {{> yield "adminPanel"}}
+        </section>
+    {{/if}}
+    {{>footer}}
+</template>
