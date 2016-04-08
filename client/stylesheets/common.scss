@@ -229,3 +229,12 @@ button, .btn {
 .thin {
   font-weight: 300;
 }
+
+a.dull-link {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    text-decoration: none;
+
+  }
+}
