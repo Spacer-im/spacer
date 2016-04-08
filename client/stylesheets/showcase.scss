@@ -3,6 +3,10 @@
 
 .low-showcase .showcase {
   min-height: 150px;
+  .image-layer {
+    background-size: cover;
+    background-position: 0 50% !important;
+  }
 }
 
 .showcase {
@@ -137,13 +141,13 @@
 
     &.event-cover {
       .image-layer-low {
-        background-image: url("/assets/covers/red_low.jpg");
+        background-image: url("/assets/covers/green_low.jpg");
       }
       .image-layer-normal {
-        background-image: url("/assets/covers/red.jpg");
+        background-image: url("/assets/covers/green.jpg");
       }
       .color-layer {
-        background-color: $color-red-3;
+        background-color: $color-green-3;
       }
     }
 
