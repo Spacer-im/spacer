@@ -9,10 +9,13 @@
   }
 
   &__list {
-    list-style-type: disc;
+    list-style-type: none;
     padding-left: 20px;
     li {
-      margin: 10px 0;
+      &:first-of-type {
+        margin-top: 5px;
+      }
+      margin: 12px 0;
       word-wrap: break-word;
     }
     &__loading {
@@ -32,6 +35,11 @@
     }
     .showcase-content {
       align-items: flex-start !important;
+    }
+    .background-showcase {
+      .image-layer {
+        background-position: 0 93% !important;
+      }
     }
     &__title {
       h1 {
