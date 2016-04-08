@@ -10,11 +10,16 @@
 
   &__list {
     list-style-type: none;
-    padding-left: 20px;
+    padding-left: 0;
     li {
       &:first-of-type {
         margin-top: 5px;
       }
+
+      &:last-of-type {
+        margin-bottom: 20px;
+      }
+
       margin: 12px 0;
       word-wrap: break-word;
     }
