@@ -114,6 +114,19 @@ Meteor.smartPublish("spEvent", function (slug) {
     ]
 });
 
+Meteor.smartPublish("spEventRegistrations", function (slug) {
+    const userId = this.userId || "";
+    if (userId && Roles.userIsInRole(userId, ['admin'])) {
+        this.addDependency("spEvents", "_id", doc => SpEventRegistrations.find({eventId: doc._id}));
+        this.addDependency("spEventRegistrations", "userId",
+                doc => Meteor.users.find({_id: userId}, {fields: {username: 1}}));
+        return SpEvents.find({slug: slug});
+    }
+    else {
+        return [];
+    }
+});
+
 
 Meteor.smartPublish("profile", function (username) {
     this.addDependency("users", "profile.photoId", doc => Avatars.find(doc.profile.photoId));

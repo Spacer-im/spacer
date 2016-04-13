@@ -1,0 +1,28 @@
+<template name="spEventReportContent">
+    <h1>{{spEvent.name}}</h1>
+    <article>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Interest</th>
+                    <th>Know English</th>
+                    <th>Additional note</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each registrations}}
+                    <tr>
+                        <td><a href="/profile/{{getUsername userId}}">{{getUsername userId}}</a></td>
+                        <td>{{role}}</td>
+                        <td>{{interest}}</td>
+                        <td>{{knowEnglish}}</td>
+                        <td>{{additional}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </article>
+
+</template>
