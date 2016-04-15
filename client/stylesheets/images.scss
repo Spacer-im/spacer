@@ -56,3 +56,10 @@
     }
   }
 }
+
+.center-cropped {
+  width: 160px;
+  height: 120px;
+  background: no-repeat center center;
+  background-size: cover;
+}
