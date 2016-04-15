@@ -12,12 +12,15 @@ Template.jobsContent.helpers({
             location: Session.get("job-location"),
             jobType: jobTypes && jobTypes.length ? {$all: Session.get("job-type")}: null
         };
-        if (Session.get("job-word")) {
-            const regExpr = {$regex: Session.get("job-word"), $options: '-i'};
-            dict["$or"] = [
-                {title: regExpr},
-                {keywords: regExpr}
-            ]
+        const word = Session.get("job-word");
+        if (word) {
+            //const regExpr = {$regex: word, $options: '-i'};
+            //dict["$or"] = [
+            //    {title: regExpr},
+            //    {keywords: regExpr},
+            //    { $text: {$search: word} }
+            //]
+            dict["$text"] = {$search: word};
         }
         return dict;
     }
