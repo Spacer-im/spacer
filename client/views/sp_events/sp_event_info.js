@@ -1,8 +1,8 @@
-Template.spEventInfoSidebar.onCreated(function () {
+Template.spEventSidebar.onCreated(function () {
     this.roleSelected = ReactiveVar("");
 });
 
-Template.spEventInfoSidebar.helpers({
+Template.spEventSidebar.helpers({
     alreadyRegistered: function () {
         const data = Template.instance().data;
         return Meteor.userId() && data && SpEventRegistrations.findOne({userId: Meteor.userId(), eventId: data._id});

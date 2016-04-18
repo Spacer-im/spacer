@@ -1,26 +1,26 @@
-<template name="companiesCover">
-    {{#showcase coverClass="company-cover"}}
-        <div class="showcase-content container">
-            <h2 class="title category">Companies</h2>
-
-            <h1 class="site-name">SPACER</h1>
-        </div>
-    {{/showcase}}
-</template>
-
-
-<template name="companiesSidebar">
-    <div class="form-group">
-        <label for="iCompanyWord">Search</label>
-        <input type="text" class="form-control" id="iCompanyWord" placeholder="Keyword">
-    </div>
-</template>
-
-
-<template name="companiesContent">
+<template name="companyList">
     <div class="company-list">
         {{>itemList itemTemplate='companyItem' collection="companies"
         subscription="companies" moreWriting="More Companies" filter=filter
         emptyPhrase="Sorry, your search didn't return any companies"}}
     </div>
+
+
+    {{#contentFor "cover"}}
+        {{#showcase coverClass="company-cover"}}
+            <div class="showcase-content container">
+                <h2 class="title category">Companies</h2>
+
+                <h1 class="site-name">SPACER</h1>
+            </div>
+        {{/showcase}}
+    {{/contentFor}}
+
+    {{#contentFor "sidebar"}}
+        <div class="form-group">
+            <label for="iCompanyWord">Search</label>
+            <input type="text" class="form-control" id="iCompanyWord" placeholder="Keyword">
+        </div>
+    {{/contentFor}}
+
 </template>

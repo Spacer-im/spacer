@@ -1,32 +1,32 @@
-Template.jobsSidebar.onCreated(function () {
+Template.jobListSide.onCreated(function () {
     Session.set("job-location", "");
     Session.set("job-type", []);
     Session.set("job-word", "");
     this.countrySubscription = this.subscribe("countries");
 });
 
-Template.jobsContent.helpers({
-    filter: function () {
-        const jobTypes = Session.get("job-type");
-        const dict = {
-            location: Session.get("job-location"),
-            jobType: jobTypes && jobTypes.length ? {$all: Session.get("job-type")}: null
-        };
-        if (Session.get("job-word")) {
-            const regExpr = {$regex: Session.get("job-word"), $options: '-i'};
-            dict["$or"] = [
-                {title: regExpr},
-                {keywords: regExpr}
-            ]
+Template.jobList.helpers({
+        filter: function () {
+            const jobTypes = Session.get("job-type");
+            const dict = {
+                location: Session.get("job-location"),
+                jobType: jobTypes && jobTypes.length ? {$all: Session.get("job-type")} : null
+            };
+            if (Session.get("job-word")) {
+                const regExpr = {$regex: Session.get("job-word"), $options: '-i'};
+                dict["$or"] = [
+                    {title: regExpr},
+                    {keywords: regExpr}
+                ]
+            }
+            return dict;
         }
-        return dict;
     }
-});
-
-Template.jobsSidebar.helpers({
+);
+Template.jobListSide.helpers({
     countryOptions: function () {
         if (Template.instance().countrySubscription.ready()) {
-            return Locations.find({}).map((el) => {
+            return Locations.find({}, {sort: {country: 1}}).map((el) => {
                 return {"label": el.country, "value": el.country}
             })
         }
@@ -38,7 +38,7 @@ Template.jobsSidebar.helpers({
     emptyList: []
 });
 
-Template.jobsSidebar.events({
+Template.jobListSide.events({
     "change #jobsFilter select[name='location']": function (event) {
         const list = event.target;
         if (list.options[list.selectedIndex]) {

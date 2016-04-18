@@ -1,4 +1,4 @@
-Template.userProfileEditContent.onCreated(function () {
+Template.userProfileEdit.onCreated(function () {
     this.summaryCount = ReactiveVar(this.data.profile.summary ? this.data.profile.summary.length : 0);
     this.callingCount = ReactiveVar(this.data.profile.calling ? this.data.profile.calling.length : 0);
     this.profList = new ReactiveArray(this.data.profile.professions ? this.data.profile.professions : []);
@@ -7,11 +7,11 @@ Template.userProfileEditContent.onCreated(function () {
 
 });
 
-Template.userProfileEditContent.onRendered(function () {
+Template.userProfileEdit.onRendered(function () {
     Meteor.typeahead.inject();
 });
 
-Template.userProfileEditContent.helpers({
+Template.userProfileEdit.helpers({
     countryOptions: function () {
         if (Template.instance().countrySubscription.ready()) {
             return Locations.find({}).map((el) => {
@@ -48,7 +48,7 @@ Template.userProfileEditContent.helpers({
     randId: () => Random.Id()
 });
 
-Template.userProfileEditContent.events({
+Template.userProfileEdit.events({
     "keyup #fSummary": function (event) {
         let text = event.target.value;
         Template.instance().summaryCount.set(text.length);

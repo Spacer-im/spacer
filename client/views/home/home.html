@@ -1,63 +1,83 @@
-<template name="homeCover">
-    <div class="home__showcase">
-        {{#showcase coverClass="home-cover"}}
-            <div class="showcase-content container">
-                <div class="home__showcase__title">
-                    <h1>SPACER</h1>
+<template name="home">
+    <div class="article__list">
+        <h3 class="article__list__title">Latest Spacer Picks:</h3>
 
-                    <h2 class="thin">{{phrase "keyPhrase"}}</h2>
-                </div>
-                <div class="home__showcase__explain">
-                    <h2 class="thin">Participate in space <a href="/projects">projects</a></h2>
-                    <h2 class="thin">Build your space <a href="/profile">profile</a></h2>
-                    <h2 class="thin">Apply to space <a href="/jobs">jobs</a></h2>
-                </div>
-
-            </div>
-        {{/showcase}}
+        <div class="form-group article__list__search">
+            <i class="fa fa-search"></i>
+            <input type="text" class="form-control" id="inputArticleWord"
+                   placeholder="Search by keywords and titles">
+        </div>
+        <div class="item-list">
+            {{>itemList itemTemplate='articleItem' collection="articles" subscription="articles"
+            moreWriting="More Articles"  sortBy="createdAt" filter=filter
+            emptyPhrase="Sorry, your search didn't return any picks"}}
+        </div>
     </div>
-</template>
 
 
-<template name="homeSidebar">
-    <section class="home-sidebar">
-        <h4>Upcoming Events:</h4>
-        <ul class="home-sidebar__list">
-            {{#if upcomingEventsReady}}
-                {{#each upcomingEvents}}
-                    <li><a href="/events/{{slug}}">{{name}}</a></li>
-                {{/each}}
+    {{#contentFor "cover"}}
+        <div class="home__showcase">
+            {{#showcase coverClass="home-cover"}}
+                <div class="showcase-content container">
+                    <div class="home__showcase__title">
+                        <h1>SPACER</h1>
 
-            {{else}}
-                <div class="home-sidebar__list__loading">
-                    {{>spinner}}
+                        <h2 class="thin">{{phrase "keyPhrase"}}</h2>
+                    </div>
+                    <div class="home__showcase__explain">
+                        <h2 class="thin">Participate in space <a href="/projects">projects</a></h2>
+
+                        <h2 class="thin">Build your space <a href="/profile">profile</a></h2>
+
+                        <h2 class="thin">Apply to space <a href="/jobs">jobs</a></h2>
+                    </div>
+
                 </div>
-            {{/if}}
-        </ul>
-        <h4>Latest jobs:</h4>
-        <ul class="home-sidebar__list">
-            {{#if jobsAreReady}}
-                {{#each jobs}}
-                    <li><a href="/jobs/{{slug}}">{{title}}/{{companyName}}</a></li>
-                {{/each}}
-            {{else}}
-                <div class="home-sidebar__list__loading">
-                    {{>spinner}}
-                </div>
-            {{/if}}
-        </ul>
-        <h4>Featured projects:</h4>
-        <ul class="home-sidebar__list">
-            {{#if featuredProjectsReady}}
-                {{#each featuredProjects}}
-                    <li><a href="/projects/{{slug}}">{{name}}</a></li>
-                {{/each}}
-            {{else}}
-                <div class="home-sidebar__list__loading">
-                    {{>spinner}}
-                </div>
-            {{/if}}
-        </ul>
-    </section>
+            {{/showcase}}
+        </div>
+    {{/contentFor}}
 
+
+    {{#contentFor "sidebar"}}
+        <section class="home-sidebar">
+            <h4>Upcoming Events:</h4>
+            <ul class="home-sidebar__list">
+                {{#if upcomingEventsReady}}
+                    {{#each upcomingEvents}}
+                        <li><a href="/events/{{slug}}">{{name}}</a></li>
+                    {{/each}}
+
+                {{else}}
+                    <div class="home-sidebar__list__loading">
+                        {{>spinner}}
+                    </div>
+                {{/if}}
+            </ul>
+            <h4>Latest jobs:</h4>
+            <ul class="home-sidebar__list">
+                {{#if jobsAreReady}}
+                    {{#each jobs}}
+                        <li><a href="/jobs/{{slug}}">{{title}}/{{companyName}}</a></li>
+                    {{/each}}
+                {{else}}
+                    <div class="home-sidebar__list__loading">
+                        {{>spinner}}
+                    </div>
+                {{/if}}
+            </ul>
+            <h4>Featured projects:</h4>
+            <ul class="home-sidebar__list">
+                {{#if featuredProjectsReady}}
+                    {{#each featuredProjects}}
+                        <li><a href="/projects/{{slug}}">{{name}}</a></li>
+                    {{/each}}
+                {{else}}
+                    <div class="home-sidebar__list__loading">
+                        {{>spinner}}
+                    </div>
+                {{/if}}
+            </ul>
+        </section>
+
+    {{/contentFor}}
 </template>

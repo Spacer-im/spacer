@@ -2,12 +2,12 @@
     {{>header}}
     {{> yield "cover"}}
     <section class="container">
-        <section class="col-sm-3">
+        <aside class="col-sm-3">
             {{> yield "sidebar"}}
-        </section>
-        <section class="col-sm-9">
-            {{> yield "content"}}
-        </section>
+        </aside>
+        <article class="col-sm-9">
+            {{> yield}}
+        </article>
     </section>
     {{#if isAdmin}}
         <section class="container">

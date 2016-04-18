@@ -1,23 +1,25 @@
-<template name="articleCover">
-    {{#showcase coverClass="article__cover"}}
-        <div class="showcase-content container">
-            <h2 class="title category">Spacer Picks</h2>
-            {{> showcaseSpacerTitle}}
-        </div>
-    {{/showcase}}
-</template>
-
-<template name="articleContent">
+<template name="articlePage">
     <article class="article__content">
         <h1>{{title}}</h1>
 
         <img class="img-responsive article__content__image" src="{{imageURL}}"/>
         {{#markdown}}{{text}}{{/markdown}}
         {{> tagsList}}
-        {{#if isAdmin}}
-            <section class="admin-section">
-                <a class="btn btn-default" href="/article-update/{{slug}}">Edit</a>
-            </section>
-        {{/if}}
     </article>
+
+
+    {{#contentFor "cover"}}
+        {{#showcase coverClass="article__cover"}}
+            <div class="showcase-content container">
+                <h2 class="title category">Spacer Picks</h2>
+                {{> showcaseSpacerTitle}}
+            </div>
+        {{/showcase}}
+    {{/contentFor}}
+
+    {{#contentFor "adminPanel"}}
+        <section class="admin-section">
+            <a class="btn btn-default" href="/article-update/{{slug}}">Edit</a>
+        </section>
+    {{/contentFor}}
 </template>

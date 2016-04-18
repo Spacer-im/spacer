@@ -1,4 +1,4 @@
-Template.userProfileContent.helpers({
+Template.profilePage.helpers({
     isOwner: function() {
         return Meteor.userId() === this._id;
     },
@@ -10,7 +10,7 @@ Template.userProfileContent.helpers({
     }
 });
 
-Template.userProfileContent.events({
+Template.profilePage.events({
     "click #btnEdit": function (event) {
         event.preventDefault();
         Router.go(`/profile-edit`);

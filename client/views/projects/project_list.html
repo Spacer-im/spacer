@@ -1,13 +1,3 @@
-<template name="projectsCover">
-    {{#showcase coverClass="project-cover"}}
-        <div class="showcase-content container">
-            <h2 class="title category">Projects</h2>
-            {{> showcaseSpacerTitle}}
-        </div>
-    {{/showcase}}
-</template>
-
-
 <template name="projectsSidebar">
     <div class="form-group">
         <label for="iProjectWord">Search</label>
@@ -16,10 +6,23 @@
 </template>
 
 
-<template name="projectsContent">
+<template name="projectList">
     <div class="project-list">
         {{>itemList itemTemplate='projectItem' collection="projects"
         subscription="projects" moreWriting="More Projects" filter=filter sortBy="createdAt"
         emptyPhrase="Sorry, your search didn't return any projects"}}
     </div>
+
+    {{#contentFor "cover"}}
+        {{#showcase coverClass="project-cover"}}
+            <div class="showcase-content container">
+                <h2 class="title category">Projects</h2>
+                {{> showcaseSpacerTitle}}
+            </div>
+        {{/showcase}}
+    {{/contentFor}}
+
+    {{#contentFor "sidebar"}}
+        {{> projectsSidebar}}
+    {{/contentFor}}
 </template>

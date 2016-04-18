@@ -2,7 +2,7 @@ Template.projectsSidebar.onCreated(function () {
     Session.set("project-word", "");
 });
 
-Template.projectsContent.helpers({
+Template.projectList.helpers({
     filter: function () {
         const dict = {};
         if (Session.get("project-word")) {

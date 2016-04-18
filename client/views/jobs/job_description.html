@@ -1,22 +1,11 @@
 <template name="jobInfoCover">
-    {{#showcase coverClass="job-cover"}}
-        <div class="showcase-content container">
-            <h2 class="title category">Careers</h2>
-            {{> showcaseSpacerTitle}}
-        </div>
-    {{/showcase}}
+
 </template>
 
-<template name="jobDescription">
+<template name="jobPage">
     <div class="job-block">
-        <!--<a href="/companies/{{companySlug}}">-->
-            <!--<div class="thumb-container bordered float-left company-logo">-->
-                <!--<div class="thumb">-->
-                    <!--<img class="img-responsive" src="{{companyLogoURL}}">-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</a>-->
         <h1 class="job-title">{{title}}</h1>
+
         <div class="clearfix"></div>
 
 
@@ -25,36 +14,45 @@
         </div>
 
     </div>
-</template>
 
-<template name="jobSidebar">
-    <div class="job-block">
-        <h3>Additional Info</h3>
-        <section>
-            <b class="fixed-inline">Location: </b><span class="location">{{location}}</span>
-        </section>
-        <section>
-            <b class="fixed-inline">Company: </b><a href="/companies/{{companySlug}}">{{companyName}}</a>
-        </section>
-        <section>
-            <b class="fixed-inline">Job Type: </b><span class="job-type">{{jobType}}</span>
-        </section>
-        <div class="keyword-block">
-            <br>
-            {{#each keywords}}
-                <div class="keyword">{{this}}</div>
-            {{/each}}
+
+    {{#contentFor "cover"}}
+        {{#showcase coverClass="job-cover"}}
+            <div class="showcase-content container">
+                <h2 class="title category">Careers</h2>
+                {{> showcaseSpacerTitle}}
+            </div>
+        {{/showcase}}
+    {{/contentFor}}
+
+    {{#contentFor "sidebar"}}
+        <div class="job-block">
+            <h3>Additional Info</h3>
+            <section>
+                <b class="fixed-inline">Location: </b><span class="location">{{location}}</span>
+            </section>
+            <section>
+                <b class="fixed-inline">Company: </b><a href="/companies/{{companySlug}}">{{companyName}}</a>
+            </section>
+            <section>
+                <b class="fixed-inline">Job Type: </b><span class="job-type">{{jobType}}</span>
+            </section>
+            <div class="keyword-block">
+                <br>
+                {{#each keywords}}
+                    <div class="keyword">{{this}}</div>
+                {{/each}}
+            </div>
+            <div class="apply-block">
+                <a class="btn btn-default btn-apply" target="_blank" href="{{applyLink}}">Apply</a>
+            </div>
+
         </div>
-        <div class="apply-block">
-            <a class="btn btn-default btn-apply" target="_blank" href="{{applyLink}}">Apply</a>
-        </div>
+    {{/contentFor}}
 
-    </div>
-</template>
-
-
-<template name="jobAdmin">
-    <section class="admin-section">
-        <a class="btn btn-default" href="/job-update/{{slug}}">Edit</a>
-    </section>
+    {{#contentFor "adminPanel"}}
+        <section class="admin-section">
+            <a class="btn btn-default" href="/job-update/{{slug}}">Edit</a>
+        </section>
+    {{/contentFor}}
 </template>

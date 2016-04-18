@@ -1,14 +1,27 @@
-<template name="jobsCover">
-    {{#showcase coverClass="job-cover"}}
-        <div class="showcase-content container">
-            <h2 class="title category">Careers</h2>
-            {{> showcaseSpacerTitle}}
-        </div>
-    {{/showcase}}
+<template name="jobList">
+    <div class="job__list item-list">
+        {{>itemList itemTemplate='jobItem' collection="jobs"
+        subscription="jobs" moreWriting="More jobs" filter=filter sortBy="createdAt"
+        emptyPhrase="Sorry, your search didn't return any jobs"}}
+    </div>
+
+    {{#contentFor "cover"}}
+        {{#showcase coverClass="job-cover"}}
+            <div class="showcase-content container">
+                <h2 class="title category">Careers</h2>
+                {{> showcaseSpacerTitle}}
+            </div>
+        {{/showcase}}
+    {{/contentFor}}
+
+    {{#contentFor "sidebar"}}
+        {{> jobListSide}}
+    {{/contentFor}}
+
 </template>
 
 
-<template name="jobsSidebar">
+<template name="jobListSide">
     <div>
         {{#autoForm collection="Jobs" id="jobsFilter"}}
             <div class="form-group">
@@ -18,14 +31,5 @@
             {{> afQuickField name="location" options=countryOptions}}
             {{> afQuickField name="jobType" defaultValue=emptyList}}
         {{/autoForm}}
-    </div>
-</template>
-
-
-<template name="jobsContent">
-    <div class="job__list item-list">
-        {{>itemList itemTemplate='jobItem' collection="jobs"
-        subscription="jobs" moreWriting="More jobs" filter=filter sortBy="createdAt"
-        emptyPhrase="Sorry, your search didn't return any jobs"}}
     </div>
 </template>

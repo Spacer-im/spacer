@@ -1,25 +1,39 @@
-<template name="spEventInfoCover">
-    {{#showcase coverClass="event-cover"}}
-        <div class="showcase-content container">
-            <h2 class="title category">{{name}}</h2>
-            {{> showcaseSpacerTitle}}
-        </div>
-    {{/showcase}}
-</template>
+<template name="spEventPage">
 
-<template name="spEventInfoBottom">
-    <div class="clearfix"></div>
-</template>
+    {{#contentFor "cover"}}
+        {{#showcase coverClass="event-cover"}}
+            <div class="showcase-content container">
+                <h2 class="title category">{{name}}</h2>
+                {{> showcaseSpacerTitle}}
+            </div>
+        {{/showcase}}
+    {{/contentFor}}
 
-<template name="spEventInfoContent">
+    {{#contentFor "bottom"}}
+        <div class="clearfix"></div>
+    {{/contentFor}}
+
+
     <section class="project-info">
         <article>
             {{#markdown}}{{text}}{{/markdown}}
         </article>
     </section>
+
+
+    {{#contentFor "sidebar"}}
+        {{> spEventSidebar}}
+    {{/contentFor}}
+
+    {{#contentFor "adminPanel"}}
+        <section class="admin-section">
+            <a class="btn btn-default" href="/event-update/{{slug}}">Edit</a>
+            <a class="btn btn-default" href="/events/{{slug}}/report">Report</a>
+        </section>
+    {{/contentFor}}
 </template>
 
-<template name="spEventInfoSidebar">
+<template name="spEventSidebar">
     <div class="h1-margin">
         <article>
             {{#markdown}}{{additionalText}}{{/markdown}}
@@ -29,7 +43,8 @@
         {{#if currentUser}}
             {{#if alreadyRegistered}}
                 <div>
-                    Thank you for registering as <i>{{registeredRole}}</i>. We'll get back to you soon and notify you if
+                    Thank you for registering as <i>{{registeredRole}}</i>. We'll get back to you soon and notify
+                    you if
                     you get selected.
                 </div>
             {{else}}
@@ -50,12 +65,4 @@
             <a href="/login">Sign in/Sign up</a> if you want to register for the event
         {{/if}}
     </div>
-
-</template>
-
-<template name="spEventInfoAdmin">
-    <section class="admin-section">
-        <a class="btn btn-default" href="/event-update/{{slug}}">Edit</a>
-        <a class="btn btn-default" href="/events/{{slug}}/report">Report</a>
-    </section>
 </template>

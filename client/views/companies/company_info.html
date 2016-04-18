@@ -1,9 +1,4 @@
-<template name="companyInfoCover">
-    {{#showcase coverClass="company-cover"}}
-    {{/showcase}}
-</template>
-
-<template name="companyInfoContent">
+<template name="companyPage">
     <section class="company-info">
         <div class="thumb-container bordered float-left company-logo margin-right">
             <div class="thumb">
@@ -11,6 +6,7 @@
             </div>
         </div>
         <h1>{{name}}</h1>
+
         <div class="rating">
             {{#if gdRating}}
                 {{>filledStars value=gdRating}}
@@ -23,26 +19,32 @@
         <hr>
         {{>tagsList}}
     </section>
-</template>
 
-<template name="companyInfoSidebar">
-    <h3>Additional Info</h3>
+    {{#contentFor "cover"}}
+        {{#showcase coverClass="company-cover"}}
+        {{/showcase}}
+    {{/contentFor}}
 
-    <section class="data clearfix-after">
-        {{>companyDataCell argName='Website' arg=website isLink=true}}
-        {{>companyDataCell argName='Headquarters' arg=headquarters}}
-        {{>companyDataCell argName='Founded' arg=founded}}
-        {{>companyDataCell argName='Size' arg=size}}
-        {{>companyDataCell argName='Type' arg=companyType}}
-        {{>companyDataCell argName='Industry' arg=industryName}}
-        {{>companyDataCell argName='Revenue' arg=revenue}}
-        {{>companyDataCell argName='Competitors' arg=competitors}}
-    </section>
-</template>
+    {{#contentFor "sidebar"}}
+        <h3>Additional Info</h3>
 
-<template name="companyInfoAdmin">
-    <section class="admin-section">
-        <button class="btn btn-default" id="b-update-company">Update GlassDoor Info</button>
-        <a class="btn btn-default" href="/company-update/{{slug}}">Edit</a>
-    </section>
+        <section class="data clearfix-after">
+            {{>companyDataCell argName='Website' arg=website isLink=true}}
+            {{>companyDataCell argName='Headquarters' arg=headquarters}}
+            {{>companyDataCell argName='Founded' arg=founded}}
+            {{>companyDataCell argName='Size' arg=size}}
+            {{>companyDataCell argName='Type' arg=companyType}}
+            {{>companyDataCell argName='Industry' arg=industryName}}
+            {{>companyDataCell argName='Revenue' arg=revenue}}
+            {{>companyDataCell argName='Competitors' arg=competitors}}
+        </section>
+    {{/contentFor}}
+
+    {{#contentFor "adminPanel"}}
+        <section class="admin-section">
+            <button class="btn btn-default" id="b-update-company">Update GlassDoor Info</button>
+            <a class="btn btn-default" href="/company-update/{{slug}}">Edit</a>
+        </section>
+    {{/contentFor}}
+
 </template>

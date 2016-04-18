@@ -1,8 +1,8 @@
-Template.companiesSidebar.onCreated(function () {
+Template.companyList.onCreated(function () {
     Session.set("company-word", "");
 });
 
-Template.companiesContent.helpers({
+Template.companyList.helpers({
     filter: function () {
         const dict = {};
         if (Session.get("company-word")) {
@@ -16,7 +16,7 @@ Template.companiesContent.helpers({
     }
 });
 
-Template.companiesSidebar.events({
+Template.companyList.events({
     "input #iCompanyWord": _.debounce(function (e) {
         const value = e.target.value;
         if (!Session.equals("company-word", value)) {

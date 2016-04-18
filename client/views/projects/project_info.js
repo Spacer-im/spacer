@@ -1,4 +1,4 @@
-Template.projectInfoContent.onCreated(function () {
+Template.projectPage.onCreated(function () {
     this.commentDisabled = ReactiveVar(false);
     this.editParticipation = ReactiveVar(false);
 });
@@ -11,7 +11,7 @@ function findUserParticipation(userId, data) {
     return "";
 }
 
-Template.projectInfoContent.helpers({
+Template.projectPage.helpers({
     addCommentStatus: () => Template.instance().commentDisabled.get() ? "disabled" : "",
     filter: () => Template.instance().data ? {"docId": Template.instance().data._id} : null,
     showParticipationForm: () => {
@@ -20,7 +20,7 @@ Template.projectInfoContent.helpers({
     userParticipation: () => findUserParticipation(Meteor.userId(), Template.instance().data)
 });
 
-Template.projectInfoContent.events({
+Template.projectPage.events({
     "submit #commentForm": function (e) {
         e.preventDefault();
         const instance = Template.instance();
@@ -41,6 +41,8 @@ Template.projectInfoContent.events({
     "submit #participationForm": function (e) {
         e.preventDefault();
         const instance = Template.instance();
+        const addParticipation = document.getElementById("addParticipation");
+        console.log(addParticipation);
         if (addParticipation.value && instance.data && Meteor.userId()) {
             Meteor.call("upsertProjectParticipation", instance.data._id, addParticipation.value,
                 function (err, res) {

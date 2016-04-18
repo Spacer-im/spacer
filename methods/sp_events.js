@@ -42,7 +42,7 @@ Meteor.methods({
                 }
                 else {
                     const user = Meteor.user();
-                    if (user.emails && user.emails[0] && user.emails[0].verified) {
+                    if (Meteor.isServer && user.emails && user.emails[0] && user.emails[0].verified) {
                         sendEmailAboutEvent(user.emails[0].address, user.profile.firstName || user.username);
                     }
                     return res;

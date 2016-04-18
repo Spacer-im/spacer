@@ -1,14 +1,19 @@
-<template name="customPageContent">
+<template name="customPage">
     <article class="custom-page__content">
         {{#markdown}}{{text}}{{/markdown}}
     </article>
 </template>
 
-<template name="communityInfoCover">
-    {{#showcase coverClass="grey-cover"}}
-        <div class="showcase-content container">
-            <h2 class="title category">Community</h2>
-            {{> showcaseSpacerTitle}}
-        </div>
-    {{/showcase}}
+<template name="communityPage">
+    <article class="custom-page__content">
+        {{#markdown}}{{text}}{{/markdown}}
+    </article>
+    {{#contentFor "cover"}}
+        {{#showcase coverClass="grey-cover"}}
+            <div class="showcase-content container">
+                <h2 class="title category">Community</h2>
+                {{> showcaseSpacerTitle}}
+            </div>
+        {{/showcase}}
+    {{/contentFor}}
 </template>
