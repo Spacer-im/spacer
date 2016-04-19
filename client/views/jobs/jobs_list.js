@@ -1,5 +1,6 @@
 Template.jobListSide.onCreated(function () {
     Session.set("job-location", "");
+    Session.set("job-area", "");
     Session.set("job-type", []);
     Session.set("job-word", "");
     this.countrySubscription = this.subscribe("countries");
@@ -10,13 +11,15 @@ Template.jobList.helpers({
         const jobTypes = Session.get("job-type");
         const dict = {
             location: Session.get("job-location"),
+            jobArea: Session.get("job-area"),
             jobType: jobTypes && jobTypes.length ? {$all: Session.get("job-type")} : null
         };
         const word = Session.get("job-word");
         if (word) {
             dict["$text"] = {$search: word};
-            return dict;
+
         }
+        return dict;
     }
 });
 
@@ -36,6 +39,16 @@ Template.jobListSide.helpers({
 });
 
 Template.jobListSide.events({
+    "change #jobsFilter select[name='jobArea']": function (event) {
+        const list = event.target;
+        if (list.options[list.selectedIndex]) {
+            const value = list.options[list.selectedIndex].value;
+            if (!Session.equals("job-area", value)) {
+                Session.set("job-area", value);
+            }
+        }
+    },
+    
     "change #jobsFilter select[name='location']": function (event) {
         const list = event.target;
         if (list.options[list.selectedIndex]) {
@@ -45,6 +58,7 @@ Template.jobListSide.events({
             }
         }
     },
+    
     "change #jobsFilter select[name='jobType']": function (event) {
         const $list = $(event.target);
         const value = $list.val() || [];
