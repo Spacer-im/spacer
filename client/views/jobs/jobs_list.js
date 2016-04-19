@@ -6,23 +6,20 @@ Template.jobListSide.onCreated(function () {
 });
 
 Template.jobList.helpers({
-        filter: function () {
-            const jobTypes = Session.get("job-type");
-            const dict = {
-                location: Session.get("job-location"),
-                jobType: jobTypes && jobTypes.length ? {$all: Session.get("job-type")} : null
-            };
-            if (Session.get("job-word")) {
-                const regExpr = {$regex: Session.get("job-word"), $options: '-i'};
-                dict["$or"] = [
-                    {title: regExpr},
-                    {keywords: regExpr}
-                ]
-            }
+    filter: function () {
+        const jobTypes = Session.get("job-type");
+        const dict = {
+            location: Session.get("job-location"),
+            jobType: jobTypes && jobTypes.length ? {$all: Session.get("job-type")} : null
+        };
+        const word = Session.get("job-word");
+        if (word) {
+            dict["$text"] = {$search: word};
             return dict;
         }
     }
-);
+});
+
 Template.jobListSide.helpers({
     countryOptions: function () {
         if (Template.instance().countrySubscription.ready()) {
