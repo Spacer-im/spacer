@@ -15,6 +15,10 @@ Template.spEventSidebar.helpers({
             return reg ? reg.role : "";
         }
         return "";
+    },
+    currentRoute: () => {
+        const slug = Template.instance().data ? Template.instance().data.slug : "";
+        return `events/${slug}`
     }
 });
 //
