@@ -29,6 +29,6 @@ SyncedCron.add({
     }
 });
 
-if (Meteor.settings.cron && Meteor.settings.cron.enable) {
-    SyncedCron.start();
-}
+//if (Meteor.settings.cron && Meteor.settings.cron.enable) {
+    //SyncedCron.start();
+//}
