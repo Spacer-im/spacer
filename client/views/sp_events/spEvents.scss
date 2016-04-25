@@ -1,0 +1,14 @@
+@import "../lib/variables";
+
+.spEvent {
+  &__sidebar {
+    &__share {
+      .fa {
+        color: $color-grey-0;
+      }
+      .fa-google-plus {
+        font-size: 18px;
+      }
+    }
+  }
+}
