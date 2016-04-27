@@ -1,0 +1,20 @@
+{
+  "servers": [
+    {
+      "host": "54.152.13.254",
+      "username": "ubuntu",
+      "pem": "~/.ssh/aws-spacer.pem"
+    }
+  ],
+  "setupMongo": true,
+  "setupNode": true,
+  "nodeVersion": "0.10.40",
+  "setupPhantom": true,
+  "enableUploadProgressBar": true,
+  "appName": "spacer",
+  "app": "./",
+  "env": {
+    "ROOT_URL": "http://spacer.im"
+  },
+  "deployCheckWaitTime": 15
+}
