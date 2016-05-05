@@ -88,5 +88,5 @@ config/mup.json
 
 dumps
 
-config/
+config/*
 mup.json
