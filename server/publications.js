@@ -119,7 +119,7 @@ Meteor.smartPublish("spEventRegistrations", function (slug) {
     if (userId && Roles.userIsInRole(userId, ['admin'])) {
         this.addDependency("spEvents", "_id", doc => SpEventRegistrations.find({eventId: doc._id}));
         this.addDependency("spEventRegistrations", "userId",
-                doc => Meteor.users.find({_id: doc.userId}, {fields: {username: 1}}));
+                doc => Meteor.users.find({_id: doc.userId}));
         return SpEvents.find({slug: slug});
     }
     else {
