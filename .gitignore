@@ -90,3 +90,6 @@ dumps
 
 config/*
 mup.json
+
+*.tar.gz
+*tgz
