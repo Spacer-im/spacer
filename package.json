@@ -1,0 +1,35 @@
+{
+  "name": "spacer",
+  "version": "0.1.0",
+  "description": "Spacer.im website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "meteor --settings=./config/settings_local.json",
+    "mupx-deploy-dev": "mupx --config=./config/mup_dev.json --settings=./config/settings_dev.json deploy",
+    "glazy": "git cz -a; git push",
+    "server-build": "meteor build /home/spacer;tar -xzvf /home/spacer/src.tar.gz -C /home/spacer/ ;chown spacer:spacer /home/spacer -R;service spacer restart"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spacer-im/spacer.git"
+  },
+  "keywords": [
+    "spacer",
+    "meteor"
+  ],
+  "author": "Valentin Bryukhanov (http://bryukh.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Spacer-im/spacer/issues"
+  },
+  "homepage": "https://github.com/Spacer-im/spacer#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.1.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
