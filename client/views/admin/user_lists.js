@@ -1,3 +1,5 @@
+
+// TODO too WET
 Template.userListPage.events({
     "click #allUsers": function (e) {
         e.preventDefault();
@@ -16,5 +18,16 @@ Template.userListPage.events({
                 saveAs(blob, "digestUserList.csv");
             }
         });
+    },
+    "click .event-not-registered": function (e) {
+        e.preventDefault();
+        const eventId = e.target.dataset.id;
+        Meteor.call('notInSpEventList', eventId, function(err, fileContent) {
+            if(fileContent){
+                var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, "notInEventList.csv");
+            }
+        });
     }
+
 });

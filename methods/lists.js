@@ -15,6 +15,8 @@ function getCSV(data) {
     }));
 }
 
+// TODO: Too WET, make DRY
+// Sorry, I was in hurry
 Meteor.methods({
     allUserList: function() {
         checkIsAdmin();
@@ -24,6 +26,18 @@ Meteor.methods({
     subscribedList: function() {
         checkIsAdmin();
         const data = Meteor.users.find({"profile.subscribeDigest": true}, {fields: {username: 1, emails: 1, profile: 1}});
+        return getCSV(data);
+    },
+    spEventList: function(spEventId) {
+        checkIsAdmin();
+        const userIds = SpEventRegistrations.find({eventId: spEventId}, {fields: {userId: 1}}).map((doc) => doc.userId);
+        const data = Meteor.users.find({_id: {$in: userIds}}, {fields: {username: 1, emails: 1, profile: 1}});
+        return getCSV(data);
+    },
+    notInSpEventList: function(spEventId) {
+        checkIsAdmin();
+        const userIds = SpEventRegistrations.find({eventId: spEventId}, {fields: {userId: 1}}).map((doc) => doc.userId);
+        const data = Meteor.users.find({_id: {$nin: userIds}}, {fields: {username: 1, emails: 1, profile: 1}});
         return getCSV(data);
     }
 });
