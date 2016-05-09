@@ -11,6 +11,6 @@ Template.spEventPageReport.helpers({
     getEmail: (userId) => {
         const user = Meteor.users.findOne(userId);
         const emails = user ? user.emails : [];
-        return emails.length ? emails[0].address: "";
+        return emails && emails.length && emails[0].address || "";
     }
 });
