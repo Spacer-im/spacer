@@ -9,5 +9,17 @@
             <br>
 
         </div>
+        <h1>Events' lists</h1>
+        <div>
+            {{#each this}}
+                <h4>{{name}}</h4>
+                <a href="#" class="event-registered" data-id="{{_id}}">In event Users</a>
+                <br>
+
+                <a href="#" class="event-not-registered" data-id="{{_id}}">Not in event Users</a>
+                <br>
+
+            {{/each}}
+        </div>
     {{/onlyIfAdmin}}
 </template>
