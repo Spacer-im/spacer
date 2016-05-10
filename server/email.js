@@ -13,7 +13,7 @@ Meteor.startup(function () {
             ' Please click on the following link to verify your email address:\r\n' +
             url +
             "\r\n" +
-            "Here at Spacer[http://spacer.im/] you'll always stay updated with the latest news about space exploration, " +
+            "Here at Spacer[https://www.spacer.im/] you'll always stay updated with the latest news about space exploration, " +
             "you'll see the most interesting career opportunities and get a chance to develop a solid space resume " +
             "by showing your practical skills. Oh, and by the way, you might find likely minded Spacers to connect " +
             "with and possibly to cooperate on real space projects.\r\n\r\n" +
