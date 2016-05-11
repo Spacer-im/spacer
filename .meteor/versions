@@ -124,6 +124,7 @@ mrt:smart-publish@0.2.1
 npm-bcrypt@0.8.5
 npm-mongo@1.4.43
 observe-sequence@1.0.11
+okgrow:analytics@1.0.5
 okgrow:router-autoscroll@0.1.8
 ordered-dict@1.0.7
 perak:markdown@1.0.5
