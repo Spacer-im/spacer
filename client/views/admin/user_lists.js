@@ -28,6 +28,16 @@ Template.userListPage.events({
                 saveAs(blob, "notInEventList.csv");
             }
         });
+    },
+    "click .event-registered": function (e) {
+        e.preventDefault();
+        const eventId = e.target.dataset.id;
+        Meteor.call('spEventList', eventId, function(err, fileContent) {
+            if(fileContent){
+                var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, "inEventList.csv");
+            }
+        });
     }
 
 });
