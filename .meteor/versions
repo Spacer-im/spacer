@@ -52,7 +52,7 @@ cfs:worker@0.1.4
 check@1.2.1
 chuangbo:marked@0.3.5_1
 coffeescript@1.0.17
-comerc:autoform-typeahead@1.0.5
+comerc:autoform-typeahead@1.0.6
 comerc:bs-typeahead@1.0.2
 dburles:collection-helpers@1.0.4
 dburles:mongo-collection-instances@0.3.5
@@ -87,7 +87,7 @@ iron:dynamic-template@1.0.12
 iron:layout@1.0.12
 iron:location@1.0.11
 iron:middleware-stack@1.1.0
-iron:router@1.0.12
+iron:router@1.0.13
 iron:url@1.0.11
 jquery@1.11.8
 lai:collection-extensions@0.2.1_1
@@ -121,10 +121,10 @@ mpowaga:jquery-fileupload@9.11.2
 mpowaga:jquery-ui-widget@1.11.4
 mrt:flash-messages@1.0.1
 mrt:smart-publish@0.2.1
-npm-bcrypt@0.8.5
+npm-bcrypt@0.8.6_1
 npm-mongo@1.4.43
 observe-sequence@1.0.11
-okgrow:analytics@1.0.5
+okgrow:analytics@1.0.6
 okgrow:router-autoscroll@0.1.8
 ordered-dict@1.0.7
 perak:markdown@1.0.5
