@@ -85,6 +85,7 @@ Meteor.publish("featuredCompanies", function () {
 Meteor.smartPublish("projects", function (limit, filter) {
     filter = clearFilter(filter);
     this.addDependency("projects", "imageId", doc => Images.find(doc.imageId));
+    this.addDependency("projects", "listImageId", doc => doc.listImageId ? Images.find(doc.listImageId) : []);
     return Projects.find(filter, generateOptions(limit, ["description"], "createdAt", true));
 });
 
