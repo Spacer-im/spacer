@@ -6,12 +6,23 @@ function checkIsAdmin () {
 
 function getCSV(data) {
     return exportcsv.exportToCSV(data.map((el) => {
-        return {
+        const info = {
             username: el.username,
-            email: el.emails && el.emails.length ? el.emails[0].address : "",
-            firstName: el.profile && el.profile.firstName || "",
-            lastName: el.profile && el.profile.lastName || ""
+            // triple ; is a hack for google docs (replace then)
+            link: `=HYPERLINK("https://spacer.im/profile/${el.username}";"${el.username}")`,
+            email: el.emails && el.emails.length ? el.emails[0].address : ""
+        };
+        if (el.profile) {
+            const profile = el.profile;
+            info.firstName = profile.firstName || "";
+            info.lastName = profile.lastName || "";
+            info.calling = profile.calling || "";
+            info.location = profile.location || "";
+            info.professions = profile.professions && profile.professions.length ? "professions!" : "";
+            info.education = profile.education && profile.education.length ? "education!" : "";
+            info.experience = profile.experience && profile.experience.length ? "experience!" : "";
         }
+        return info;
     }));
 }
 
