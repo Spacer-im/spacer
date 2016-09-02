@@ -44,6 +44,14 @@ Meteor.smartPublish("article", function (slug) {
     return Articles.find({slug: slug});
 });
 
+Meteor.smartPublish("tempArticle", function () {
+    const userId = this.userId || "";
+    if (userId && Roles.userIsInRole(userId, ['admin'])) {
+        return TempArticles.find({authorId: userId});
+    }
+    return [];
+});
+
 Meteor.publish("tags", function () {
     return Tags.find();
 });
