@@ -13,7 +13,11 @@ Template.insertArticleForm.onRendered(function () {
             Meteor.call("saveTempArticle", $text.value);
         }
 
-    }, 30000);
+    }, 3000);
+});
+
+Template.insertArticleForm.onDestroyed(function () {
+    clearInterval(this.autosaveInterval);
 });
 
 Template.insertArticleForm.events({
