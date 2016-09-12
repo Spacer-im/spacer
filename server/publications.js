@@ -144,7 +144,12 @@ Meteor.smartPublish("profile", function (username) {
     this.addDependency("participations", "projectId",
             doc => Projects.find(doc.projectId, {fields: {name: 1, slug: 1, imageId: 1}}));
     this.addDependency("projects", "imageId", doc => Images.find(doc.imageId));
-    return Meteor.users.find({username: username}, {fields: {"_id": 1, "username": 1, profile: 1}});
+    const user = Meteor.users.findOne({username: username});
+    if (user.profile && user.profile.isPrivate && this.userId !== user.id) {
+        return [];
+    } else {
+        return Meteor.users.find({username: username}, {fields: {"_id": 1, "username": 1, profile: 1}});
+    }
 });
 
 Meteor.publish('countries', function () {
