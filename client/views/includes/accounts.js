@@ -44,15 +44,22 @@ Template._loginButtonsLoggedInDropdown.helpers({
 });
 
 Template._loginButtonsFormField.onRendered(function () {
-    const checkbox = document.getElementById('login-subscribeDigest');
-    if (checkbox) {
-        checkbox.checked = true;
+    const checkboxDigest = document.getElementById('login-subscribeDigest');
+    const checkboxPublic = document.getElementById('login-isPrivate');
+    if (checkboxDigest) {
+        checkboxDigest.checked = true;
     }
+    if (checkboxPublic) {
+        checkboxPublic.checked = true;
+    }
+
 });
 
 accountsUIBootstrap3.setCustomSignupOptions = function() {
-    const checkbox = document.getElementById('login-subscribeDigest');
+    const checkboxDigest = document.getElementById('login-subscribeDigest');
+    const checkboxPublic = document.getElementById('login-isPrivate');
     return {
-        subscribeDigest: checkbox && checkbox.checked
-    }
+        subscribeDigest: checkboxDigest && checkboxDigest.checked,
+        isPrivate: checkboxPublic && !checkboxPublic.checked
+    };
 };

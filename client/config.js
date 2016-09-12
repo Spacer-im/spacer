@@ -9,6 +9,13 @@ Accounts.ui.config({
             inputType: 'checkbox',
             visible: true,
             saveToProfile: true
+        },
+        {
+            fieldName: 'isPrivate',
+            fieldLabel: 'Make my profile visible and allow space companies contact me with interesting job offers',
+            inputType: 'checkbox',
+            visible: true,
+            saveToProfile: true
         }
     ]
 });
