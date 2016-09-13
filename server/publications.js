@@ -146,8 +146,10 @@ Meteor.smartPublish("profile", function (username) {
     this.addDependency("projects", "imageId", doc => Images.find(doc.imageId));
     const user = Meteor.users.findOne({username: username});
     if (user.profile && user.profile.isPrivate && this.userId !== user.id) {
-        return [];
-    } else {
+        return Meteor.users.find({username: username},
+            {fields: {"_id": 1, "username": 1, "profile.firstName": 1, "profile.lastName": 1}});
+    }
+    else {
         return Meteor.users.find({username: username}, {fields: {"_id": 1, "username": 1, profile: 1}});
     }
 });
