@@ -112,7 +112,7 @@ Meteor.publish("featuredProjects", function (limit) {
 
 Meteor.smartPublish("spEvents", function (limit, filter) {
     filter = clearFilter(filter);
-    filter['$or'] = [{closed: {'$exists': false}}, {closed: false}];
+    //filter['$or'] = [{closed: {'$exists': false}}, {closed: false}];
     return SpEvents.find(filter, generateOptions(limit, ["text", "additionalText"]));
 });
 
