@@ -16,6 +16,9 @@ Template._loginButtonsLoggedInDropdown.events({
     'click #login-buttons-profile': function (event) {
         Router.go('/profile');
     },
+    'click #login-buttons-settings': function (event) {
+        Router.go('/settings');
+    },
     'click #login-buttons-admin': function (event) {
         Router.go('/admin');
     },
