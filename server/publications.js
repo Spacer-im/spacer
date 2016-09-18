@@ -140,16 +140,16 @@ Meteor.smartPublish("spEventRegistrations", function (slug) {
 
 Meteor.smartPublish("profile", function (username) {
     this.addDependency("users", "profile.photoId", doc => Avatars.find(doc.profile.photoId));
-    this.addDependency("users", "_id", doc => Participations.find({authorId: doc._id}));
-    this.addDependency("participations", "projectId",
-            doc => Projects.find(doc.projectId, {fields: {name: 1, slug: 1, imageId: 1}}));
-    this.addDependency("projects", "imageId", doc => Images.find(doc.imageId));
     const user = Meteor.users.findOne({username: username});
     if (user.profile && user.profile.isPrivate && this.userId !== user.id) {
         return Meteor.users.find({username: username},
             {fields: {"_id": 1, "username": 1, "profile.firstName": 1, "profile.lastName": 1}});
     }
     else {
+        this.addDependency("users", "_id", doc => Participations.find({authorId: doc._id}));
+        this.addDependency("projects", "imageId", doc => Images.find(doc.imageId));
+        this.addDependency("participations", "projectId",
+                doc => Projects.find(doc.projectId, {fields: {name: 1, slug: 1, imageId: 1}}));
         return Meteor.users.find({username: username}, {fields: {"_id": 1, "username": 1, profile: 1}});
     }
 });

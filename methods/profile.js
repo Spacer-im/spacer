@@ -5,6 +5,12 @@ function checkIsUser() {
 }
 
 Meteor.methods({
+    setPrivacy: function(isPrivate) {
+        if (!Meteor.userId()) {
+            throw new Meteor.Error("not-authorized");
+        }
+        Meteor.users.update(Meteor.userId(), {$set: {"profile.isPrivate": isPrivate}});
+    },
     saveProfile: function (doc) {
         check(doc, Schemas.UserProfile);
         if (!Meteor.userId()) {
