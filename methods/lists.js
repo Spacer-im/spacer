@@ -21,6 +21,7 @@ function getCSV(data) {
             info.professions = profile.professions && profile.professions.length ? "professions!" : "";
             info.education = profile.education && profile.education.length ? "education!" : "";
             info.experience = profile.experience && profile.experience.length ? "experience!" : "";
+            info.created = el.createdAt;
         }
         return info;
     }));
@@ -31,7 +32,7 @@ function getCSV(data) {
 Meteor.methods({
     allUserList: function() {
         checkIsAdmin();
-        const data = Meteor.users.find({}, {fields: {username: 1, emails: 1, profile: 1}});
+        const data = Meteor.users.find({}, {fields: {username: 1, emails: 1, profile: 1, createdAt: 1}, sort: {createdAt: 1}});
         return getCSV(data);
     },
     subscribedList: function() {
