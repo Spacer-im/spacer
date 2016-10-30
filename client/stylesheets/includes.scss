@@ -9,7 +9,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 100px;
   @media screen and (max-width: $break-xs) {
-    margin-bottom: 210px;
+    margin-bottom: 310px;
   }
 
 
@@ -68,7 +68,7 @@ body {
   }
 
   @media screen and (max-width: $break-xs) {
-    height: 200px;
+    height: 300px;
     ul {
       margin-left: 20px;
     }
@@ -93,6 +93,10 @@ body {
   margin: 10px;
   position: relative;
   height: 100px;
+}
+
+ul.notifications {
+  position: fixed;
 }
 
 // Login screen
