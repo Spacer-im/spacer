@@ -1,0 +1,5 @@
+Sitemap: https://www.spacer.im/sitemap.xml
+User-agent: *
+Disallow: /tag/
+Disallow: /2015/
+Disallow: /2016/
